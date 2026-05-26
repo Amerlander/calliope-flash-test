@@ -1,0 +1,192 @@
+[14:32:46.612] [page:debug] [vite] connecting...
+[14:32:46.666] [page:debug] [vite] connected.
+[14:32:46.808] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[14:32:46.864] [page:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[14:32:47.340] loaded http://127.0.0.1:5179/
+[14:32:47.340] 
+[14:32:47.340] ========================================================
+[14:32:47.340]  USER ACTION needed in the Chrome window:
+[14:32:47.340]   1) click the "connect BLE (mini picker)" button
+[14:32:47.340]   2) pick Calliope mini [zuvav] in the chooser
+[14:32:47.341] ========================================================
+[14:32:47.341] 
+[14:32:47.348]   state: disconnected|undefined|
+[14:32:49.403]   state: connecting|undefined|
+[14:32:50.147] [page:log] [info] USB reconnect daemon armed
+[14:32:51.159] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[14:32:51.159] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[14:32:54.916] [page:log] Bluetooth connection status NoAuthorizedDevice
+[14:32:54.916] [page:log] [info] Disconnected (BLE)
+[14:32:54.968] [page:log] Bluetooth connection status NoAuthorizedDevice
+[14:32:54.968] [page:log] [info] Disconnected (BLE)
+[14:32:55.469]   state: disconnected|undefined|
+[14:32:56.476]   state: connecting|undefined|
+[14:33:15.627] [page:log] JSHandle@object
+[14:33:15.627] [page:log] Bluetooth connection status Connecting
+[14:33:16.973] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:33:16.973] [page:log] JSHandle@object
+[14:33:16.973] [page:log] Bluetooth connection status Connected
+[14:33:16.973] [page:log] [info] Connected (BLE)
+[14:33:17.227] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[14:33:17.717]   state: connected|undefined|
+[14:33:17.727] connected: status=connected transport=undefined
+[14:33:19.735] mode=all (3 phases)
+[14:33:19.735] --- phase-partial-A-mod: prog-A-mod.hex via ble ---
+[14:33:19.738]   pre-flash state: connected|undefined|
+[14:33:22.853] [page:log] [boot] cached prog-A-mod.hex (1195.2 KB)
+[14:33:22.854] [page:log] 
+=== flash start: phase-partial-A-mod (prog-A-mod.hex) transport=ble ===
+[14:33:22.991] [page:log] [info] Flashing via BLE "phase-partial-A-mod" (1195 KB)
+[14:33:22.991] [page:log] [info] pf-ble: phase=running
+[14:33:22.991] [page:log] [info] Flash: 5%
+[14:33:23.225] [page:log] [info] pf-ble: parsed hex: bin=24576 bytes, base=0x6d000
+[14:33:23.345] [page:log] [info] pf-ble: status: version=1 mode=0
+[14:33:23.407] [page:log] [info] BLE reconnect daemon armed
+[14:33:23.408] [page:log] [error] BLE flash failed: Bluetooth-Verbindung fehlgeschlagen — wir versuchen es weiter.
+[14:33:23.408] [page:log] [info] BLE partial flash failed (transient BLE error: Cannot read properties of undefined (reading 'toString')) — trying full BLE-DFU flash.
+[14:33:23.410] [page:log] [info] Flashing via BLE-DFU "phase-partial-A-mod" (1195 KB)
+[14:33:23.534] [page:log] [info] dfu-ble: +0.12s app bin extracted: 352260 bytes
+[14:33:23.535] [page:info] %c[dfu-ble]%c +0.12s app bin extracted: 352260 bytes color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.535] [page:log] [info] dfu-ble: +0.12s phase=entering-bootloader
+[14:33:23.535] [page:info] %c[dfu-ble]%c +0.12s phase=entering-bootloader color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.549] [page:log] [info] dfu-ble: +0.14s using buttonless characteristic 8ec90003-f315-4f60-9fb8-838830daea50
+[14:33:23.550] [page:info] %c[dfu-ble]%c +0.14s using buttonless characteristic 8ec90003-f315-4f60-9fb8-838830daea50 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.573] [page:log] [info] dfu-ble: +0.16s buttonless notifications enabled
+[14:33:23.574] [page:info] %c[dfu-ble]%c +0.16s buttonless notifications enabled color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.574] [page:log] [info] dfu-ble: +0.16s writing 0x01 to buttonless characteristic (enter-bootloader)
+[14:33:23.574] [page:info] %c[dfu-ble]%c +0.16s writing 0x01 to buttonless characteristic (enter-bootloader) color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.603] [page:log] [info] dfu-ble: +0.19s enter-bootloader command written
+[14:33:23.603] [page:info] %c[dfu-ble]%c +0.19s enter-bootloader command written color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.604] [page:log] [info] dfu-ble: +0.19s buttonless response: 200101
+[14:33:23.604] [page:info] %c[dfu-ble]%c +0.19s buttonless response: 200101 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.666] [page:log] Bluetooth connection status Disconnected
+[14:33:23.666] [page:log] [info] dfu-ble: +0.25s device disconnected — bootloader expected next
+[14:33:23.667] [page:info] %c[dfu-ble]%c +0.25s device disconnected — bootloader expected next color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:23.667] [page:log] [info] dfu-ble: +0.26s phase=awaiting-bootloader
+[14:33:23.667] [page:info] %c[dfu-ble]%c +0.26s phase=awaiting-bootloader color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:24.410] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[14:33:24.411] [page:log] JSHandle@object
+[14:33:24.411] [page:log] Bluetooth connection status Connecting
+[14:33:24.673] [page:log] Bluetooth connection status Disconnected
+[14:33:24.673] [page:error] Bluetooth connect error JSHandle@error
+[14:33:24.673] [page:log] JSHandle@object
+[14:33:24.673] [page:log] Bluetooth disconnect (programmatic)
+[14:33:24.673] [page:log] Bluetooth connection status Disconnected
+[14:33:24.675] [page:log] [info] BLE reconnect attempt failed: GATT Server is disconnected. Cannot retrieve services. (Re)connect first with `device.gatt.connect`.
+[14:33:25.679] [page:log] [info] dfu-ble: +2.27s phase=reconnecting
+[14:33:25.679] [page:info] %c[dfu-ble]%c +2.27s phase=reconnecting color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:26.678] [page:log] [info] BLE reconnect attempt #2 (after 2000ms)
+[14:33:26.678] [page:log] JSHandle@object
+[14:33:26.678] [page:log] Bluetooth connection status Connecting
+[14:33:29.086] [page:log] [info] dfu-ble: +5.67s reconnect attempt 1 failed: post-connect probe failed: timeout: post-connect probe attempt 1
+[14:33:29.086] [page:info] %c[dfu-ble]%c +5.67s reconnect attempt 1 failed: post-connect probe failed: timeout: post-connect probe attempt 1 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:29.086] [page:log] Bluetooth connection status Disconnected
+[14:33:32.170] [page:log] Bluetooth connection status Disconnected
+[14:33:32.171] [page:error] Bluetooth connect error JSHandle@error
+[14:33:32.171] [page:log] JSHandle@object
+[14:33:32.171] [page:log] Bluetooth disconnect (programmatic)
+[14:33:32.171] [page:log] Bluetooth connection status Disconnected
+[14:33:32.171] [page:log] [info] BLE reconnect attempt failed: GATT Server is disconnected. Cannot retrieve services. (Re)connect first with `device.gatt.connect`.
+[14:33:32.172] [page:log] [info] dfu-ble: +8.76s reconnect attempt 2 failed: post-connect probe failed: GATT Server is disconnected. Cannot retrieve services. (Re)connect first with `device.gatt.connect`.
+[14:33:32.172] [page:info] %c[dfu-ble]%c +8.76s reconnect attempt 2 failed: post-connect probe failed: GATT Server is disconnected. Cannot retrieve services. (Re)connect first with `device.gatt.connect`. color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.209] [page:log] [info] dfu-ble: +10.80s reconnected to bootloader on attempt 3 (stable)
+[14:33:34.209] [page:info] %c[dfu-ble]%c +10.80s reconnected to bootloader on attempt 3 (stable) color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.267] [page:log] [info] dfu-ble: +10.85s bootloader MTU_GET unsupported; starting at 244-byte writes (adaptive ladder will step down on failure)
+[14:33:34.267] [page:info] %c[dfu-ble]%c +10.85s bootloader MTU_GET unsupported; starting at 244-byte writes (adaptive ladder will step down on failure) color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.267] [page:log] [info] dfu-ble: +10.86s phase=sending-init
+[14:33:34.267] [page:info] %c[dfu-ble]%c +10.86s phase=sending-init color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.268] [page:log] [info] dfu-ble: +10.86s init packet: 56 bytes
+[14:33:34.269] [page:info] %c[dfu-ble]%c +10.86s init packet: 56 bytes color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.297] [page:log] [info] dfu-ble: +10.88s PRN set to 0
+[14:33:34.297] [page:info] %c[dfu-ble]%c +10.88s PRN set to 0 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.327] [page:log] [info] dfu-ble: +10.91s select(command): maxSize=512, offset=0, crc=0x0
+[14:33:34.327] [page:info] %c[dfu-ble]%c +10.91s select(command): maxSize=512, offset=0, crc=0x0 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.431] [page:log] [info] dfu-ble: +11.02s phase=flashing
+[14:33:34.431] [page:info] %c[dfu-ble]%c +11.02s phase=flashing color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.461] [page:log] [info] dfu-ble: +11.05s PRN set to 12
+[14:33:34.462] [page:info] %c[dfu-ble]%c +11.05s PRN set to 12 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.581] [page:log] [info] dfu-ble: +11.17s select(data): maxSize=4096, offset=0, crc=0x0
+[14:33:34.582] [page:info] %c[dfu-ble]%c +11.17s select(data): maxSize=4096, offset=0, crc=0x0 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:34.582] [page:log] [info] dfu-ble: +11.17s chunk 1/87 (4096 B) at offset 0 payload=244
+[14:33:34.582] [page:info] %c[dfu-ble]%c +11.17s chunk 1/87 (4096 B) at offset 0 payload=244 color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:36.182] [page:log] [info] BLE reconnect attempt #3 (after 4000ms)
+[14:33:36.182] [page:log] JSHandle@object
+[14:33:36.182] [page:log] Bluetooth connection status Connecting
+[14:33:36.183] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:33:36.183] [page:log] JSHandle@object
+[14:33:36.183] [page:log] Bluetooth connection status Connected
+[14:33:36.183] [page:log] [info] Connected (BLE)
+[14:33:36.184] [page:log] [info] BLE reconnect daemon stopped: connected
+[14:33:36.440] [page:log] [info] BLE state: dfu-bootloader — only Nordic DFU service visible; services=[0000fe59]
+[14:33:40.832] [page:log] [info] dfu-ble: +17.42s !!! GATT disconnected during DFU — bootloader may have aborted (inactivity, link loss, or rejection)
+[14:33:40.832] [page:info] %c[dfu-ble]%c +17.42s !!! GATT disconnected during DFU — bootloader may have aborted (inactivity, link loss, or rejection) color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:40.832] [page:log] [info] dfu-ble: +17.42s chunk 1 disconnected the GATT (payload=244); skipping step-down — link is gone
+[14:33:40.832] [page:info] %c[dfu-ble]%c +17.42s chunk 1 disconnected the GATT (payload=244); skipping step-down — link is gone color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:40.833] [page:log] [info] BLE-DFU flash failed: GATT disconnected mid-DFU
+[14:33:40.833] [page:log] Bluetooth connection status Disconnected
+[14:33:40.834] [page:log] [info] BLE reconnect daemon armed
+[14:33:40.835] [page:log] [info] Disconnected (BLE)
+[14:33:41.841] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[14:33:41.841] [page:log] JSHandle@object
+[14:33:41.841] [page:log] Bluetooth connection status Connecting
+[14:33:42.342] [page:log] [info] Auto-reconnecting BLE after flash (delay 1500ms, status=connecting)
+[14:33:42.343] [page:log] JSHandle@object
+[14:33:42.343] [page:log] Bluetooth connection status Connecting
+[14:33:42.637] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:33:42.637] [page:log] JSHandle@object
+[14:33:42.637] [page:log] Bluetooth connection status Connected
+[14:33:42.638] [page:log] [info] Connected (BLE)
+[14:33:42.640] [page:log] [info] BLE reconnect daemon stopped: connected
+[14:33:42.645] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:33:42.646] [page:log] JSHandle@object
+[14:33:42.646] [page:log] Bluetooth connection status Connected
+[14:33:42.646] [page:log] [info] Connected (BLE)
+[14:33:42.646] [page:log] [info] Auto-reconnect succeeded
+[14:33:42.647] [page:log] [error] GATT disconnected mid-DFU
+[14:33:42.657] [page:log] === flash end: phase-partial-A-mod — fail in 19.8 s ===
+[14:33:42.658] phase-partial-A-mod done in 19851 ms; widget reported 19.8 s ok=false
+[14:33:42.658]   error: GATT disconnected mid-DFU
+[14:33:42.658]   transports: 
+[14:33:42.658]   phases: check,flashing,reboot
+[14:33:42.893] [page:log] [info] BLE state: dfu-bootloader — only Nordic DFU service visible; services=[0000fe59]
+[14:33:42.897] [page:log] [info] BLE state: dfu-bootloader — only Nordic DFU service visible; services=[0000fe59]
+[14:33:52.662] --- phase-partial-A: prog-A.hex via ble ---
+[14:33:52.665]   pre-flash state: connected|undefined|
+[14:33:55.751] [page:log] [boot] cached prog-A.hex (1195.2 KB)
+[14:33:55.753] [page:log] 
+=== flash start: phase-partial-A (prog-A.hex) transport=ble ===
+[14:33:55.869] [page:log] [info] Calliope ist im DFU-Bootloader — direkter BLE-DFU-Flash.
+[14:33:55.870] [page:log] [info] Flashing via BLE-DFU "phase-partial-A" (1195 KB)
+[14:33:55.966] [page:log] [info] dfu-ble: +0.09s app bin extracted: 352260 bytes
+[14:33:55.967] [page:info] %c[dfu-ble]%c +0.09s app bin extracted: 352260 bytes color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:55.967] [page:log] [info] dfu-ble: +0.09s phase=entering-bootloader
+[14:33:55.967] [page:info] %c[dfu-ble]%c +0.09s phase=entering-bootloader color: #06b6d4; font-weight: bold; color: inherit;
+[14:33:55.975] [page:log] [info] BLE-DFU flash failed: Calliope is not exposing the Nordic DFU service
+[14:33:57.479] [page:log] [error] Calliope is not exposing the Nordic DFU service
+[14:33:57.479] [page:log] === flash end: phase-partial-A — fail in 1.7 s ===
+[14:33:57.479] phase-partial-A done in 1765 ms; widget reported 1.7 s ok=false
+[14:33:57.479]   error: Calliope is not exposing the Nordic DFU service
+[14:33:57.479]   transports: 
+[14:33:57.479]   phases: reboot
+[14:34:07.493] --- phase-dfu-blocks: prog-B-blocks.hex via ble ---
+[14:34:07.496]   pre-flash state: connected|undefined|
+[14:34:10.590] [page:log] [boot] cached prog-B-blocks.hex (758.7 KB)
+[14:34:10.591] [page:log] 
+=== flash start: phase-dfu-blocks (prog-B-blocks.hex) transport=ble ===
+[14:34:10.649] [page:log] [info] Calliope ist im DFU-Bootloader — direkter BLE-DFU-Flash.
+[14:34:10.649] [page:log] [info] Flashing via BLE-DFU "phase-dfu-blocks" (759 KB)
+[14:34:10.709] [page:log] [info] dfu-ble: +0.06s app bin extracted: 137084 bytes
+[14:34:10.710] [page:info] %c[dfu-ble]%c +0.06s app bin extracted: 137084 bytes color: #06b6d4; font-weight: bold; color: inherit;
+[14:34:10.710] [page:log] [info] dfu-ble: +0.06s phase=entering-bootloader
+[14:34:10.710] [page:info] %c[dfu-ble]%c +0.06s phase=entering-bootloader color: #06b6d4; font-weight: bold; color: inherit;
+[14:34:10.714] [page:log] [info] BLE-DFU flash failed: Calliope is not exposing the Nordic DFU service
+[14:34:12.225] [page:log] [error] Calliope is not exposing the Nordic DFU service
+[14:34:12.225] [page:log] === flash end: phase-dfu-blocks — fail in 1.6 s ===
+[14:34:12.226] phase-dfu-blocks done in 1658 ms; widget reported 1.6 s ok=false
+[14:34:12.226]   error: Calliope is not exposing the Nordic DFU service
+[14:34:12.226]   transports: 
+[14:34:12.226]   phases: reboot
+[14:34:22.237] === summary ===
+[14:34:22.238]   phase-partial-A-mod  prog-A-mod.hex  ✗  19.8 s  transports=
+[14:34:22.238]   phase-partial-A  prog-A.hex  ✗  1.7 s  transports=
+[14:34:22.238]   phase-dfu-blocks  prog-B-blocks.hex  ✗  1.6 s  transports=

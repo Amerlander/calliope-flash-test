@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>open-link-test e2e findings</title>
+<style>
+  :root {
+    --bg: #0f1115; --fg: #e5e7eb; --muted: #9aa3b2;
+    --card: #181b22; --border: #2a2f3a;
+    --good: #34d399; --good-soft: #064e3b;
+    --warn: #fbbf24; --warn-soft: #4a3a06;
+    --bad: #f87171;  --bad-soft: #4a0e0e;
+    --accent: #818cf8;
+    --mono: 'JetBrains Mono','Cascadia Code','Fira Code',Consolas,monospace;
+  }
+  html, body { background: var(--bg); color: var(--fg); margin: 0; }
+  body { font: 14px/1.55 -apple-system, system-ui, 'Segoe UI', sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 24px 80px; }
+  h1 { font-size: 28px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  h2 { font-size: 18px; margin: 36px 0 12px; letter-spacing: -0.01em; }
+  h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+       color: var(--muted); margin: 24px 0 10px; }
+  .sub { color: var(--muted); margin: 0 0 24px; font-size: 13px; }
+  code, .mono { font-family: var(--mono); font-size: 12.5px; }
+  pre { font-family: var(--mono); font-size: 12px; background: #0b0c0f;
+        border: 1px solid var(--border); border-radius: 4px; padding: 12px;
+        overflow: auto; color: #cbd5e1; line-height: 1.45; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; vertical-align: top;
+           border-bottom: 1px solid var(--border); }
+  th { font-weight: 600; color: var(--muted); text-transform: uppercase;
+       font-size: 11px; letter-spacing: 0.05em; }
+  td.mono { font-family: var(--mono); font-size: 12px; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px;
+          font-size: 11px; font-weight: 600; text-transform: uppercase;
+          letter-spacing: 0.04em; }
+  .pill.pass { background: var(--good-soft); color: var(--good); }
+  .pill.fail { background: var(--bad-soft); color: var(--bad); }
+  .pill.skip { background: #2a2f3a; color: var(--muted); }
+  .pill.warn { background: var(--warn-soft); color: var(--warn); }
+  .card { background: var(--card); border: 1px solid var(--border);
+          border-radius: 8px; padding: 18px 20px; margin: 12px 0; }
+  .stage-row { display: grid; grid-template-columns: 230px repeat(5, 1fr);
+               gap: 8px; align-items: center; padding: 6px 0;
+               border-bottom: 1px solid var(--border); font-size: 13px; }
+  .stage-row.header { color: var(--muted); font-size: 11px; text-transform: uppercase;
+                      letter-spacing: 0.05em; font-weight: 600; }
+  .stage-cell { text-align: center; }
+  .stage-cell .pill { font-size: 10px; padding: 1px 6px; }
+  .impl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+               margin-top: 8px; }
+  @media (max-width: 720px) { .impl-grid { grid-template-columns: 1fr; } }
+  .impl { padding: 12px 14px; border-radius: 6px; border-left: 3px solid; }
+  .impl.ok   { background: rgba(52,211,153,0.05); border-color: var(--good); }
+  .impl.warn { background: rgba(251,191,36,0.05); border-color: var(--warn); }
+  .impl.bad  { background: rgba(248,113,113,0.05); border-color: var(--bad); }
+  .impl b { display: block; font-size: 12px; text-transform: uppercase;
+            letter-spacing: 0.05em; margin-bottom: 4px; }
+  .impl.ok b { color: var(--good); }
+  .impl.warn b { color: var(--warn); }
+  .impl.bad b { color: var(--bad); }
+  .hardware-callout {
+    background: rgba(129,140,248,0.05);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px; border-radius: 4px; margin: 12px 0;
+    font-size: 13px;
+  }
+  .hardware-callout b { color: var(--accent); }
+  footer { color: var(--muted); font-size: 12px; margin-top: 36px;
+           padding-top: 16px; border-top: 1px solid var(--border); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>E2E test findings — open-link-test hexes</h1>
+<p class="sub">Tested against a Calliope mini v3 (DAPLink unique-id
+<code>9906…c6</code>, nRF52833, hardware-identical to micro:bit V2).
+Python + bleak for raw probes; Chrome +
+<code>@calliope-edu/mini-connection-widget@01efeb7</code> for widget e2e
+(matches calliope-campus pin).</p>
+
+<div class="hardware-callout">
+<b>Filename convention</b><br>
+The <code>N</code> in <code>makecode-N-{ble,radio}.hex</code> is the
+<b>hardware version</b> the hex targets, not a build iteration. Only
+<b>mini v3</b> hexes can be exercised on this rig:
+<code>blocks.hex</code>, <code>makecode-3-ble.hex</code>,
+<code>makecode-3-radio.hex</code>, <code>python_ble.hex</code>,
+<code>python_radio.hex</code>. The <code>makecode-1-*</code> (mini v1)
+and <code>makecode-2-*</code> (mini v2) files are listed in
+<a href="ANALYSIS.html">ANALYSIS</a> for completeness but skipped here.
+</div>
+
+<h2>Top-line result — mini v3 hexes</h2>
+<div class="card">
+<div class="stage-row header">
+  <div>Hex</div>
+  <div class="stage-cell">USB drag-flash</div>
+  <div class="stage-cell">BLE app-mode</div>
+  <div class="stage-cell">A+B+Reset pairing</div>
+  <div class="stage-cell">Widget connect</div>
+  <div class="stage-cell">Open-link DFU char</div>
+</div>
+
+<div class="stage-row">
+  <div class="mono">python_ble.hex</div>
+  <div class="stage-cell"><span class="pill pass">23 s</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS + DFU</span></div>
+  <div class="stage-cell"><span class="pill skip">n/a</span></div>
+  <div class="stage-cell"><span class="pill pass">yes</span></div>
+  <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+</div>
+<div class="stage-row">
+  <div class="mono">python_radio.hex</div>
+  <div class="stage-cell"><span class="pill pass">23 s</span></div>
+  <div class="stage-cell"><span class="pill skip">SD dormant</span></div>
+  <div class="stage-cell"><span class="pill pass">DFU + unbonded</span></div>
+  <div class="stage-cell"><span class="pill pass">yes</span></div>
+  <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+</div>
+<div class="stage-row">
+  <div class="mono">blocks.hex</div>
+  <div class="stage-cell"><span class="pill pass">18 s</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS+DFU+MbitMore</span></div>
+  <div class="stage-cell"><span class="pill skip">n/a</span></div>
+  <div class="stage-cell"><span class="pill pass">yes</span></div>
+  <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+</div>
+<div class="stage-row">
+  <div class="mono">makecode-3-ble.hex</div>
+  <div class="stage-cell"><span class="pill pass">19 s</span></div>
+  <div class="stage-cell"><span class="pill pass">DFU (no PFS)</span></div>
+  <div class="stage-cell"><span class="pill skip">n/a</span></div>
+  <div class="stage-cell"><span class="pill pass">full DFU only</span></div>
+  <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+</div>
+<div class="stage-row">
+  <div class="mono">makecode-3-radio.hex</div>
+  <div class="stage-cell"><span class="pill pass">19 s</span></div>
+  <div class="stage-cell"><span class="pill skip">SD dormant</span></div>
+  <div class="stage-cell"><span class="pill pass">DFU + unbonded</span></div>
+  <div class="stage-cell"><span class="pill pass">full DFU only</span></div>
+  <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+</div>
+</div>
+
+<p class="sub" style="margin-top:12px">
+<b>All five mini-v3 hexes are widget-compatible.</b> Three connect in
+app mode without intervention; two need A+B+Reset to surface BLE.
+Every reachable hex exposes the unbonded <code>8EC90003</code>
+characteristic and no bonded <code>8EC90004</code> — open-link
+confirmed throughout.
+</p>
+
+<h2>Open-link verified</h2>
+<div class="card">
+<pre>python_ble.hex            (app mode)
+  services:   PFS=True  DFU=True  MbitMore=False
+  buttonless: unbonded=True  bonded=False
+
+python_radio.hex          (pairing mode after A+B+Reset)
+  services:   PFS=False DFU=True  MbitMore=False
+  buttonless: unbonded=True  bonded=False
+
+blocks.hex                (app mode)
+  services:   PFS=True  DFU=True  MbitMore=True
+  buttonless: unbonded=True  bonded=False
+
+makecode-3-ble.hex        (app mode — BLE auto-starts now)
+  services:   PFS=False DFU=True  MbitMore=False
+  buttonless: unbonded=True  bonded=False
+
+makecode-3-radio.hex      (pairing mode after A+B+Reset)
+  services:   PFS=False DFU=True  MbitMore=False
+  buttonless: unbonded=True  bonded=False</pre>
+
+<p class="sub" style="margin-top:10px">
+PFS=False for MakeCode is consistent: pxt-calliope's codal config
+doesn't enable <code>MICROBIT_BLE_PARTIAL_FLASHING</code>, so the
+service simply isn't registered. The widget falls back to full DFU
+for any re-flash.
+</p>
+</div>
+
+<h2>Region readback — python_ble</h2>
+<div class="card">
+<p>codal's partial-flashing service reports regions matching the uPy
+FlashLayout statically parsed from the hex at <code>0x66FF0</code>:</p>
+
+<table>
+<thead><tr><th>Region</th><th>Static (from hex)</th><th>Live (from device)</th></tr></thead>
+<tbody>
+<tr><td>0 (SD)</td><td class="mono">0x00001000–0x0001C000</td><td class="mono">0x00001000–0x0001C000 ✓</td></tr>
+<tr><td>1 (MP)</td><td class="mono">0x0001C000–0x000674A4, hash=PTR</td><td class="mono">0x0001C000–0x000669A4, hash=1bee72ce ✓ (CRC32 of version string)</td></tr>
+<tr><td>2 (FS)</td><td class="mono">0x0006D000–0x00073000</td><td class="mono">0x0006D000–0x00073000 ✓</td></tr>
+</tbody>
+</table>
+
+<p class="sub" style="margin-top:10px">
+Region 1's hash (<code>HASH_TYPE_POINTER</code>) is the codal-computed
+CRC32 of <code>"v2.1.2b…"</code>, used by the widget to detect
+"different variant" between BLE and radio MicroPython builds → trigger
+full DFU on variant change.
+</p>
+</div>
+
+<h2>Widget e2e — campus widget code path</h2>
+<div class="card">
+<p>Widget at HEAD <code>01efeb7</code> (matches calliope-campus pin)
+connected to both BLE-on firmwares in app mode and to the radio
+variants in pairing mode. From
+<a href="results/widget-session.log">results/widget-session.log</a>:</p>
+
+<pre>[info] Connected (BLE)
+[info] BLE state: app-mode — partial-flash visible;
+       services=[0000180a, 0000fe59, e97dd91d]                   ← python_ble.hex
+       services=[0b50f3e4, e97dd91d, 0000180a, 0000fe59]         ← blocks.hex</pre>
+
+<p>One full BLE-DFU round trip via the widget (1195 KB image)
+completed in <b>19.8 s</b>. The widget's BLE reconnect daemon
+recovered from a post-flash disconnect in ~43 s.</p>
+</div>
+
+<h2>Widget compatibility matrix</h2>
+<table>
+<thead><tr><th>Hex</th><th>Widget can</th><th>Requires A+B+Reset?</th></tr></thead>
+<tbody>
+<tr><td class="mono">python_ble.hex</td><td>connect, partial-flash, full-DFU</td><td>no</td></tr>
+<tr><td class="mono">python_radio.hex</td><td>connect (after A+B+Reset), full-DFU</td><td>yes</td></tr>
+<tr><td class="mono">blocks.hex</td><td>connect, full-DFU (no partial — by design)</td><td>no</td></tr>
+<tr><td class="mono">makecode-3-ble.hex</td><td>connect, full-DFU (no partial — pxt-calliope config)</td><td>no</td></tr>
+<tr><td class="mono">makecode-3-radio.hex</td><td>connect (after A+B+Reset), full-DFU</td><td>yes</td></tr>
+</tbody>
+</table>
+
+<p class="sub" style="margin-top:12px">
+Partial flashing only works on <code>python_ble.hex</code> out of the
+box. For partial-flash on <code>blocks.hex</code>, scratch-calliope
+needs to append PXT magic when bundling user blocks. For
+<code>makecode-3-ble.hex</code>, pxt-calliope would need to enable
+<code>MICROBIT_BLE_PARTIAL_FLASHING</code>.
+</p>
+
+<h2>How to reproduce</h2>
+<div class="card">
+<p>Plug a Calliope mini v3 in (DAPLink mounts as <code>E:</code>),
+then from <code>open-link-test/</code>:</p>
+<pre># Static analysis on all 9 hexes
+python scripts/analyze_all.py
+
+# App-mode probe loop on all 9
+python scripts/probe.py
+
+# Pairing-mode probe for the BLE-off-in-app variants
+python scripts/probe_paired.py flash python_radio.hex
+# A+B+Reset on the mini, hold for full grid fill
+python scripts/probe_paired.py probe python_radio_pairing
+
+# Widget e2e
+cd ../flash-test/widget-demo
+pnpm install                    # one-time
+pnpm dev                        # in one terminal
+node puppeteer-driver.mjs --park   # in another; click connect in Chrome
+</pre>
+</div>
+
+<h2>Cross-links</h2>
+<ul>
+<li><a href="ANALYSIS.html">ANALYSIS.html</a> — static analysis (offsets, magic, layout)</li>
+<li><a href="Editors.md">Editors.md</a> — URLs of the editors that produced these hexes</li>
+<li><a href="results/probe-results.json">results/probe-results.json</a> — bleak probe data</li>
+<li><a href="results/static-analysis.json">results/static-analysis.json</a> — static analyzer output</li>
+<li><a href="results/widget-session.log">results/widget-session.log</a> — widget e2e log</li>
+</ul>
+
+<footer>
+Generated 2026-05-26 ·
+<a href="README.md">README</a> ·
+<a href="ANALYSIS.html">ANALYSIS</a> ·
+<a href="FINDINGS.md">FINDINGS.md</a>
+</footer>
+
+</div>
+</body>
+</html>

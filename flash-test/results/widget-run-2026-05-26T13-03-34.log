@@ -1,0 +1,479 @@
+[13:03:36.244] [page:debug] [vite] connecting...
+[13:03:36.296] [page:debug] [vite] connected.
+[13:03:36.586] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[13:03:36.700] [page:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[13:03:37.133] loaded http://127.0.0.1:5179/
+[13:03:37.134] --park: opening browser, you drive. Ctrl+C when done.
+[13:03:39.883] [page:log] [info] USB reconnect daemon armed
+[13:03:40.885] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[13:03:40.885] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[13:04:00.835] [page:log] JSHandle@object
+[13:04:00.835] [page:log] Bluetooth connection status Connecting
+[13:04:14.763] [page:log] JSHandle@object
+[13:04:14.763] [page:log] Bluetooth connection status Connecting
+[13:04:27.951] [page:log] JSHandle@object
+[13:04:27.952] [page:log] Bluetooth connection status Connecting
+[13:04:36.815] [page:debug] [vite] connecting...
+[13:04:36.847] [page:debug] [vite] connected.
+[13:04:36.942] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[13:04:37.198] [page:log] [info] USB reconnect daemon armed
+[13:04:38.202] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[13:04:38.203] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[13:04:41.803] [page:log] JSHandle@object
+[13:04:41.803] [page:log] Bluetooth connection status Connecting
+[13:04:43.012] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:04:43.013] [page:log] JSHandle@object
+[13:04:43.013] [page:log] Bluetooth connection status Connected
+[13:04:43.013] [page:log] [info] Connected (BLE)
+[13:04:43.267] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[13:07:16.136] [page:log] Bluetooth connection status Disconnected
+[13:07:16.137] [page:log] [info] BLE reconnect daemon armed
+[13:07:16.138] [page:log] [info] Disconnected (BLE)
+[13:07:17.122] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[13:07:17.122] [page:log] JSHandle@object
+[13:07:17.122] [page:log] Bluetooth connection status Connecting
+[13:07:59.654] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:07:59.654] [page:log] JSHandle@object
+[13:07:59.654] [page:log] Bluetooth connection status Connected
+[13:07:59.654] [page:log] [info] Connected (BLE)
+[13:07:59.654] [page:log] [info] BLE reconnect daemon stopped: connected
+[13:07:59.909] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0b50f3e4, e97dd91d, 0000180a, 0000fe59]
+[13:10:24.255] [page:log] JSHandle@object
+[13:10:24.256] [page:log] Bluetooth connection status Connecting
+[13:10:24.259] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:10:24.259] [page:log] JSHandle@object
+[13:10:24.259] [page:log] Bluetooth connection status Connected
+[13:10:24.259] [page:log] [info] Connected (BLE)
+[13:10:24.518] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0b50f3e4, e97dd91d, 0000180a, 0000fe59]
+[13:53:30.868] [page:log] Bluetooth connection status Disconnected
+[13:53:30.869] [page:log] [info] BLE reconnect daemon armed
+[13:53:30.870] [page:log] [info] Disconnected (BLE)
+[13:53:31.872] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[13:53:31.872] [page:log] JSHandle@object
+[13:53:31.872] [page:log] Bluetooth connection status Connecting
+[13:53:39.668] [page:error] Bluetooth connect error JSHandle@error
+[13:53:39.669] [page:log] JSHandle@object
+[13:53:39.669] [page:log] Bluetooth disconnect (programmatic)
+[13:53:39.669] [page:log] Bluetooth connection status Disconnected
+[13:53:39.669] [page:log] [info] Disconnected (BLE)
+[13:53:39.670] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:53:41.674] [page:log] [info] BLE reconnect attempt #2 (after 2000ms)
+[13:53:41.674] [page:log] JSHandle@object
+[13:53:41.674] [page:log] Bluetooth connection status Connecting
+[13:53:49.471] [page:error] Bluetooth connect error JSHandle@error
+[13:53:49.472] [page:log] JSHandle@object
+[13:53:49.472] [page:log] Bluetooth disconnect (programmatic)
+[13:53:49.472] [page:log] Bluetooth connection status Disconnected
+[13:53:49.472] [page:log] [info] Disconnected (BLE)
+[13:53:49.472] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:53:53.473] [page:log] [info] BLE reconnect attempt #3 (after 4000ms)
+[13:53:53.473] [page:log] JSHandle@object
+[13:53:53.473] [page:log] Bluetooth connection status Connecting
+[13:54:01.255] [page:error] Bluetooth connect error JSHandle@error
+[13:54:01.258] [page:log] JSHandle@object
+[13:54:01.258] [page:log] Bluetooth disconnect (programmatic)
+[13:54:01.258] [page:log] Bluetooth connection status Disconnected
+[13:54:01.258] [page:log] [info] Disconnected (BLE)
+[13:54:01.258] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:54:09.265] [page:log] [info] BLE reconnect attempt #4 (after 8000ms)
+[13:54:09.265] [page:log] JSHandle@object
+[13:54:09.266] [page:log] Bluetooth connection status Connecting
+[13:54:17.043] [page:error] Bluetooth connect error JSHandle@error
+[13:54:17.044] [page:log] JSHandle@object
+[13:54:17.044] [page:log] Bluetooth disconnect (programmatic)
+[13:54:17.044] [page:log] Bluetooth connection status Disconnected
+[13:54:17.044] [page:log] [info] Disconnected (BLE)
+[13:54:17.044] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:54:32.046] [page:log] [info] BLE reconnect attempt #5 (after 15000ms)
+[13:54:32.046] [page:log] JSHandle@object
+[13:54:32.047] [page:log] Bluetooth connection status Connecting
+[13:54:39.823] [page:error] Bluetooth connect error JSHandle@error
+[13:54:39.824] [page:log] JSHandle@object
+[13:54:39.824] [page:log] Bluetooth disconnect (programmatic)
+[13:54:39.824] [page:log] Bluetooth connection status Disconnected
+[13:54:39.824] [page:log] [info] Disconnected (BLE)
+[13:54:39.824] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:55:09.834] [page:log] [info] BLE reconnect attempt #6 (after 30000ms)
+[13:55:09.834] [page:log] JSHandle@object
+[13:55:09.834] [page:log] Bluetooth connection status Connecting
+[13:55:17.618] [page:error] Bluetooth connect error JSHandle@error
+[13:55:17.618] [page:log] JSHandle@object
+[13:55:17.618] [page:log] Bluetooth disconnect (programmatic)
+[13:55:17.618] [page:log] Bluetooth connection status Disconnected
+[13:55:17.618] [page:log] [info] Disconnected (BLE)
+[13:55:17.618] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:55:47.630] [page:log] [info] BLE reconnect attempt #7 (after 30000ms)
+[13:55:47.630] [page:log] JSHandle@object
+[13:55:47.630] [page:log] Bluetooth connection status Connecting
+[13:55:55.414] [page:error] Bluetooth connect error JSHandle@error
+[13:55:55.414] [page:log] JSHandle@object
+[13:55:55.414] [page:log] Bluetooth disconnect (programmatic)
+[13:55:55.414] [page:log] Bluetooth connection status Disconnected
+[13:55:55.414] [page:log] [info] Disconnected (BLE)
+[13:55:55.415] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:56:25.423] [page:log] [info] BLE reconnect attempt #8 (after 30000ms)
+[13:56:25.424] [page:log] JSHandle@object
+[13:56:25.424] [page:log] Bluetooth connection status Connecting
+[13:56:33.209] [page:error] Bluetooth connect error JSHandle@error
+[13:56:33.209] [page:log] JSHandle@object
+[13:56:33.209] [page:log] Bluetooth disconnect (programmatic)
+[13:56:33.209] [page:log] Bluetooth connection status Disconnected
+[13:56:33.209] [page:log] [info] Disconnected (BLE)
+[13:56:33.210] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:57:03.215] [page:log] [info] BLE reconnect attempt #9 (after 30000ms)
+[13:57:03.216] [page:log] JSHandle@object
+[13:57:03.216] [page:log] Bluetooth connection status Connecting
+[13:57:10.991] [page:error] Bluetooth connect error JSHandle@error
+[13:57:10.992] [page:log] JSHandle@object
+[13:57:10.992] [page:log] Bluetooth disconnect (programmatic)
+[13:57:10.992] [page:log] Bluetooth connection status Disconnected
+[13:57:10.992] [page:log] [info] Disconnected (BLE)
+[13:57:10.992] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:57:40.997] [page:log] [info] BLE reconnect attempt #10 (after 30000ms)
+[13:57:40.997] [page:log] JSHandle@object
+[13:57:40.997] [page:log] Bluetooth connection status Connecting
+[13:57:48.771] [page:error] Bluetooth connect error JSHandle@error
+[13:57:48.771] [page:log] JSHandle@object
+[13:57:48.771] [page:log] Bluetooth disconnect (programmatic)
+[13:57:48.771] [page:log] Bluetooth connection status Disconnected
+[13:57:48.771] [page:log] [info] Disconnected (BLE)
+[13:57:48.771] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:58:18.774] [page:log] [info] BLE reconnect attempt #11 (after 30000ms)
+[13:58:18.774] [page:log] JSHandle@object
+[13:58:18.774] [page:log] Bluetooth connection status Connecting
+[13:58:26.556] [page:error] Bluetooth connect error JSHandle@error
+[13:58:26.556] [page:log] JSHandle@object
+[13:58:26.556] [page:log] Bluetooth disconnect (programmatic)
+[13:58:26.556] [page:log] Bluetooth connection status Disconnected
+[13:58:26.557] [page:log] [info] Disconnected (BLE)
+[13:58:26.558] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:58:56.561] [page:log] [info] BLE reconnect attempt #12 (after 30000ms)
+[13:58:56.561] [page:log] JSHandle@object
+[13:58:56.561] [page:log] Bluetooth connection status Connecting
+[13:59:04.359] [page:error] Bluetooth connect error JSHandle@error
+[13:59:04.359] [page:log] JSHandle@object
+[13:59:04.359] [page:log] Bluetooth disconnect (programmatic)
+[13:59:04.359] [page:log] Bluetooth connection status Disconnected
+[13:59:04.359] [page:log] [info] Disconnected (BLE)
+[13:59:04.360] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[13:59:34.364] [page:log] [info] BLE reconnect attempt #13 (after 30000ms)
+[13:59:34.364] [page:log] JSHandle@object
+[13:59:34.364] [page:log] Bluetooth connection status Connecting
+[13:59:42.143] [page:error] Bluetooth connect error JSHandle@error
+[13:59:42.143] [page:log] JSHandle@object
+[13:59:42.143] [page:log] Bluetooth disconnect (programmatic)
+[13:59:42.143] [page:log] Bluetooth connection status Disconnected
+[13:59:42.144] [page:log] [info] Disconnected (BLE)
+[13:59:42.144] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:00:12.150] [page:log] [info] BLE reconnect attempt #14 (after 30000ms)
+[14:00:12.151] [page:log] JSHandle@object
+[14:00:12.151] [page:log] Bluetooth connection status Connecting
+[14:00:19.950] [page:error] Bluetooth connect error JSHandle@error
+[14:00:19.951] [page:log] JSHandle@object
+[14:00:19.951] [page:log] Bluetooth disconnect (programmatic)
+[14:00:19.951] [page:log] Bluetooth connection status Disconnected
+[14:00:19.951] [page:log] [info] Disconnected (BLE)
+[14:00:19.951] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:00:49.953] [page:log] [info] BLE reconnect attempt #15 (after 30000ms)
+[14:00:49.953] [page:log] JSHandle@object
+[14:00:49.953] [page:log] Bluetooth connection status Connecting
+[14:00:57.732] [page:error] Bluetooth connect error JSHandle@error
+[14:00:57.732] [page:log] JSHandle@object
+[14:00:57.732] [page:log] Bluetooth disconnect (programmatic)
+[14:00:57.733] [page:log] Bluetooth connection status Disconnected
+[14:00:57.733] [page:log] [info] Disconnected (BLE)
+[14:00:57.734] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:01:27.737] [page:log] [info] BLE reconnect attempt #16 (after 30000ms)
+[14:01:27.738] [page:log] JSHandle@object
+[14:01:27.738] [page:log] Bluetooth connection status Connecting
+[14:01:35.526] [page:error] Bluetooth connect error JSHandle@error
+[14:01:35.527] [page:log] JSHandle@object
+[14:01:35.527] [page:log] Bluetooth disconnect (programmatic)
+[14:01:35.527] [page:log] Bluetooth connection status Disconnected
+[14:01:35.527] [page:log] [info] Disconnected (BLE)
+[14:01:35.528] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:02:05.530] [page:log] [info] BLE reconnect attempt #17 (after 30000ms)
+[14:02:05.530] [page:log] JSHandle@object
+[14:02:05.531] [page:log] Bluetooth connection status Connecting
+[14:02:13.308] [page:error] Bluetooth connect error JSHandle@error
+[14:02:13.308] [page:log] JSHandle@object
+[14:02:13.308] [page:log] Bluetooth disconnect (programmatic)
+[14:02:13.308] [page:log] Bluetooth connection status Disconnected
+[14:02:13.308] [page:log] [info] Disconnected (BLE)
+[14:02:13.309] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:02:43.313] [page:log] [info] BLE reconnect attempt #18 (after 30000ms)
+[14:02:43.313] [page:log] JSHandle@object
+[14:02:43.314] [page:log] Bluetooth connection status Connecting
+[14:02:51.090] [page:error] Bluetooth connect error JSHandle@error
+[14:02:51.090] [page:log] JSHandle@object
+[14:02:51.090] [page:log] Bluetooth disconnect (programmatic)
+[14:02:51.090] [page:log] Bluetooth connection status Disconnected
+[14:02:51.090] [page:log] [info] Disconnected (BLE)
+[14:02:51.090] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:03:21.099] [page:log] [info] BLE reconnect attempt #19 (after 30000ms)
+[14:03:21.100] [page:log] JSHandle@object
+[14:03:21.100] [page:log] Bluetooth connection status Connecting
+[14:03:28.886] [page:error] Bluetooth connect error JSHandle@error
+[14:03:28.886] [page:log] JSHandle@object
+[14:03:28.886] [page:log] Bluetooth disconnect (programmatic)
+[14:03:28.886] [page:log] Bluetooth connection status Disconnected
+[14:03:28.887] [page:log] [info] Disconnected (BLE)
+[14:03:28.889] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:03:58.897] [page:log] [info] BLE reconnect attempt #20 (after 30000ms)
+[14:03:58.897] [page:log] JSHandle@object
+[14:03:58.897] [page:log] Bluetooth connection status Connecting
+[14:04:06.695] [page:error] Bluetooth connect error JSHandle@error
+[14:04:06.696] [page:log] JSHandle@object
+[14:04:06.696] [page:log] Bluetooth disconnect (programmatic)
+[14:04:06.696] [page:log] Bluetooth connection status Disconnected
+[14:04:06.696] [page:log] [info] Disconnected (BLE)
+[14:04:06.697] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:04:36.708] [page:log] [info] BLE reconnect attempt #21 (after 30000ms)
+[14:04:36.709] [page:log] JSHandle@object
+[14:04:36.709] [page:log] Bluetooth connection status Connecting
+[14:04:44.500] [page:error] Bluetooth connect error JSHandle@error
+[14:04:44.500] [page:log] JSHandle@object
+[14:04:44.500] [page:log] Bluetooth disconnect (programmatic)
+[14:04:44.500] [page:log] Bluetooth connection status Disconnected
+[14:04:44.501] [page:log] [info] Disconnected (BLE)
+[14:04:44.502] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:05:14.512] [page:log] [info] BLE reconnect attempt #22 (after 30000ms)
+[14:05:14.512] [page:log] JSHandle@object
+[14:05:14.512] [page:log] Bluetooth connection status Connecting
+[14:05:22.295] [page:error] Bluetooth connect error JSHandle@error
+[14:05:22.295] [page:log] JSHandle@object
+[14:05:22.295] [page:log] Bluetooth disconnect (programmatic)
+[14:05:22.295] [page:log] Bluetooth connection status Disconnected
+[14:05:22.295] [page:log] [info] Disconnected (BLE)
+[14:05:22.296] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:05:52.303] [page:log] [info] BLE reconnect attempt #23 (after 30000ms)
+[14:05:52.304] [page:log] JSHandle@object
+[14:05:52.304] [page:log] Bluetooth connection status Connecting
+[14:06:00.108] [page:error] Bluetooth connect error JSHandle@error
+[14:06:00.109] [page:log] JSHandle@object
+[14:06:00.109] [page:log] Bluetooth disconnect (programmatic)
+[14:06:00.110] [page:log] Bluetooth connection status Disconnected
+[14:06:00.110] [page:log] [info] Disconnected (BLE)
+[14:06:00.119] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:06:30.114] [page:log] [info] BLE reconnect attempt #24 (after 30000ms)
+[14:06:30.114] [page:log] JSHandle@object
+[14:06:30.114] [page:log] Bluetooth connection status Connecting
+[14:06:37.911] [page:error] Bluetooth connect error JSHandle@error
+[14:06:37.911] [page:log] JSHandle@object
+[14:06:37.911] [page:log] Bluetooth disconnect (programmatic)
+[14:06:37.911] [page:log] Bluetooth connection status Disconnected
+[14:06:37.912] [page:log] [info] Disconnected (BLE)
+[14:06:37.914] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:07:07.921] [page:log] [info] BLE reconnect attempt #25 (after 30000ms)
+[14:07:07.921] [page:log] JSHandle@object
+[14:07:07.921] [page:log] Bluetooth connection status Connecting
+[14:07:15.710] [page:error] Bluetooth connect error JSHandle@error
+[14:07:15.711] [page:log] JSHandle@object
+[14:07:15.711] [page:log] Bluetooth disconnect (programmatic)
+[14:07:15.711] [page:log] Bluetooth connection status Disconnected
+[14:07:15.711] [page:log] [info] Disconnected (BLE)
+[14:07:15.712] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:07:45.717] [page:log] [info] BLE reconnect attempt #26 (after 30000ms)
+[14:07:45.717] [page:log] JSHandle@object
+[14:07:45.717] [page:log] Bluetooth connection status Connecting
+[14:07:53.507] [page:error] Bluetooth connect error JSHandle@error
+[14:07:53.507] [page:log] JSHandle@object
+[14:07:53.507] [page:log] Bluetooth disconnect (programmatic)
+[14:07:53.507] [page:log] Bluetooth connection status Disconnected
+[14:07:53.507] [page:log] [info] Disconnected (BLE)
+[14:07:53.509] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:08:23.517] [page:log] [info] BLE reconnect attempt #27 (after 30000ms)
+[14:08:23.518] [page:log] JSHandle@object
+[14:08:23.518] [page:log] Bluetooth connection status Connecting
+[14:08:31.319] [page:error] Bluetooth connect error JSHandle@error
+[14:08:31.319] [page:log] JSHandle@object
+[14:08:31.319] [page:log] Bluetooth disconnect (programmatic)
+[14:08:31.319] [page:log] Bluetooth connection status Disconnected
+[14:08:31.320] [page:log] [info] Disconnected (BLE)
+[14:08:31.321] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:09:01.326] [page:log] [info] BLE reconnect attempt #28 (after 30000ms)
+[14:09:01.327] [page:log] JSHandle@object
+[14:09:01.327] [page:log] Bluetooth connection status Connecting
+[14:09:09.130] [page:error] Bluetooth connect error JSHandle@error
+[14:09:09.130] [page:log] JSHandle@object
+[14:09:09.130] [page:log] Bluetooth disconnect (programmatic)
+[14:09:09.130] [page:log] Bluetooth connection status Disconnected
+[14:09:09.131] [page:log] [info] Disconnected (BLE)
+[14:09:09.132] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:09:39.138] [page:log] [info] BLE reconnect attempt #29 (after 30000ms)
+[14:09:39.140] [page:log] JSHandle@object
+[14:09:39.140] [page:log] Bluetooth connection status Connecting
+[14:09:46.931] [page:error] Bluetooth connect error JSHandle@error
+[14:09:46.932] [page:log] JSHandle@object
+[14:09:46.932] [page:log] Bluetooth disconnect (programmatic)
+[14:09:46.932] [page:log] Bluetooth connection status Disconnected
+[14:09:46.935] [page:log] [info] Disconnected (BLE)
+[14:09:46.935] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:10:16.945] [page:log] [info] BLE reconnect attempt #30 (after 30000ms)
+[14:10:16.945] [page:log] JSHandle@object
+[14:10:16.946] [page:log] Bluetooth connection status Connecting
+[14:10:24.748] [page:error] Bluetooth connect error JSHandle@error
+[14:10:24.751] [page:log] JSHandle@object
+[14:10:24.751] [page:log] Bluetooth disconnect (programmatic)
+[14:10:24.751] [page:log] Bluetooth connection status Disconnected
+[14:10:24.751] [page:log] [info] Disconnected (BLE)
+[14:10:24.751] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:10:54.765] [page:log] [info] BLE reconnect attempt #31 (after 30000ms)
+[14:10:54.766] [page:log] JSHandle@object
+[14:10:54.766] [page:log] Bluetooth connection status Connecting
+[14:10:56.609] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:10:56.610] [page:log] JSHandle@object
+[14:10:56.611] [page:log] Bluetooth connection status Connected
+[14:10:56.613] [page:log] [info] Connected (BLE)
+[14:10:56.613] [page:log] [info] BLE reconnect daemon stopped: connected
+[14:10:56.878] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[14:14:08.459] [page:log] Bluetooth connection status Disconnected
+[14:14:08.460] [page:log] [info] BLE reconnect daemon armed
+[14:14:08.464] [page:log] [info] Disconnected (BLE)
+[14:14:09.466] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[14:14:09.466] [page:log] JSHandle@object
+[14:14:09.466] [page:log] Bluetooth connection status Connecting
+[14:14:10.973] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:14:10.973] [page:log] JSHandle@object
+[14:14:10.973] [page:log] Bluetooth connection status Connected
+[14:14:10.974] [page:log] [info] Connected (BLE)
+[14:14:10.976] [page:log] [info] BLE reconnect daemon stopped: connected
+[14:14:11.235] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[14:16:14.231] [page:log] Bluetooth connection status Disconnected
+[14:16:14.233] [page:log] [info] BLE reconnect daemon armed
+[14:16:14.234] [page:log] [info] Disconnected (BLE)
+[14:16:15.237] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[14:16:15.237] [page:log] JSHandle@object
+[14:16:15.237] [page:log] Bluetooth connection status Connecting
+[14:16:16.545] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:16:16.545] [page:log] JSHandle@object
+[14:16:16.545] [page:log] Bluetooth connection status Connected
+[14:16:16.545] [page:log] [info] Connected (BLE)
+[14:16:16.547] [page:log] [info] BLE reconnect daemon stopped: connected
+[14:16:16.808] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[14:19:32.138] [page:log] Bluetooth connection status Disconnected
+[14:19:32.140] [page:log] [info] BLE reconnect daemon armed
+[14:19:32.140] [page:log] [info] Disconnected (BLE)
+[14:19:33.147] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[14:19:33.147] [page:log] JSHandle@object
+[14:19:33.147] [page:log] Bluetooth connection status Connecting
+[14:19:34.378] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:19:34.379] [page:log] JSHandle@object
+[14:19:34.379] [page:log] Bluetooth connection status Connected
+[14:19:34.381] [page:log] [info] Connected (BLE)
+[14:19:34.384] [page:log] [info] BLE reconnect daemon stopped: connected
+[14:19:34.638] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[14:19:40.117] [page:log] JSHandle@object
+[14:19:40.117] [page:log] Bluetooth connection status Connecting
+[14:19:40.121] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:19:40.121] [page:log] JSHandle@object
+[14:19:40.122] [page:log] Bluetooth connection status Connected
+[14:19:40.122] [page:log] [info] Connected (BLE)
+[14:19:40.378] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[14:20:10.292] [page:log] Bluetooth disconnect (user triggered)
+[14:20:10.292] [page:log] Bluetooth connection status Disconnected
+[14:20:10.294] [page:log] [info] BLE reconnect daemon armed
+[14:20:10.295] [page:log] [info] Disconnected (BLE)
+[14:20:10.320] [page:log] Bluetooth connection status Disconnected
+[14:20:10.320] [page:log] [info] Disconnected (BLE)
+[14:20:10.320] [page:log] JSHandle@object
+[14:20:10.320] [page:log] Bluetooth disconnect (user triggered)
+[14:20:10.320] [page:log] Bluetooth connection status Disconnected
+[14:20:10.320] [page:log] [info] Disconnected (BLE)
+[14:20:10.320] [page:log] JSHandle@object
+[14:20:10.321] [page:log] Bluetooth connection status NoAuthorizedDevice
+[14:20:10.321] [page:log] [info] Disconnected (BLE)
+[14:20:10.327] [page:log] [info] BLE reconnect daemon stopped: user disconnected
+[14:20:10.328] [page:log] [info] BLE device disconnected and forgotten.
+[14:20:13.652] [page:log] JSHandle@object
+[14:20:13.653] [page:log] Bluetooth connection status Connecting
+[14:20:14.846] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[14:20:14.846] [page:log] JSHandle@object
+[14:20:14.846] [page:log] Bluetooth connection status Connected
+[14:20:14.848] [page:log] [info] Connected (BLE)
+[14:20:15.110] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[14:24:07.873] [page:log] Bluetooth connection status Disconnected
+[14:24:07.874] [page:log] [info] BLE reconnect daemon armed
+[14:24:07.875] [page:log] [info] Disconnected (BLE)
+[14:24:08.883] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[14:24:08.883] [page:log] JSHandle@object
+[14:24:08.883] [page:log] Bluetooth connection status Connecting
+[14:24:16.672] [page:error] Bluetooth connect error JSHandle@error
+[14:24:16.672] [page:log] JSHandle@object
+[14:24:16.672] [page:log] Bluetooth disconnect (programmatic)
+[14:24:16.672] [page:log] Bluetooth connection status Disconnected
+[14:24:16.672] [page:log] [info] Disconnected (BLE)
+[14:24:16.673] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:24:18.686] [page:log] [info] BLE reconnect attempt #2 (after 2000ms)
+[14:24:18.686] [page:log] JSHandle@object
+[14:24:18.688] [page:log] Bluetooth connection status Connecting
+[14:24:26.476] [page:error] Bluetooth connect error JSHandle@error
+[14:24:26.476] [page:log] JSHandle@object
+[14:24:26.476] [page:log] Bluetooth disconnect (programmatic)
+[14:24:26.476] [page:log] Bluetooth connection status Disconnected
+[14:24:26.477] [page:log] [info] Disconnected (BLE)
+[14:24:26.477] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:24:30.492] [page:log] [info] BLE reconnect attempt #3 (after 4000ms)
+[14:24:30.493] [page:log] JSHandle@object
+[14:24:30.493] [page:log] Bluetooth connection status Connecting
+[14:24:38.291] [page:error] Bluetooth connect error JSHandle@error
+[14:24:38.292] [page:log] JSHandle@object
+[14:24:38.292] [page:log] Bluetooth disconnect (programmatic)
+[14:24:38.292] [page:log] Bluetooth connection status Disconnected
+[14:24:38.292] [page:log] [info] Disconnected (BLE)
+[14:24:38.293] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:24:46.300] [page:log] [info] BLE reconnect attempt #4 (after 8000ms)
+[14:24:46.300] [page:log] JSHandle@object
+[14:24:46.300] [page:log] Bluetooth connection status Connecting
+[14:24:54.079] [page:error] Bluetooth connect error JSHandle@error
+[14:24:54.079] [page:log] JSHandle@object
+[14:24:54.080] [page:log] Bluetooth disconnect (programmatic)
+[14:24:54.080] [page:log] Bluetooth connection status Disconnected
+[14:24:54.080] [page:log] [info] Disconnected (BLE)
+[14:24:54.081] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:25:09.086] [page:log] [info] BLE reconnect attempt #5 (after 15000ms)
+[14:25:09.087] [page:log] JSHandle@object
+[14:25:09.087] [page:log] Bluetooth connection status Connecting
+[14:25:16.873] [page:error] Bluetooth connect error JSHandle@error
+[14:25:16.873] [page:log] JSHandle@object
+[14:25:16.873] [page:log] Bluetooth disconnect (programmatic)
+[14:25:16.873] [page:log] Bluetooth connection status Disconnected
+[14:25:16.874] [page:log] [info] Disconnected (BLE)
+[14:25:16.876] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:25:46.889] [page:log] [info] BLE reconnect attempt #6 (after 30000ms)
+[14:25:46.889] [page:log] JSHandle@object
+[14:25:46.889] [page:log] Bluetooth connection status Connecting
+[14:25:54.681] [page:error] Bluetooth connect error JSHandle@error
+[14:25:54.681] [page:log] JSHandle@object
+[14:25:54.681] [page:log] Bluetooth disconnect (programmatic)
+[14:25:54.681] [page:log] Bluetooth connection status Disconnected
+[14:25:54.682] [page:log] [info] Disconnected (BLE)
+[14:25:54.683] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:26:24.689] [page:log] [info] BLE reconnect attempt #7 (after 30000ms)
+[14:26:24.696] [page:log] JSHandle@object
+[14:26:24.697] [page:log] Bluetooth connection status Connecting
+[14:26:32.559] [page:error] Bluetooth connect error JSHandle@error
+[14:26:32.559] [page:log] JSHandle@object
+[14:26:32.559] [page:log] Bluetooth disconnect (programmatic)
+[14:26:32.559] [page:log] Bluetooth connection status Disconnected
+[14:26:32.566] [page:log] [info] Disconnected (BLE)
+[14:26:32.567] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:27:02.573] [page:log] [info] BLE reconnect attempt #8 (after 30000ms)
+[14:27:02.574] [page:log] JSHandle@object
+[14:27:02.574] [page:log] Bluetooth connection status Connecting
+[14:27:10.664] [page:error] Bluetooth connect error JSHandle@error
+[14:27:10.664] [page:log] JSHandle@object
+[14:27:10.664] [page:log] Bluetooth disconnect (programmatic)
+[14:27:10.665] [page:log] Bluetooth connection status Disconnected
+[14:27:10.672] [page:log] [info] Disconnected (BLE)
+[14:27:10.673] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:27:40.679] [page:log] [info] BLE reconnect attempt #9 (after 30000ms)
+[14:27:40.681] [page:log] JSHandle@object
+[14:27:40.682] [page:log] Bluetooth connection status Connecting
+[14:27:48.476] [page:error] Bluetooth connect error JSHandle@error
+[14:27:48.476] [page:log] JSHandle@object
+[14:27:48.477] [page:log] Bluetooth disconnect (programmatic)
+[14:27:48.477] [page:log] Bluetooth connection status Disconnected
+[14:27:48.477] [page:log] [info] Disconnected (BLE)
+[14:27:48.478] [page:log] [info] BLE reconnect attempt failed: Connection Error: Connection attempt failed.
+[14:28:18.030] [page:log] [info] Tab hidden — pausing reconnect daemons.

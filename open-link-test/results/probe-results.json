@@ -1,0 +1,334 @@
+{
+  "app_mode": [
+    {
+      "hex_name": "python_ble.hex",
+      "usb_flash_s": 23.25,
+      "flashed_ok": true,
+      "ble_found": true,
+      "services": {
+        "partial_flash": true,
+        "nordic_dfu": true,
+        "mbitmore": false,
+        "buttonless_unbonded": true,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [zuvav]",
+        "rssi": -44,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "0000fe59-0000-1000-8000-00805f9b34fb",
+          "e97dd91d-251d-470a-a062-fa1922dfa9a8",
+          "0000180a-0000-1000-8000-00805f9b34fb"
+        ]
+      },
+      "regions": [
+        {
+          "region_id": 0,
+          "start": 4096,
+          "end": 114688,
+          "hash_hex": "0000000000000000",
+          "raw": "0000000010000001c00000000000000000000000"
+        },
+        {
+          "region_id": 1,
+          "start": 114688,
+          "end": 420260,
+          "hash_hex": "1bee72ce00000000",
+          "raw": "00010001c000000669a41bee72ce000000000000"
+        },
+        {
+          "region_id": 2,
+          "start": 446464,
+          "end": 471040,
+          "hash_hex": "0000000000000000",
+          "raw": "00020006d0000007300000000000000000000000"
+        }
+      ],
+      "expected": {
+        "magic_type": "upy",
+        "regions": {
+          "2": "04e4050000000000"
+        }
+      },
+      "hash_match": {
+        "region0_present": true,
+        "region1_present": true,
+        "region2_present": true
+      },
+      "notes": [],
+      "error": null
+    },
+    {
+      "hex_name": "python_radio.hex",
+      "usb_flash_s": 23.219000000011874,
+      "flashed_ok": true,
+      "ble_found": false,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": null,
+        "rssi": null,
+        "services": []
+      },
+      "regions": [],
+      "expected": {
+        "magic_type": "upy",
+        "regions": {
+          "2": "d4e3050000000000"
+        }
+      },
+      "hash_match": {},
+      "notes": [],
+      "error": "BLE: no Calliope advertised after 12s"
+    },
+    {
+      "hex_name": "blocks.hex",
+      "usb_flash_s": 17.734000000025844,
+      "flashed_ok": true,
+      "ble_found": true,
+      "services": {
+        "partial_flash": true,
+        "nordic_dfu": true,
+        "mbitmore": true,
+        "buttonless_unbonded": true,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [zuvav]",
+        "rssi": -46,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "0000fe59-0000-1000-8000-00805f9b34fb",
+          "e97dd91d-251d-470a-a062-fa1922dfa9a8",
+          "0000180a-0000-1000-8000-00805f9b34fb",
+          "0b50f3e4-607f-4151-9091-7d008d6ffc5c"
+        ]
+      },
+      "regions": [
+        {
+          "region_id": 0,
+          "start": 0,
+          "end": 0,
+          "hash_hex": "0000000000000000",
+          "raw": "0000000000000000000000000000000000000000"
+        },
+        {
+          "region_id": 1,
+          "start": 0,
+          "end": 0,
+          "hash_hex": "0000000000000000",
+          "raw": "0001000000000000000000000000000000000000"
+        },
+        {
+          "region_id": 2,
+          "start": 0,
+          "end": 0,
+          "hash_hex": "0000000000000000",
+          "raw": "0002000000000000000000000000000000000000"
+        }
+      ],
+      "expected": {
+        "magic_type": "none"
+      },
+      "hash_match": {
+        "region0_zero": true,
+        "region1_zero": true,
+        "region2_zero": true
+      },
+      "notes": [],
+      "error": null
+    },
+    {
+      "hex_name": "makecode-3-ble.hex",
+      "usb_flash_s": 19.0,
+      "flashed_ok": true,
+      "ble_found": true,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": true,
+        "mbitmore": false,
+        "buttonless_unbonded": true,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [zuvav]",
+        "rssi": -46,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "0000fe59-0000-1000-8000-00805f9b34fb",
+          "0000180a-0000-1000-8000-00805f9b34fb"
+        ]
+      },
+      "regions": [],
+      "expected": {
+        "magic_type": "pxt",
+        "dal_hash": "f2c18696e64d8403",
+        "mc_hash": "5d002400a300b000"
+      },
+      "hash_match": {
+        "region1_dal": false,
+        "region2_makecode": false
+      },
+      "notes": [
+        "region 1 (DAL) hash not returned",
+        "region 2 (MakeCode) hash not returned"
+      ],
+      "error": null
+    },
+    {
+      "hex_name": "makecode-3-radio.hex",
+      "usb_flash_s": 19.0,
+      "flashed_ok": true,
+      "ble_found": false,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": null,
+        "rssi": null,
+        "services": []
+      },
+      "regions": [],
+      "expected": {
+        "magic_type": "pxt",
+        "dal_hash": "5260a64ea1db7570",
+        "mc_hash": "f300c200fe00a800"
+      },
+      "hash_match": {},
+      "notes": [],
+      "error": "BLE: no Calliope advertised after 12s"
+    },
+    {
+      "hex_name": "makecode-1-ble.hex",
+      "usb_flash_s": 16.187000000005355,
+      "flashed_ok": true,
+      "ble_found": false,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": null,
+        "rssi": null,
+        "services": []
+      },
+      "regions": [],
+      "expected": {
+        "magic_type": "pxt",
+        "dal_hash": "659c31ad7e383572",
+        "mc_hash": "ba0032003f00eb00"
+      },
+      "hash_match": {},
+      "notes": [],
+      "error": "BLE: no Calliope advertised after 12s"
+    },
+    {
+      "hex_name": "makecode-1-radio.hex",
+      "usb_flash_s": 16.203999999997905,
+      "flashed_ok": true,
+      "ble_found": false,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": null,
+        "rssi": null,
+        "services": []
+      },
+      "regions": [],
+      "expected": {
+        "magic_type": "pxt",
+        "dal_hash": "6beaf9aea6845447",
+        "mc_hash": "350095008a001500"
+      },
+      "hash_match": {},
+      "notes": [],
+      "error": "BLE: no Calliope advertised after 12s"
+    },
+    {
+      "hex_name": "makecode-2-ble.hex",
+      "usb_flash_s": 16.25,
+      "flashed_ok": true,
+      "ble_found": false,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": null,
+        "rssi": null,
+        "services": []
+      },
+      "regions": [],
+      "expected": {
+        "magic_type": "pxt",
+        "dal_hash": "8731ce1862c13813",
+        "mc_hash": "b100d8001d00bf00"
+      },
+      "hash_match": {},
+      "notes": [],
+      "error": "BLE: no Calliope advertised after 12s"
+    },
+    {
+      "hex_name": "makecode-2-radio.hex",
+      "usb_flash_s": 16.296000000002095,
+      "flashed_ok": true,
+      "ble_found": false,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": null,
+        "rssi": null,
+        "services": []
+      },
+      "regions": [],
+      "expected": {
+        "magic_type": "pxt",
+        "dal_hash": "e7fed4fd9706052e",
+        "mc_hash": "1400690073004b00"
+      },
+      "hash_match": {},
+      "notes": [],
+      "error": "BLE: no Calliope advertised after 12s"
+    }
+  ],
+  "paired_mode": [
+    {
+      "hex_name": "makecode_3_radio_pairing",
+      "usb_flash_s": null,
+      "flashed_ok": false,
+      "ble_found": true,
+      "services": {
+        "partial_flash": false,
+        "nordic_dfu": true,
+        "mbitmore": false,
+        "buttonless_unbonded": true,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [zuvav]",
+        "rssi": -38,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "0000fe59-0000-1000-8000-00805f9b34fb",
+          "0000180a-0000-1000-8000-00805f9b34fb"
+        ]
+      },
+      "regions": [],
+      "expected": {},
+      "hash_match": {},
+      "notes": [],
+      "error": null,
+      "__key": "makecode_3_radio_pairing"
+    }
+  ]
+}

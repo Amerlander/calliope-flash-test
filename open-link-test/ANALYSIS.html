@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>open-link-test hex analysis</title>
+<style>
+  :root {
+    --bg: #0f1115; --fg: #e5e7eb; --muted: #9aa3b2;
+    --card: #181b22; --border: #2a2f3a;
+    --good: #34d399; --good-soft: #064e3b;
+    --warn: #fbbf24; --warn-soft: #4a3a06;
+    --bad: #f87171;  --bad-soft: #4a0e0e;
+    --accent: #818cf8;
+    --mono: 'JetBrains Mono','Cascadia Code','Fira Code',Consolas,monospace;
+  }
+  html, body { background: var(--bg); color: var(--fg); margin: 0; }
+  body { font: 14px/1.55 -apple-system, system-ui, 'Segoe UI', sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 24px 80px; }
+  h1 { font-size: 28px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  h2 { font-size: 18px; margin: 36px 0 12px; letter-spacing: -0.01em; }
+  h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+       color: var(--muted); margin: 24px 0 10px; }
+  .sub { color: var(--muted); margin: 0 0 24px; font-size: 13px; }
+  code, .mono { font-family: var(--mono); font-size: 12.5px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; vertical-align: top;
+           border-bottom: 1px solid var(--border); }
+  th { font-weight: 600; color: var(--muted); text-transform: uppercase;
+       font-size: 11px; letter-spacing: 0.05em; }
+  tr.pattern-a td { background: rgba(129, 140, 248, 0.06); }
+  tr.pattern-b td { background: rgba(244, 114, 182, 0.06); }
+  tr.non-v3 td { color: var(--muted); }
+  td.mono { font-family: var(--mono); font-size: 12px; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px;
+          font-size: 11px; font-weight: 600; text-transform: uppercase;
+          letter-spacing: 0.04em; }
+  .pill.a { background: rgba(129,140,248,0.18); color: var(--accent); }
+  .pill.b { background: rgba(244,114,182,0.18); color: #f472b6; }
+  .pill.v3 { background: var(--good-soft); color: var(--good); }
+  .pill.legacy { background: #2a2f3a; color: var(--muted); }
+  .pill.no { background: var(--bad-soft); color: var(--bad); }
+  .pill.yes { background: var(--good-soft); color: var(--good); }
+  .pill.muted { background: #2a2f3a; color: var(--muted); }
+  .magic-pf { display: inline-block; font-family: var(--mono); font-size: 11px;
+              padding: 1px 6px; border-radius: 3px; }
+  .magic-pf.pxt { background: rgba(52,211,153,0.12); color: var(--good); }
+  .magic-pf.upy { background: rgba(96,165,250,0.15); color: #60a5fa; }
+  .magic-pf.none { background: rgba(248,113,113,0.15); color: var(--bad); }
+  .card { background: var(--card); border: 1px solid var(--border);
+          border-radius: 8px; padding: 18px 20px; margin: 12px 0; }
+  .hw-callout {
+    background: rgba(129,140,248,0.05);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px; border-radius: 4px; margin: 16px 0;
+    font-size: 13px;
+  }
+  .hw-callout b { color: var(--accent); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 880px) { .grid-2 { grid-template-columns: 1fr; } }
+  /* memory map */
+  .mmap { font-family: var(--mono); font-size: 12px; }
+  .mmap-row { display: grid; grid-template-columns: 110px 1fr 130px;
+              align-items: center; gap: 12px; padding: 3px 0; }
+  .mmap-addr { color: var(--muted); text-align: right; }
+  .mmap-bar { height: 22px; border-radius: 3px; padding: 0 8px;
+              display: flex; align-items: center; font-size: 11px;
+              color: #0b0c0f; font-weight: 600; }
+  .mmap-size { color: var(--muted); }
+  .b-mbr { background: #818cf8; }
+  .b-sd { background: #60a5fa; }
+  .b-app { background: #34d399; }
+  .b-fs { background: #fbbf24; }
+  .b-bl { background: #f472b6; }
+  .b-empty { background: #2a2f3a; color: var(--muted); }
+  footer { color: var(--muted); font-size: 12px; margin-top: 36px;
+           padding-top: 16px; border-top: 1px solid var(--border); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>open-link-test hex analysis</h1>
+<p class="sub">9 hex files from the production editors
+(<a href="Editors.md">Editors.md</a>), analyzed 2026-05-26.</p>
+
+<div class="hw-callout">
+<b>Filename convention</b><br>
+The <code>N</code> in <code>makecode-N-{ble,radio}.hex</code> is the
+<b>Calliope mini hardware version</b> the hex targets:
+<code>makecode-1-*</code> → mini v1, <code>makecode-2-*</code> → mini v2,
+<code>makecode-3-*</code> → mini v3 (nRF52833, hardware-identical to
+micro:bit V2). Only the mini-v3 hexes work on the v3 connected to this
+rig.
+</div>
+
+<h2>Summary — mini v3 hexes (the ones we exercise)</h2>
+<table>
+<thead>
+<tr>
+  <th>File</th>
+  <th>Size</th>
+  <th>Pattern</th>
+  <th>Bootloader bundled</th>
+  <th>Partial-flash magic</th>
+  <th>Identity</th>
+</tr>
+</thead>
+<tbody>
+  <tr class="pattern-b">
+    <td class="mono">blocks.hex</td>
+    <td>758 KB</td>
+    <td><span class="pill b">B</span></td>
+    <td><span class="pill yes">yes @0x78000</span></td>
+    <td><span class="magic-pf none">none — runtime only</span></td>
+    <td>Calliope Blocks (codal blocks-runtime, bare)</td>
+  </tr>
+  <tr class="pattern-b">
+    <td class="mono">makecode-3-ble.hex</td>
+    <td>867 KB</td>
+    <td><span class="pill b">B</span></td>
+    <td><span class="pill yes">yes @0x78000</span></td>
+    <td><span class="magic-pf pxt">PXT @0x46000</span></td>
+    <td>pxt-calliope "MakeCode 3 BLE"</td>
+  </tr>
+  <tr class="pattern-b">
+    <td class="mono">makecode-3-radio.hex</td>
+    <td>867 KB</td>
+    <td><span class="pill b">B</span></td>
+    <td><span class="pill yes">yes @0x78000</span></td>
+    <td><span class="magic-pf pxt">PXT @0x46000</span></td>
+    <td>pxt-calliope "MakeCode 3 RADIO"</td>
+  </tr>
+  <tr class="pattern-b">
+    <td class="mono">python_ble.hex</td>
+    <td>1,195 KB</td>
+    <td><span class="pill b">B</span></td>
+    <td><span class="pill yes">yes @0x78000</span></td>
+    <td><span class="magic-pf upy">uPy @0x66FF0</span></td>
+    <td><span class="mono">v2.1.2b+9f9e309-dirty 2026-05-21</span></td>
+  </tr>
+  <tr class="pattern-b">
+    <td class="mono">python_radio.hex</td>
+    <td>1,199 KB</td>
+    <td><span class="pill b">B</span></td>
+    <td><span class="pill yes">yes @0x78000</span></td>
+    <td><span class="magic-pf upy">uPy @0x66FF0</span></td>
+    <td><span class="mono">v2.1.2b-radio+a8700d0-dirty 2026-05-26</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p class="sub" style="margin-top:12px">
+All five mini-v3 hexes carry the <b>same patched open-link bootloader</b>
+at 0x78000 (byte-identical first 16 bytes:
+<code>08 33 20 2b 0a 77 e3 d1 …</code>) — the
+<code>v0.3.5-campus-open-1</code> build with BD_ADDR fix + MTU exchange
+enabled.
+</p>
+
+<h2>Legacy hexes — mini v1 / v2 (not testable on this rig)</h2>
+<table>
+<thead>
+<tr><th>File</th><th>Size</th><th>Hardware target</th><th>Pattern</th><th>PXT DAL hash</th></tr>
+</thead>
+<tbody>
+<tr class="non-v3 pattern-a"><td class="mono">makecode-1-ble.hex</td>   <td>629 KB</td><td><span class="pill legacy">mini v1</span></td><td><span class="pill a">A</span></td><td class="mono">659c31ad7e383572</td></tr>
+<tr class="non-v3 pattern-a"><td class="mono">makecode-1-radio.hex</td> <td>632 KB</td><td><span class="pill legacy">mini v1</span></td><td><span class="pill a">A</span></td><td class="mono">6beaf9aea6845447</td></tr>
+<tr class="non-v3 pattern-a"><td class="mono">makecode-2-ble.hex</td>   <td>629 KB</td><td><span class="pill legacy">mini v2</span></td><td><span class="pill a">A</span></td><td class="mono">8731ce1862c13813</td></tr>
+<tr class="non-v3 pattern-a"><td class="mono">makecode-2-radio.hex</td> <td>632 KB</td><td><span class="pill legacy">mini v2</span></td><td><span class="pill a">A</span></td><td class="mono">e7fed4fd9706052e</td></tr>
+</tbody>
+</table>
+
+<p class="sub" style="margin-top:12px">
+These share the codal base <code>2.2.0-rc6-calliope.rc4</code> and are
+Pattern A (no bootloader bundled, relies on existing one on device).
+Drag-flashing onto a mini v3 produces no useful behaviour — boot
+vector tables don't match the v3's chip layout; USB write completes in
+~16 s but the device fails to advertise BLE. They're listed only for
+completeness.
+</p>
+
+<h2>How codal decides partial-flash support</h2>
+<div class="card">
+<p>codal's <code>MicroBitMemoryMap::findHashes()</code> scans flash
+post-app for <b>two</b> magic patterns:</p>
+
+<div class="grid-2" style="margin-top:14px">
+  <div>
+    <h3 style="margin-top:0"><span class="magic-pf pxt">PXT magic</span></h3>
+    <p class="mono" style="font-size:12px;margin:4px 0 8px">
+    0x923B8E70 &nbsp;0x41A815C6<br>0xC96698C4 &nbsp;0x9751EE75
+    </p>
+    <p class="sub">16-byte sentinel followed by 8-byte DAL hash + 8-byte
+    MakeCode hash. Embedded by PXT linker when an editor compiles user
+    code; used by pxt-calliope and codal blocks-runtime once Scratch
+    blocks are bundled.</p>
+  </div>
+  <div>
+    <h3 style="margin-top:0"><span class="magic-pf upy">uPy magic</span></h3>
+    <p class="mono" style="font-size:12px;margin:4px 0 8px">
+    0x597F30FE …<br>0xC1B1D79D
+    </p>
+    <p class="sub">16-byte header at the end of a page; region records
+    sit <i>before</i> the header. Embedded by
+    <code>addlayouttable.py</code> during the codal MicroPython build.</p>
+  </div>
+</div>
+
+<p class="sub" style="margin-top:14px;margin-bottom:0">
+Neither magic present → REGION_INFO returns all-zero ranges → widget
+falls back to full DFU.
+</p>
+</div>
+
+<h2>Mini v3 hex details</h2>
+
+<h3 style="text-transform:none;color:var(--fg);font-size:15px">PXT hashes (makecode-3)</h3>
+<table>
+<thead><tr><th>File</th><th>Magic @</th><th>DAL hash (codal runtime)</th><th>MakeCode hash (user code)</th></tr></thead>
+<tbody>
+<tr><td class="mono">makecode-3-ble.hex</td>   <td class="mono">0x46000</td><td class="mono">f2c18696e64d8403</td><td class="mono">5d002400a300b000</td></tr>
+<tr><td class="mono">makecode-3-radio.hex</td> <td class="mono">0x46000</td><td class="mono">5260a64ea1db7570</td><td class="mono">f300c200fe00a800</td></tr>
+</tbody>
+</table>
+<p class="sub" style="margin-top:10px">
+DAL hashes differ → BLE↔radio swap triggers full DFU via the widget,
+as expected.
+</p>
+
+<h3 style="text-transform:none;color:var(--fg);font-size:15px;margin-top:24px">uPy FlashLayout tables (python)</h3>
+<div class="grid-2">
+  <div class="card">
+    <h3 style="margin-top:0"><code>python_ble.hex</code></h3>
+    <p class="sub" style="margin:4px 0 10px">Layout @0x66FF0 — version 1, 3 regions</p>
+    <table>
+    <thead><tr><th>Region</th><th>ID</th><th>Hash</th><th>Range</th><th>Size</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>SD</td><td>NONE</td><td class="mono">0x00001000–0x0001C000</td><td>108 KB</td></tr>
+      <tr><td>1</td><td>MP</td><td>PTR (v2.1.2b)</td><td class="mono">0x0001C000–0x000674A4</td><td>298 KB</td></tr>
+      <tr><td>2</td><td>FS</td><td>NONE</td><td class="mono">0x0006D000–0x00073000</td><td>24 KB</td></tr>
+    </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0"><code>python_radio.hex</code></h3>
+    <p class="sub" style="margin:4px 0 10px">Layout @0x66FF0 — version 1, 3 regions</p>
+    <table>
+    <thead><tr><th>Region</th><th>ID</th><th>Hash</th><th>Range</th><th>Size</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>SD</td><td>NONE</td><td class="mono">0x00001000–0x0001C000</td><td>108 KB</td></tr>
+      <tr><td>1</td><td>MP</td><td>PTR (v2.1.2b-radio)</td><td class="mono">0x0001C000–0x00067488</td><td>298 KB</td></tr>
+      <tr><td>2</td><td>FS</td><td>NONE</td><td class="mono">0x0006D000–0x00073000</td><td>24 KB</td></tr>
+    </tbody>
+    </table>
+  </div>
+</div>
+
+<h3 style="text-transform:none;color:var(--fg);font-size:15px;margin-top:24px">blocks.hex (no magic)</h3>
+<div class="card">
+<p>The codal blocks-runtime expects PXT magic + hashes to be appended
+by the editor when a user program is compiled and bundled. A bare
+blocks-runtime build has no magic, so PFS REGION_INFO returns
+all-zeros. By design: scratch-calliope flashes the runtime once over
+USB, then streams Scratch blocks over MbitMore at runtime rather than
+re-flashing.</p>
+</div>
+
+<h2>Memory map — Pattern B (all 5 mini-v3 hexes)</h2>
+<div class="card">
+<div class="mmap">
+  <div class="mmap-row">
+    <span class="mmap-addr">0x00000000</span>
+    <div class="mmap-bar b-mbr">codal MBR (patched)</div>
+    <span class="mmap-size">2,816 B</span>
+  </div>
+  <div class="mmap-row">
+    <span class="mmap-addr">0x00001000</span>
+    <div class="mmap-bar b-sd">SoftDevice S140</div>
+    <span class="mmap-size">~107 KB</span>
+  </div>
+  <div class="mmap-row">
+    <span class="mmap-addr">0x0001C000</span>
+    <div class="mmap-bar b-app">App (Cortex-M vector table + code + magic + hashes/layout)</div>
+    <span class="mmap-size">137–306 KB</span>
+  </div>
+  <div class="mmap-row">
+    <span class="mmap-addr">0x00077000</span>
+    <div class="mmap-bar b-fs">FS / scratch</div>
+    <span class="mmap-size">4 KB</span>
+  </div>
+  <div class="mmap-row">
+    <span class="mmap-addr">0x00078000</span>
+    <div class="mmap-bar b-bl">Open-link bootloader (v0.3.5-campus-open-1)</div>
+    <span class="mmap-size">24 KB</span>
+  </div>
+  <div class="mmap-row">
+    <span class="mmap-addr">0x0007E000</span>
+    <div class="mmap-bar b-mbr">MBR settings + bootloader settings</div>
+    <span class="mmap-size">5 KB</span>
+  </div>
+</div>
+</div>
+
+<h2>Per-file vector / UICR detail (mini v3)</h2>
+<table>
+<thead>
+<tr><th>File</th><th>@0x0 SP</th><th>@0x0 PC</th><th>@0x1C000 SP</th><th>@0x1C000 PC</th><th>UICR[0x14]</th></tr>
+</thead>
+<tbody>
+  <tr><td class="mono">blocks.hex</td>           <td class="mono">0x20000400</td><td class="mono">0x00000A81</td><td class="mono">0x20020000</td><td class="mono">0x000312DD</td><td class="mono">0x00077000</td></tr>
+  <tr><td class="mono">makecode-3-ble.hex</td>   <td class="mono">0x20000400</td><td class="mono">0x00000A81</td><td class="mono">0x20020000</td><td class="mono">0x00036A41</td><td class="mono">0x00077000</td></tr>
+  <tr><td class="mono">makecode-3-radio.hex</td> <td class="mono">0x20000400</td><td class="mono">0x00000A81</td><td class="mono">0x20020000</td><td class="mono">0x00037019</td><td class="mono">0x00077000</td></tr>
+  <tr><td class="mono">python_ble.hex</td>       <td class="mono">0x20000400</td><td class="mono">0x00000A81</td><td class="mono">0x20020000</td><td class="mono">0x00028775</td><td class="mono">0x00077000</td></tr>
+  <tr><td class="mono">python_radio.hex</td>     <td class="mono">0x20000400</td><td class="mono">0x00000A81</td><td class="mono">0x20020000</td><td class="mono">0x0002718D</td><td class="mono">0x00077000</td></tr>
+</tbody>
+</table>
+
+<footer>
+<a href="README.md">README</a> ·
+<a href="FINDINGS.html">FINDINGS</a> ·
+<a href="scripts/analyze_all.py">scripts/analyze_all.py</a> ·
+<a href="scripts/probe.py">scripts/probe.py</a> ·
+<a href="scripts/probe_paired.py">scripts/probe_paired.py</a>
+</footer>
+
+</div>
+</body>
+</html>

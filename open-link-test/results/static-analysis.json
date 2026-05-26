@@ -1,0 +1,449 @@
+[
+  {
+    "name": "blocks.hex",
+    "file_size": 776952,
+    "flash_bytes": 276179,
+    "pattern": "B (full image)",
+    "mbr": "codal (0xB00)",
+    "vector_0x0": {
+      "SP": "0x20000400",
+      "PC": "0x00000A81"
+    },
+    "vector_0x1C000": {
+      "SP": "0x20020000",
+      "PC": "0x000312DD"
+    },
+    "uicr_bootloader_addr": "0x00077000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": true,
+    "bootloader_first_bytes": "0833202b0a77e3d1002070bd1970bfe7",
+    "pxt_magic": null,
+    "upy_layout": null,
+    "identity_strings": [
+      {
+        "addr": "0x0003C12C",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x0007CAFE",
+        "text": "microbit_app"
+      }
+    ]
+  },
+  {
+    "name": "makecode-1-ble.hex",
+    "file_size": 644322,
+    "flash_bytes": 228224,
+    "pattern": "A (partial)",
+    "mbr": "stock Nordic (SP=0x7C0)",
+    "vector_0x0": {
+      "SP": "0x000007C0",
+      "PC": "0x000006D1"
+    },
+    "vector_0x1C000": {
+      "SP": "0xD9032B09",
+      "PC": "0x87CF9B02"
+    },
+    "uicr_bootloader_addr": "0x0003C000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": false,
+    "bootloader_first_bytes": null,
+    "pxt_magic": {
+      "addr": 218112,
+      "dal_hash": "659c31ad7e383572",
+      "mc_hash": "ba0032003f00eb00"
+    },
+    "upy_layout": null,
+    "identity_strings": [
+      {
+        "addr": "0x00034B5F",
+        "text": "Calliope mini ["
+      },
+      {
+        "addr": "0x00034C36",
+        "text": "2.2.0-rc6-calliope.rc4--g"
+      },
+      {
+        "addr": "0x00034C50",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x000361EA",
+        "text": "MakeCode 3 BLE"
+      }
+    ]
+  },
+  {
+    "name": "makecode-1-radio.hex",
+    "file_size": 647472,
+    "flash_bytes": 229264,
+    "pattern": "A (partial)",
+    "mbr": "stock Nordic (SP=0x7C0)",
+    "vector_0x0": {
+      "SP": "0x000007C0",
+      "PC": "0x000006D1"
+    },
+    "vector_0x1C000": {
+      "SP": "0xA904FD25",
+      "PC": "0xF7FFA808"
+    },
+    "uicr_bootloader_addr": "0x0003C000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": false,
+    "bootloader_first_bytes": null,
+    "pxt_magic": {
+      "addr": 219136,
+      "dal_hash": "6beaf9aea6845447",
+      "mc_hash": "350095008a001500"
+    },
+    "upy_layout": null,
+    "identity_strings": [
+      {
+        "addr": "0x0003519F",
+        "text": "Calliope mini ["
+      },
+      {
+        "addr": "0x00035276",
+        "text": "2.2.0-rc6-calliope.rc4--g"
+      },
+      {
+        "addr": "0x00035290",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x000365F2",
+        "text": "MakeCode 1 RADIO"
+      }
+    ]
+  },
+  {
+    "name": "makecode-2-ble.hex",
+    "file_size": 644322,
+    "flash_bytes": 228224,
+    "pattern": "A (partial)",
+    "mbr": "stock Nordic (SP=0x7C0)",
+    "vector_0x0": {
+      "SP": "0x000007C0",
+      "PC": "0x000006D1"
+    },
+    "vector_0x1C000": {
+      "SP": "0x2B1DD008",
+      "PC": "0x4663D90C"
+    },
+    "uicr_bootloader_addr": "0x0003C000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": false,
+    "bootloader_first_bytes": null,
+    "pxt_magic": {
+      "addr": 218112,
+      "dal_hash": "8731ce1862c13813",
+      "mc_hash": "b100d8001d00bf00"
+    },
+    "upy_layout": null,
+    "identity_strings": [
+      {
+        "addr": "0x00034B9F",
+        "text": "Calliope mini ["
+      },
+      {
+        "addr": "0x00034C76",
+        "text": "2.2.0-rc6-calliope.rc4--g"
+      },
+      {
+        "addr": "0x00034C90",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x000361EA",
+        "text": "MakeCode 3 BLE"
+      }
+    ]
+  },
+  {
+    "name": "makecode-2-radio.hex",
+    "file_size": 647472,
+    "flash_bytes": 229264,
+    "pattern": "A (partial)",
+    "mbr": "stock Nordic (SP=0x7C0)",
+    "vector_0x0": {
+      "SP": "0x000007C0",
+      "PC": "0x000006D1"
+    },
+    "vector_0x1C000": {
+      "SP": "0xA904FD25",
+      "PC": "0xF7FFA808"
+    },
+    "uicr_bootloader_addr": "0x0003C000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": false,
+    "bootloader_first_bytes": null,
+    "pxt_magic": {
+      "addr": 219136,
+      "dal_hash": "e7fed4fd9706052e",
+      "mc_hash": "1400690073004b00"
+    },
+    "upy_layout": null,
+    "identity_strings": [
+      {
+        "addr": "0x0003519F",
+        "text": "Calliope mini ["
+      },
+      {
+        "addr": "0x00035276",
+        "text": "2.2.0-rc6-calliope.rc4--g"
+      },
+      {
+        "addr": "0x00035290",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x000365F2",
+        "text": "MakeCode 2 RADIO"
+      }
+    ]
+  },
+  {
+    "name": "makecode-3-ble.hex",
+    "file_size": 887679,
+    "flash_bytes": 314727,
+    "pattern": "B (full image)",
+    "mbr": "codal (0xB00)",
+    "vector_0x0": {
+      "SP": "0x20000400",
+      "PC": "0x00000A81"
+    },
+    "vector_0x1C000": {
+      "SP": "0x20020000",
+      "PC": "0x00036B1D"
+    },
+    "uicr_bootloader_addr": "0x00077000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": true,
+    "bootloader_first_bytes": "0833202b0a77e3d1002070bd1970bfe7",
+    "pxt_magic": {
+      "addr": 286720,
+      "dal_hash": "f2c18696e64d8403",
+      "mc_hash": "5d002400a300b000"
+    },
+    "upy_layout": null,
+    "identity_strings": [
+      {
+        "addr": "0x000433BC",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x00046DEA",
+        "text": "MakeCode 3 BLE"
+      },
+      {
+        "addr": "0x0007CAFE",
+        "text": "microbit_app"
+      }
+    ]
+  },
+  {
+    "name": "makecode-3-radio.hex",
+    "file_size": 887949,
+    "flash_bytes": 314743,
+    "pattern": "B (full image)",
+    "mbr": "codal (0xB00)",
+    "vector_0x0": {
+      "SP": "0x20000400",
+      "PC": "0x00000A81"
+    },
+    "vector_0x1C000": {
+      "SP": "0x20020000",
+      "PC": "0x00036F05"
+    },
+    "uicr_bootloader_addr": "0x00077000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": true,
+    "bootloader_first_bytes": "0833202b0a77e3d1002070bd1970bfe7",
+    "pxt_magic": {
+      "addr": 286720,
+      "dal_hash": "5260a64ea1db7570",
+      "mc_hash": "f300c200fe00a800"
+    },
+    "upy_layout": null,
+    "identity_strings": [
+      {
+        "addr": "0x000437E8",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x00046DF2",
+        "text": "MakeCode 3 RADIO"
+      },
+      {
+        "addr": "0x0007CAFE",
+        "text": "microbit_app"
+      }
+    ]
+  },
+  {
+    "name": "python_ble.hex",
+    "file_size": 1223928,
+    "flash_bytes": 444988,
+    "pattern": "B (full image)",
+    "mbr": "codal (0xB00)",
+    "vector_0x0": {
+      "SP": "0x20000400",
+      "PC": "0x00000A81"
+    },
+    "vector_0x1C000": {
+      "SP": "0x20020000",
+      "PC": "0x00028775"
+    },
+    "uicr_bootloader_addr": "0x00077000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": true,
+    "bootloader_first_bytes": "0833202b0a77e3d1002070bd1970bfe7",
+    "pxt_magic": null,
+    "upy_layout": {
+      "addr": 421872,
+      "version": 1,
+      "table_len": 48,
+      "num_regions": 3,
+      "regions": [
+        {
+          "id": 1,
+          "ht": 0,
+          "start": "0x00001000",
+          "len": 110592,
+          "hash": "0000000000000000"
+        },
+        {
+          "id": 2,
+          "ht": 2,
+          "start": "0x0001C000",
+          "len": 305572,
+          "hash": "04e4050000000000"
+        },
+        {
+          "id": 3,
+          "ht": 0,
+          "start": "0x0006D000",
+          "len": 24576,
+          "hash": "0000000000000000"
+        }
+      ]
+    },
+    "identity_strings": [
+      {
+        "addr": "0x0005E404",
+        "text": "micro:bit v2.1.2b+9f9e309-dirty on 2026-05-21; MicroPython v1.23.0-1.gb7ce7a84a on 2026-05-21"
+      },
+      {
+        "addr": "0x000606D5",
+        "text": "<meta charset=utf-8><style>.bb{display:flex}.bb>*+*{margin-left:10px}body{font-family:sans-serif;mar"
+      },
+      {
+        "addr": "0x000617B3",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x00061C54",
+        "text": "; Calliope mini v2.1.2b with nRF52833"
+      },
+      {
+        "addr": "0x00065F5C",
+        "text": "Calliope mini with nRF52833"
+      },
+      {
+        "addr": "0x0006632F",
+        "text": "Welcome to MicroPython on the Calliope mini!"
+      },
+      {
+        "addr": "0x000666FB",
+        "text": "For Python/Calliope mini documentation check: https://calliope.cc/programmieren/editoren/python/"
+      },
+      {
+        "addr": "0x0007CAFE",
+        "text": "microbit_app"
+      }
+    ]
+  },
+  {
+    "name": "python_radio.hex",
+    "file_size": 1227938,
+    "flash_bytes": 446431,
+    "pattern": "B (full image)",
+    "mbr": "codal (0xB00)",
+    "vector_0x0": {
+      "SP": "0x20000400",
+      "PC": "0x00000A81"
+    },
+    "vector_0x1C000": {
+      "SP": "0x20020000",
+      "PC": "0x00028761"
+    },
+    "uicr_bootloader_addr": "0x00077000",
+    "softdevice_present": true,
+    "bootloader_at_0x78000": true,
+    "bootloader_first_bytes": "e3fe691e76b30023e26eda4001f8012f",
+    "pxt_magic": null,
+    "upy_layout": {
+      "addr": 421872,
+      "version": 1,
+      "table_len": 48,
+      "num_regions": 3,
+      "regions": [
+        {
+          "id": 1,
+          "ht": 0,
+          "start": "0x00001000",
+          "len": 110592,
+          "hash": "0000000000000000"
+        },
+        {
+          "id": 2,
+          "ht": 2,
+          "start": "0x0001C000",
+          "len": 305544,
+          "hash": "d4e3050000000000"
+        },
+        {
+          "id": 3,
+          "ht": 0,
+          "start": "0x0006D000",
+          "len": 24576,
+          "hash": "0000000000000000"
+        }
+      ]
+    },
+    "identity_strings": [
+      {
+        "addr": "0x0005E3D4",
+        "text": "micro:bit v2.1.2b-radio+a8700d0-dirty on 2026-05-26; MicroPython v1.23.0-1.gb7ce7a84a on 2026-05-26"
+      },
+      {
+        "addr": "0x000606B1",
+        "text": "<meta charset=utf-8><style>.bb{display:flex}.bb>*+*{margin-left:10px}body{font-family:sans-serif;mar"
+      },
+      {
+        "addr": "0x0006178F",
+        "text": "Calliope mini"
+      },
+      {
+        "addr": "0x00061C30",
+        "text": "; Calliope mini v2.1.2b-radio with nRF52833"
+      },
+      {
+        "addr": "0x00065F3E",
+        "text": "Calliope mini with nRF52833"
+      },
+      {
+        "addr": "0x00066311",
+        "text": "Welcome to MicroPython on the Calliope mini!"
+      },
+      {
+        "addr": "0x000666DD",
+        "text": "For Python/Calliope mini documentation check: https://calliope.cc/programmieren/editoren/python/"
+      },
+      {
+        "addr": "0x0007D1AE",
+        "text": "microbit_app"
+      }
+    ]
+  }
+]

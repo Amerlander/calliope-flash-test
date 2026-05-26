@@ -1,0 +1,43 @@
+[
+  {
+    "name": "phase-partial-A-mod",
+    "file": "prog-A-mod.hex",
+    "transport": "ble",
+    "ok": false,
+    "elapsedMs": 19794,
+    "error": "GATT disconnected mid-DFU",
+    "transportsSeen": [],
+    "phasesSeen": [
+      "check",
+      "flashing",
+      "reboot"
+    ],
+    "wallMs": 19851
+  },
+  {
+    "name": "phase-partial-A",
+    "file": "prog-A.hex",
+    "transport": "ble",
+    "ok": false,
+    "elapsedMs": 1725.0999999940395,
+    "error": "Calliope is not exposing the Nordic DFU service",
+    "transportsSeen": [],
+    "phasesSeen": [
+      "reboot"
+    ],
+    "wallMs": 1765
+  },
+  {
+    "name": "phase-dfu-blocks",
+    "file": "prog-B-blocks.hex",
+    "transport": "ble",
+    "ok": false,
+    "elapsedMs": 1633.9000000059605,
+    "error": "Calliope is not exposing the Nordic DFU service",
+    "transportsSeen": [],
+    "phasesSeen": [
+      "reboot"
+    ],
+    "wallMs": 1658
+  }
+]

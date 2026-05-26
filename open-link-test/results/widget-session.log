@@ -1,0 +1,47 @@
+[13:03:36.244] [page:debug] [vite] connecting...
+[13:03:36.296] [page:debug] [vite] connected.
+[13:03:36.586] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[13:03:36.700] [page:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[13:03:37.133] loaded http://127.0.0.1:5179/
+[13:03:37.134] --park: opening browser, you drive. Ctrl+C when done.
+[13:03:39.883] [page:log] [info] USB reconnect daemon armed
+[13:03:40.885] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[13:03:40.885] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[13:04:00.835] [page:log] JSHandle@object
+[13:04:00.835] [page:log] Bluetooth connection status Connecting
+[13:04:14.763] [page:log] JSHandle@object
+[13:04:14.763] [page:log] Bluetooth connection status Connecting
+[13:04:27.951] [page:log] JSHandle@object
+[13:04:27.952] [page:log] Bluetooth connection status Connecting
+[13:04:36.815] [page:debug] [vite] connecting...
+[13:04:36.847] [page:debug] [vite] connected.
+[13:04:36.942] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[13:04:37.198] [page:log] [info] USB reconnect daemon armed
+[13:04:38.202] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[13:04:38.203] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[13:04:41.803] [page:log] JSHandle@object
+[13:04:41.803] [page:log] Bluetooth connection status Connecting
+[13:04:43.012] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:04:43.013] [page:log] JSHandle@object
+[13:04:43.013] [page:log] Bluetooth connection status Connected
+[13:04:43.013] [page:log] [info] Connected (BLE)
+[13:04:43.267] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[13:07:16.136] [page:log] Bluetooth connection status Disconnected
+[13:07:16.137] [page:log] [info] BLE reconnect daemon armed
+[13:07:16.138] [page:log] [info] Disconnected (BLE)
+[13:07:17.122] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[13:07:17.122] [page:log] JSHandle@object
+[13:07:17.122] [page:log] Bluetooth connection status Connecting
+[13:07:59.654] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:07:59.654] [page:log] JSHandle@object
+[13:07:59.654] [page:log] Bluetooth connection status Connected
+[13:07:59.654] [page:log] [info] Connected (BLE)
+[13:07:59.654] [page:log] [info] BLE reconnect daemon stopped: connected
+[13:07:59.909] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0b50f3e4, e97dd91d, 0000180a, 0000fe59]
+[13:10:24.255] [page:log] JSHandle@object
+[13:10:24.256] [page:log] Bluetooth connection status Connecting
+[13:10:24.259] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:10:24.259] [page:log] JSHandle@object
+[13:10:24.259] [page:log] Bluetooth connection status Connected
+[13:10:24.259] [page:log] [info] Connected (BLE)
+[13:10:24.518] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0b50f3e4, e97dd91d, 0000180a, 0000fe59]
