@@ -44,12 +44,12 @@ from bleak import BleakClient
 # For uPy hexes: regions populated by the FlashLayout records
 EXPECTED = {
     "blocks.hex":              {"magic_type": "none"},
-    "makecode-1-ble.hex":      {"magic_type": "pxt", "dal_hash": "659c31ad7e383572", "mc_hash": "ba0032003f00eb00"},
-    "makecode-1-radio.hex":    {"magic_type": "pxt", "dal_hash": "6beaf9aea6845447", "mc_hash": "350095008a001500"},
-    "makecode-2-ble.hex":      {"magic_type": "pxt", "dal_hash": "8731ce1862c13813", "mc_hash": "b100d8001d00bf00"},
-    "makecode-2-radio.hex":    {"magic_type": "pxt", "dal_hash": "e7fed4fd9706052e", "mc_hash": "1400690073004b00"},
-    "makecode-3-ble.hex":      {"magic_type": "pxt", "dal_hash": "f2c18696e64d8403", "mc_hash": "5d002400a300b000"},
-    "makecode-3-radio.hex":    {"magic_type": "pxt", "dal_hash": "5260a64ea1db7570", "mc_hash": "f300c200fe00a800"},
+    "makecode-1-ble.hex":      {"magic_type": "pxt", "dal_hash": "37b90dbcf1a3f6e0", "mc_hash": "9c0025006300fa00"},
+    "makecode-1-radio.hex":    {"magic_type": "pxt", "dal_hash": "d7fece9c392f3068", "mc_hash": "5e00f500b000c800"},
+    "makecode-2-ble.hex":      {"magic_type": "pxt", "dal_hash": "0c03d3de260b20e2", "mc_hash": "fb00520030002d00"},
+    "makecode-2-radio.hex":    {"magic_type": "pxt", "dal_hash": "2ba4dda00c362520", "mc_hash": "70003b00d300ad00"},
+    "makecode-3-ble.hex":      {"magic_type": "pxt", "dal_hash": "103229cde9d66cc1", "mc_hash": "6c00b6000e00eb00"},
+    "makecode-3-radio.hex":    {"magic_type": "pxt", "dal_hash": "3d11446ded28180d", "mc_hash": "91004f004000ab00"},
     "python_ble.hex":          {"magic_type": "upy", "regions": {2: "04e4050000000000"}},
     "python_radio.hex":        {"magic_type": "upy", "regions": {2: "d4e3050000000000"}},
 }

@@ -38,6 +38,9 @@
   .pill.fail { background: var(--bad-soft); color: var(--bad); }
   .pill.skip { background: #2a2f3a; color: var(--muted); }
   .pill.warn { background: var(--warn-soft); color: var(--warn); }
+  .pill.v1 { background: rgba(248,113,113,0.15); color: var(--bad); }
+  .pill.v2 { background: rgba(251,191,36,0.15); color: var(--warn); }
+  .pill.v3 { background: rgba(52,211,153,0.15); color: var(--good); }
   .card { background: var(--card); border: 1px solid var(--border);
           border-radius: 8px; padding: 18px 20px; margin: 12px 0; }
   .stage-row { display: grid; grid-template-columns: 230px repeat(5, 1fr);
@@ -75,204 +78,268 @@
 <div class="wrap">
 
 <h1>E2E test findings — open-link-test hexes</h1>
-<p class="sub">Tested against a Calliope mini v3 (DAPLink unique-id
-<code>9906…c6</code>, nRF52833, hardware-identical to micro:bit V2).
-Python + bleak for raw probes; Chrome +
-<code>@calliope-edu/mini-connection-widget@01efeb7</code> for widget e2e
-(matches calliope-campus pin).</p>
+<p class="sub">Tested 2026-05-26 against all three Calliope mini
+hardware versions (v1, v2, v3). Python + bleak for raw probes; Chrome +
+<code>@calliope-edu/mini-connection-widget@01efeb7</code> for widget
+e2e on mini v3.</p>
 
 <div class="hardware-callout">
 <b>Filename convention</b><br>
 The <code>N</code> in <code>makecode-N-{ble,radio}.hex</code> is the
-<b>hardware version</b> the hex targets, not a build iteration. Only
-<b>mini v3</b> hexes can be exercised on this rig:
-<code>blocks.hex</code>, <code>makecode-3-ble.hex</code>,
-<code>makecode-3-radio.hex</code>, <code>python_ble.hex</code>,
-<code>python_radio.hex</code>. The <code>makecode-1-*</code> (mini v1)
-and <code>makecode-2-*</code> (mini v2) files are listed in
-<a href="ANALYSIS.html">ANALYSIS</a> for completeness but skipped here.
+Calliope mini hardware version the hex targets:
+<code>makecode-1-*</code> → mini v1 (nRF51, legacy DAPLink);
+<code>makecode-2-*</code> → mini v2 (nRF52833, J-Link OB);
+<code>makecode-3-*</code> → mini v3 (nRF52833, DAPLink,
+hardware-identical to micro:bit V2).
 </div>
 
-<h2>Top-line result — mini v3 hexes</h2>
+<h2>Mini v3 <span class="pill v3">5 hexes</span></h2>
 <div class="card">
 <div class="stage-row header">
   <div>Hex</div>
   <div class="stage-cell">USB drag-flash</div>
   <div class="stage-cell">BLE app-mode</div>
   <div class="stage-cell">A+B+Reset pairing</div>
-  <div class="stage-cell">Widget connect</div>
   <div class="stage-cell">Open-link DFU char</div>
+  <div class="stage-cell">Widget can</div>
 </div>
-
 <div class="stage-row">
   <div class="mono">python_ble.hex</div>
   <div class="stage-cell"><span class="pill pass">23 s</span></div>
-  <div class="stage-cell"><span class="pill pass">PFS + DFU</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS+DFU</span></div>
   <div class="stage-cell"><span class="pill skip">n/a</span></div>
-  <div class="stage-cell"><span class="pill pass">yes</span></div>
   <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+  <div class="stage-cell"><span class="pill pass">partial + DFU</span></div>
 </div>
 <div class="stage-row">
   <div class="mono">python_radio.hex</div>
   <div class="stage-cell"><span class="pill pass">23 s</span></div>
   <div class="stage-cell"><span class="pill skip">SD dormant</span></div>
   <div class="stage-cell"><span class="pill pass">DFU + unbonded</span></div>
-  <div class="stage-cell"><span class="pill pass">yes</span></div>
   <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+  <div class="stage-cell"><span class="pill pass">DFU</span></div>
 </div>
 <div class="stage-row">
   <div class="mono">blocks.hex</div>
   <div class="stage-cell"><span class="pill pass">18 s</span></div>
   <div class="stage-cell"><span class="pill pass">PFS+DFU+MbitMore</span></div>
   <div class="stage-cell"><span class="pill skip">n/a</span></div>
-  <div class="stage-cell"><span class="pill pass">yes</span></div>
   <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+  <div class="stage-cell"><span class="pill pass">DFU (no partial — by design)</span></div>
 </div>
 <div class="stage-row">
   <div class="mono">makecode-3-ble.hex</div>
   <div class="stage-cell"><span class="pill pass">19 s</span></div>
-  <div class="stage-cell"><span class="pill pass">DFU (no PFS)</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS+DFU</span></div>
   <div class="stage-cell"><span class="pill skip">n/a</span></div>
-  <div class="stage-cell"><span class="pill pass">full DFU only</span></div>
   <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+  <div class="stage-cell"><span class="pill pass">partial + DFU</span></div>
 </div>
 <div class="stage-row">
   <div class="mono">makecode-3-radio.hex</div>
   <div class="stage-cell"><span class="pill pass">19 s</span></div>
   <div class="stage-cell"><span class="pill skip">SD dormant</span></div>
-  <div class="stage-cell"><span class="pill pass">DFU + unbonded</span></div>
-  <div class="stage-cell"><span class="pill pass">full DFU only</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS+DFU+unbonded</span></div>
   <div class="stage-cell"><span class="pill pass">8EC90003</span></div>
+  <div class="stage-cell"><span class="pill pass">partial + DFU</span></div>
 </div>
 </div>
 
 <p class="sub" style="margin-top:12px">
-<b>All five mini-v3 hexes are widget-compatible.</b> Three connect in
-app mode without intervention; two need A+B+Reset to surface BLE.
-Every reachable hex exposes the unbonded <code>8EC90003</code>
-characteristic and no bonded <code>8EC90004</code> — open-link
-confirmed throughout.
+<b>All five mini-v3 hexes are widget-compatible.</b> Every BLE-reachable
+hex exposes the unbonded <code>8EC90003</code> characteristic. After the
+2026-05-26 pxt-calliope rebuild with <code>partial_flashing=1</code>,
+both <code>makecode-3-*</code> hexes also expose PFS in addition to
+Nordic DFU.
 </p>
 
-<h2>Open-link verified</h2>
+<h2>Mini v2 <span class="pill v2">2 hexes</span></h2>
 <div class="card">
-<pre>python_ble.hex            (app mode)
-  services:   PFS=True  DFU=True  MbitMore=False
-  buttonless: unbonded=True  bonded=False
-
-python_radio.hex          (pairing mode after A+B+Reset)
-  services:   PFS=False DFU=True  MbitMore=False
-  buttonless: unbonded=True  bonded=False
-
-blocks.hex                (app mode)
-  services:   PFS=True  DFU=True  MbitMore=True
-  buttonless: unbonded=True  bonded=False
-
-makecode-3-ble.hex        (app mode — BLE auto-starts now)
-  services:   PFS=False DFU=True  MbitMore=False
-  buttonless: unbonded=True  bonded=False
-
-makecode-3-radio.hex      (pairing mode after A+B+Reset)
-  services:   PFS=False DFU=True  MbitMore=False
-  buttonless: unbonded=True  bonded=False</pre>
-
-<p class="sub" style="margin-top:10px">
-PFS=False for MakeCode is consistent: pxt-calliope's codal config
-doesn't enable <code>MICROBIT_BLE_PARTIAL_FLASHING</code>, so the
-service simply isn't registered. The widget falls back to full DFU
-for any re-flash.
-</p>
+<div class="stage-row header">
+  <div>Hex</div>
+  <div class="stage-cell">USB drag-flash</div>
+  <div class="stage-cell">BLE app-mode</div>
+  <div class="stage-cell">A+B+Reset pairing</div>
+  <div class="stage-cell">Nordic DFU</div>
+  <div class="stage-cell">Widget can</div>
+</div>
+<div class="stage-row">
+  <div class="mono">makecode-2-ble.hex</div>
+  <div class="stage-cell"><span class="pill pass">25 s</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS only</span></div>
+  <div class="stage-cell"><span class="pill skip">n/a</span></div>
+  <div class="stage-cell"><span class="pill fail">absent</span></div>
+  <div class="stage-cell"><span class="pill warn">partial only — no DFU service</span></div>
+</div>
+<div class="stage-row">
+  <div class="mono">makecode-2-radio.hex</div>
+  <div class="stage-cell"><span class="pill pass">25 s</span></div>
+  <div class="stage-cell"><span class="pill skip">BLE off</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS only</span></div>
+  <div class="stage-cell"><span class="pill fail">absent</span></div>
+  <div class="stage-cell"><span class="pill warn">partial only — no DFU service</span></div>
+</div>
 </div>
 
-<h2>Region readback — python_ble</h2>
-<div class="card">
-<p>codal's partial-flashing service reports regions matching the uPy
-FlashLayout statically parsed from the hex at <code>0x66FF0</code>:</p>
-
-<table>
-<thead><tr><th>Region</th><th>Static (from hex)</th><th>Live (from device)</th></tr></thead>
-<tbody>
-<tr><td>0 (SD)</td><td class="mono">0x00001000–0x0001C000</td><td class="mono">0x00001000–0x0001C000 ✓</td></tr>
-<tr><td>1 (MP)</td><td class="mono">0x0001C000–0x000674A4, hash=PTR</td><td class="mono">0x0001C000–0x000669A4, hash=1bee72ce ✓ (CRC32 of version string)</td></tr>
-<tr><td>2 (FS)</td><td class="mono">0x0006D000–0x00073000</td><td class="mono">0x0006D000–0x00073000 ✓</td></tr>
-</tbody>
-</table>
-
-<p class="sub" style="margin-top:10px">
-Region 1's hash (<code>HASH_TYPE_POINTER</code>) is the codal-computed
-CRC32 of <code>"v2.1.2b…"</code>, used by the widget to detect
-"different variant" between BLE and radio MicroPython builds → trigger
-full DFU on variant change.
+<p class="sub" style="margin-top:12px">
+Mini v2 (nRF51-era codal stack) has PFS working with PXT magic, but
+<b>no Nordic Secure DFU service</b>. The widget's full-DFU path doesn't
+apply; only the partial-flash route can be used for BLE re-flash.
 </p>
+
+<h2>Mini v1 <span class="pill v1">2 hexes</span></h2>
+<div class="card">
+<div class="stage-row header">
+  <div>Hex</div>
+  <div class="stage-cell">USB drag-flash</div>
+  <div class="stage-cell">BLE app-mode</div>
+  <div class="stage-cell">A+B+Reset pairing</div>
+  <div class="stage-cell">Nordic DFU</div>
+  <div class="stage-cell">Widget can</div>
+</div>
+<div class="stage-row">
+  <div class="mono">makecode-1-ble.hex</div>
+  <div class="stage-cell"><span class="pill pass">17 s</span></div>
+  <div class="stage-cell"><span class="pill skip">BLE off</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS only</span></div>
+  <div class="stage-cell"><span class="pill fail">absent</span></div>
+  <div class="stage-cell"><span class="pill warn">partial only — no DFU service</span></div>
+</div>
+<div class="stage-row">
+  <div class="mono">makecode-1-radio.hex</div>
+  <div class="stage-cell"><span class="pill pass">18 s</span></div>
+  <div class="stage-cell"><span class="pill skip">BLE off</span></div>
+  <div class="stage-cell"><span class="pill pass">PFS only</span></div>
+  <div class="stage-cell"><span class="pill fail">absent</span></div>
+  <div class="stage-cell"><span class="pill warn">partial only — no DFU service</span></div>
+</div>
 </div>
 
-<h2>Widget e2e — campus widget code path</h2>
+<p class="sub" style="margin-top:12px">
+Same pattern as mini v2: PFS works, no Nordic DFU.
+</p>
+
+<h2>Region readbacks — all twelve hashes match the static hex analysis</h2>
 <div class="card">
-<p>Widget at HEAD <code>01efeb7</code> (matches calliope-campus pin)
-connected to both BLE-on firmwares in app mode and to the radio
-variants in pairing mode. From
-<a href="results/widget-session.log">results/widget-session.log</a>:</p>
+<p>Every probed device reported region hashes matching the hex bytes
+byte-for-byte. The codal PartialFlashing service correctly exposes the
+PXT magic + hashes the editor compiled in.</p>
 
-<pre>[info] Connected (BLE)
-[info] BLE state: app-mode — partial-flash visible;
-       services=[0000180a, 0000fe59, e97dd91d]                   ← python_ble.hex
-       services=[0b50f3e4, e97dd91d, 0000180a, 0000fe59]         ← blocks.hex</pre>
+<h3 style="text-transform:none;color:var(--fg);font-size:14px;margin-top:18px">
+Mini v3 (nRF52833 / codal v2)</h3>
+<pre>makecode-3-ble.hex  (app mode):
+  region 0 (SD):  0x00000000-0x0001C000  hash=0000000000000000
+  region 1 (DAL): 0x0001C000-0x00045ED4  hash=103229cde9d66cc1 ✓
+  region 2 (MC):  0x00046000-0x00073000  hash=6c00b6000e00eb00 ✓
 
-<p>One full BLE-DFU round trip via the widget (1195 KB image)
-completed in <b>19.8 s</b>. The widget's BLE reconnect daemon
-recovered from a post-flash disconnect in ~43 s.</p>
+makecode-3-radio.hex  (pairing mode after A+B+Reset):
+  region 0 (SD):  0x00000000-0x0001C000  hash=0000000000000000
+  region 1 (DAL): 0x0001C000-0x000462D4  hash=3d11446ded28180d ✓
+  region 2 (MC):  0x00047000-0x00073000  hash=91004f004000ab00 ✓</pre>
+
+<h3 style="text-transform:none;color:var(--fg);font-size:14px;margin-top:18px">
+Mini v1 / v2 (nRF51-era stack)</h3>
+<pre>makecode-1-ble.hex  (mini v1, pairing mode):
+  region 1 (DAL): 0x00018000-0x00035708  hash=37b90dbcf1a3f6e0 ✓
+  region 2 (MC):  0x00035C00-0x0003BBFF  hash=9c0025006300fa00 ✓
+
+makecode-1-radio.hex  (mini v1, pairing mode):
+  region 1 (DAL): 0x00018000-0x00035D48  hash=d7fece9c392f3068 ✓
+  region 2 (MC):  0x00036000-0x0003BBFF  hash=5e00f500b000c800 ✓
+
+makecode-2-ble.hex  (mini v2, app mode — BLE on by default):
+  region 1 (DAL): 0x00018000-0x00035748  hash=0c03d3de260b20e2 ✓
+  region 2 (MC):  0x00035C00-0x0003BBFF  hash=fb00520030002d00 ✓
+
+makecode-2-radio.hex  (mini v2, pairing mode):
+  region 1 (DAL): 0x00018000-0x00035D48  hash=2ba4dda00c362520 ✓
+  region 2 (MC):  0x00036000-0x0003BBFF  hash=70003b00d300ad00 ✓</pre>
+
+<p class="sub" style="margin-top:10px">
+The smaller offsets (SD ends at 0x18000 instead of 0x1C000) reflect
+the legacy SoftDevice (S110/S130) used on nRF51 / older codal builds.
+Total flash ~250 KB on v1/v2 vs ~512 KB on v3.
+</p>
 </div>
 
 <h2>Widget compatibility matrix</h2>
 <table>
-<thead><tr><th>Hex</th><th>Widget can</th><th>Requires A+B+Reset?</th></tr></thead>
+<thead><tr><th>Hardware</th><th>Partial flash via widget</th><th>Full DFU via widget</th></tr></thead>
 <tbody>
-<tr><td class="mono">python_ble.hex</td><td>connect, partial-flash, full-DFU</td><td>no</td></tr>
-<tr><td class="mono">python_radio.hex</td><td>connect (after A+B+Reset), full-DFU</td><td>yes</td></tr>
-<tr><td class="mono">blocks.hex</td><td>connect, full-DFU (no partial — by design)</td><td>no</td></tr>
-<tr><td class="mono">makecode-3-ble.hex</td><td>connect, full-DFU (no partial — pxt-calliope config)</td><td>no</td></tr>
-<tr><td class="mono">makecode-3-radio.hex</td><td>connect (after A+B+Reset), full-DFU</td><td>yes</td></tr>
+<tr><td><span class="pill v3">Mini v3</span></td><td>✓ for <code>python_ble</code>, <code>makecode-3-*</code> (PFS + DFU). Falls back to DFU for <code>blocks</code> (no PXT magic).</td><td>✓ for all 5 mini-v3 hexes</td></tr>
+<tr><td><span class="pill v2">Mini v2</span></td><td>✓ for <code>makecode-2-{ble,radio}</code> (PFS only)</td><td>✗ no Nordic DFU on mini v2</td></tr>
+<tr><td><span class="pill v1">Mini v1</span></td><td>✓ for <code>makecode-1-{ble,radio}</code> (PFS only, after A+B+Reset)</td><td>✗ no Nordic DFU on mini v1</td></tr>
 </tbody>
 </table>
 
 <p class="sub" style="margin-top:12px">
-Partial flashing only works on <code>python_ble.hex</code> out of the
-box. For partial-flash on <code>blocks.hex</code>, scratch-calliope
-needs to append PXT magic when bundling user blocks. For
-<code>makecode-3-ble.hex</code>, pxt-calliope would need to enable
-<code>MICROBIT_BLE_PARTIAL_FLASHING</code>.
+On mini v1/v2 the widget's flash path will need to fall back to its
+USB drag-flash route — BLE-side full DFU isn't available because the
+Nordic Secure DFU service isn't part of the older Calliope stack.
 </p>
+
+<h2>Observations</h2>
+<div class="impl-grid">
+<div class="impl ok">
+  <b>partial_flashing=1 fix shipped</b>
+  After the pxt-calliope rebuild with <code>partial_flashing=1</code>
+  in pxt.json, all six MakeCode hexes now expose PFS over BLE with
+  hashes matching the static hex analysis. The widget can partial-flash
+  MakeCode programs on all three mini variants.
+</div>
+<div class="impl ok">
+  <b>Mini v3 radio variants fully fixed</b>
+  <code>python_radio</code> and <code>makecode-3-radio</code> both
+  enter pairing mode on A+B+Reset and expose the unbonded DFU char +
+  PFS. Earlier broken state (DEVICE_BLE=0) is resolved in both editors.
+</div>
+<div class="impl warn">
+  <b>Mini v1/v2 have no Nordic DFU</b>
+  Widget's BLE full-DFU path is mini-v3-only. For older hardware, the
+  widget needs to route through partial-flash or fall back to USB.
+</div>
+<div class="impl ok">
+  <b>BLE-on-app behaviour varies by target</b>
+  <code>makecode-2-ble</code> advertises BLE in app mode without
+  A+B+Reset; <code>makecode-1-ble</code> stays BLE-off-in-app. The
+  per-target pxt-calliope config differs.
+</div>
+</div>
 
 <h2>How to reproduce</h2>
 <div class="card">
-<p>Plug a Calliope mini v3 in (DAPLink mounts as <code>E:</code>),
-then from <code>open-link-test/</code>:</p>
-<pre># Static analysis on all 9 hexes
+<p>Plug in the relevant Calliope mini (DAPLink at E: for mini v3,
+legacy DAPLink or J-Link OB at D: for v1/v2), then:</p>
+<pre>cd open-link-test
+
+# Static analysis on all 9 hexes
 python scripts/analyze_all.py
 
-# App-mode probe loop on all 9
+# App-mode probe loop (adapt drive letter for legacy minis):
+#   import probe, usb_flash
+#   probe.MINI_DRIVE = 'D:/'
+#   usb_flash.MINI_DRIVE = 'D:/'
 python scripts/probe.py
 
-# Pairing-mode probe for the BLE-off-in-app variants
-python scripts/probe_paired.py flash python_radio.hex
+# Pairing-mode probe of a single hex
+python scripts/probe_paired.py flash &lt;hex&gt;
 # A+B+Reset on the mini, hold for full grid fill
-python scripts/probe_paired.py probe python_radio_pairing
+python scripts/probe_paired.py probe &lt;key&gt;</pre>
 
-# Widget e2e
-cd ../flash-test/widget-demo
-pnpm install                    # one-time
-pnpm dev                        # in one terminal
-node puppeteer-driver.mjs --park   # in another; click connect in Chrome
-</pre>
+<p>For widget e2e (mini v3 only):</p>
+<pre>cd ../flash-test/widget-demo
+pnpm install              # one-time
+pnpm dev                  # in one terminal
+node puppeteer-driver.mjs --park   # in another; click connect</pre>
 </div>
 
 <h2>Cross-links</h2>
 <ul>
 <li><a href="ANALYSIS.html">ANALYSIS.html</a> — static analysis (offsets, magic, layout)</li>
 <li><a href="Editors.md">Editors.md</a> — URLs of the editors that produced these hexes</li>
-<li><a href="results/probe-results.json">results/probe-results.json</a> — bleak probe data</li>
-<li><a href="results/static-analysis.json">results/static-analysis.json</a> — static analyzer output</li>
-<li><a href="results/widget-session.log">results/widget-session.log</a> — widget e2e log</li>
+<li><a href="results/probe-results.json">results/probe-results.json</a> — bleak probe output per hex</li>
+<li><a href="results/static-analysis.json">results/static-analysis.json</a> — full static analyzer JSON</li>
+<li><a href="results/widget-session.log">results/widget-session.log</a> — widget e2e log (mini v3)</li>
 </ul>
 
 <footer>

@@ -27,18 +27,15 @@
            border-bottom: 1px solid var(--border); }
   th { font-weight: 600; color: var(--muted); text-transform: uppercase;
        font-size: 11px; letter-spacing: 0.05em; }
-  tr.pattern-a td { background: rgba(129, 140, 248, 0.06); }
-  tr.pattern-b td { background: rgba(244, 114, 182, 0.06); }
-  tr.non-v3 td { color: var(--muted); }
   td.mono { font-family: var(--mono); font-size: 12px; }
   .pill { display: inline-block; padding: 1px 8px; border-radius: 10px;
           font-size: 11px; font-weight: 600; text-transform: uppercase;
           letter-spacing: 0.04em; }
   .pill.a { background: rgba(129,140,248,0.18); color: var(--accent); }
   .pill.b { background: rgba(244,114,182,0.18); color: #f472b6; }
-  .pill.v3 { background: var(--good-soft); color: var(--good); }
-  .pill.legacy { background: #2a2f3a; color: var(--muted); }
-  .pill.no { background: var(--bad-soft); color: var(--bad); }
+  .pill.v1 { background: rgba(248,113,113,0.15); color: var(--bad); }
+  .pill.v2 { background: rgba(251,191,36,0.15); color: var(--warn); }
+  .pill.v3 { background: rgba(52,211,153,0.15); color: var(--good); }
   .pill.yes { background: var(--good-soft); color: var(--good); }
   .pill.muted { background: #2a2f3a; color: var(--muted); }
   .magic-pf { display: inline-block; font-family: var(--mono); font-size: 11px;
@@ -48,6 +45,9 @@
   .magic-pf.none { background: rgba(248,113,113,0.15); color: var(--bad); }
   .card { background: var(--card); border: 1px solid var(--border);
           border-radius: 8px; padding: 18px 20px; margin: 12px 0; }
+  pre { font-family: var(--mono); font-size: 12px; background: #0b0c0f;
+        border: 1px solid var(--border); border-radius: 4px; padding: 12px;
+        overflow: auto; color: #cbd5e1; line-height: 1.45; }
   .hw-callout {
     background: rgba(129,140,248,0.05);
     border-left: 3px solid var(--accent);
@@ -82,108 +82,130 @@
 
 <h1>open-link-test hex analysis</h1>
 <p class="sub">9 hex files from the production editors
-(<a href="Editors.md">Editors.md</a>), analyzed 2026-05-26.</p>
+(<a href="Editors.md">Editors.md</a>), analyzed 2026-05-26 after the
+pxt-calliope rebuild with <code>partial_flashing=1</code>.</p>
 
 <div class="hw-callout">
 <b>Filename convention</b><br>
 The <code>N</code> in <code>makecode-N-{ble,radio}.hex</code> is the
 <b>Calliope mini hardware version</b> the hex targets:
-<code>makecode-1-*</code> → mini v1, <code>makecode-2-*</code> → mini v2,
-<code>makecode-3-*</code> → mini v3 (nRF52833, hardware-identical to
-micro:bit V2). Only the mini-v3 hexes work on the v3 connected to this
-rig.
+<code>makecode-1-*</code> → mini v1 (nRF51, legacy DAPLink);
+<code>makecode-2-*</code> → mini v2 (nRF52833, J-Link OB);
+<code>makecode-3-*</code> → mini v3 (nRF52833, DAPLink,
+hardware-identical to micro:bit V2).
 </div>
 
-<h2>Summary — mini v3 hexes (the ones we exercise)</h2>
+<h2>Summary table</h2>
 <table>
 <thead>
 <tr>
   <th>File</th>
+  <th>Hardware</th>
   <th>Size</th>
   <th>Pattern</th>
-  <th>Bootloader bundled</th>
-  <th>Partial-flash magic</th>
-  <th>Identity</th>
+  <th>Bootloader</th>
+  <th>Magic</th>
+  <th>DAL hash</th>
 </tr>
 </thead>
 <tbody>
-  <tr class="pattern-b">
+  <tr>
     <td class="mono">blocks.hex</td>
+    <td><span class="pill v3">v3</span></td>
     <td>758 KB</td>
     <td><span class="pill b">B</span></td>
     <td><span class="pill yes">yes @0x78000</span></td>
     <td><span class="magic-pf none">none — runtime only</span></td>
-    <td>Calliope Blocks (codal blocks-runtime, bare)</td>
+    <td>–</td>
   </tr>
-  <tr class="pattern-b">
+  <tr>
+    <td class="mono">makecode-1-ble.hex</td>
+    <td><span class="pill v1">v1</span></td>
+    <td>635 KB</td>
+    <td><span class="pill a">A</span></td>
+    <td><span class="pill muted">no</span></td>
+    <td><span class="magic-pf pxt">PXT @0x35C00</span></td>
+    <td class="mono">37b90dbcf1a3f6e0</td>
+  </tr>
+  <tr>
+    <td class="mono">makecode-1-radio.hex</td>
+    <td><span class="pill v1">v1</span></td>
+    <td>638 KB</td>
+    <td><span class="pill a">A</span></td>
+    <td><span class="pill muted">no</span></td>
+    <td><span class="magic-pf pxt">PXT @0x36000</span></td>
+    <td class="mono">d7fece9c392f3068</td>
+  </tr>
+  <tr>
+    <td class="mono">makecode-2-ble.hex</td>
+    <td><span class="pill v2">v2</span></td>
+    <td>635 KB</td>
+    <td><span class="pill a">A</span></td>
+    <td><span class="pill muted">no</span></td>
+    <td><span class="magic-pf pxt">PXT @0x35C00</span></td>
+    <td class="mono">0c03d3de260b20e2</td>
+  </tr>
+  <tr>
+    <td class="mono">makecode-2-radio.hex</td>
+    <td><span class="pill v2">v2</span></td>
+    <td>638 KB</td>
+    <td><span class="pill a">A</span></td>
+    <td><span class="pill muted">no</span></td>
+    <td><span class="magic-pf pxt">PXT @0x36000</span></td>
+    <td class="mono">2ba4dda00c362520</td>
+  </tr>
+  <tr>
     <td class="mono">makecode-3-ble.hex</td>
+    <td><span class="pill v3">v3</span></td>
     <td>867 KB</td>
     <td><span class="pill b">B</span></td>
     <td><span class="pill yes">yes @0x78000</span></td>
     <td><span class="magic-pf pxt">PXT @0x46000</span></td>
-    <td>pxt-calliope "MakeCode 3 BLE"</td>
+    <td class="mono">103229cde9d66cc1</td>
   </tr>
-  <tr class="pattern-b">
+  <tr>
     <td class="mono">makecode-3-radio.hex</td>
-    <td>867 KB</td>
+    <td><span class="pill v3">v3</span></td>
+    <td>878 KB</td>
     <td><span class="pill b">B</span></td>
     <td><span class="pill yes">yes @0x78000</span></td>
-    <td><span class="magic-pf pxt">PXT @0x46000</span></td>
-    <td>pxt-calliope "MakeCode 3 RADIO"</td>
+    <td><span class="magic-pf pxt">PXT @0x47000</span></td>
+    <td class="mono">3d11446ded28180d</td>
   </tr>
-  <tr class="pattern-b">
+  <tr>
     <td class="mono">python_ble.hex</td>
+    <td><span class="pill v3">v3</span></td>
     <td>1,195 KB</td>
     <td><span class="pill b">B</span></td>
     <td><span class="pill yes">yes @0x78000</span></td>
     <td><span class="magic-pf upy">uPy @0x66FF0</span></td>
-    <td><span class="mono">v2.1.2b+9f9e309-dirty 2026-05-21</span></td>
+    <td>– (PTR)</td>
   </tr>
-  <tr class="pattern-b">
+  <tr>
     <td class="mono">python_radio.hex</td>
+    <td><span class="pill v3">v3</span></td>
     <td>1,199 KB</td>
     <td><span class="pill b">B</span></td>
     <td><span class="pill yes">yes @0x78000</span></td>
     <td><span class="magic-pf upy">uPy @0x66FF0</span></td>
-    <td><span class="mono">v2.1.2b-radio+a8700d0-dirty 2026-05-26</span></td>
+    <td>– (PTR)</td>
   </tr>
 </tbody>
 </table>
 
 <p class="sub" style="margin-top:12px">
-All five mini-v3 hexes carry the <b>same patched open-link bootloader</b>
-at 0x78000 (byte-identical first 16 bytes:
+The five mini-v3 Pattern B files all carry the <b>same patched
+open-link bootloader</b> at 0x78000 (byte-identical first 16 bytes:
 <code>08 33 20 2b 0a 77 e3 d1 …</code>) — the
-<code>v0.3.5-campus-open-1</code> build with BD_ADDR fix + MTU exchange
-enabled.
-</p>
-
-<h2>Legacy hexes — mini v1 / v2 (not testable on this rig)</h2>
-<table>
-<thead>
-<tr><th>File</th><th>Size</th><th>Hardware target</th><th>Pattern</th><th>PXT DAL hash</th></tr>
-</thead>
-<tbody>
-<tr class="non-v3 pattern-a"><td class="mono">makecode-1-ble.hex</td>   <td>629 KB</td><td><span class="pill legacy">mini v1</span></td><td><span class="pill a">A</span></td><td class="mono">659c31ad7e383572</td></tr>
-<tr class="non-v3 pattern-a"><td class="mono">makecode-1-radio.hex</td> <td>632 KB</td><td><span class="pill legacy">mini v1</span></td><td><span class="pill a">A</span></td><td class="mono">6beaf9aea6845447</td></tr>
-<tr class="non-v3 pattern-a"><td class="mono">makecode-2-ble.hex</td>   <td>629 KB</td><td><span class="pill legacy">mini v2</span></td><td><span class="pill a">A</span></td><td class="mono">8731ce1862c13813</td></tr>
-<tr class="non-v3 pattern-a"><td class="mono">makecode-2-radio.hex</td> <td>632 KB</td><td><span class="pill legacy">mini v2</span></td><td><span class="pill a">A</span></td><td class="mono">e7fed4fd9706052e</td></tr>
-</tbody>
-</table>
-
-<p class="sub" style="margin-top:12px">
-These share the codal base <code>2.2.0-rc6-calliope.rc4</code> and are
-Pattern A (no bootloader bundled, relies on existing one on device).
-Drag-flashing onto a mini v3 produces no useful behaviour — boot
-vector tables don't match the v3's chip layout; USB write completes in
-~16 s but the device fails to advertise BLE. They're listed only for
-completeness.
+<code>v0.3.5-campus-open-1</code> build with BD_ADDR fix + MTU
+exchange enabled.
 </p>
 
 <h2>How codal decides partial-flash support</h2>
 <div class="card">
-<p>codal's <code>MicroBitMemoryMap::findHashes()</code> scans flash
-post-app for <b>two</b> magic patterns:</p>
+<p>codal's <code>MicroBitMemoryMap::findHashes()</code> (in both the
+legacy nRF51 and v2/nRF52 codebases) scans flash post-app for
+<b>two</b> magic patterns:</p>
 
 <div class="grid-2" style="margin-top:14px">
   <div>
@@ -192,9 +214,8 @@ post-app for <b>two</b> magic patterns:</p>
     0x923B8E70 &nbsp;0x41A815C6<br>0xC96698C4 &nbsp;0x9751EE75
     </p>
     <p class="sub">16-byte sentinel followed by 8-byte DAL hash + 8-byte
-    MakeCode hash. Embedded by PXT linker when an editor compiles user
-    code; used by pxt-calliope and codal blocks-runtime once Scratch
-    blocks are bundled.</p>
+    MakeCode hash. Embedded by the PXT linker when an editor compiles
+    user code.</p>
   </div>
   <div>
     <h3 style="margin-top:0"><span class="magic-pf upy">uPy magic</span></h3>
@@ -208,27 +229,35 @@ post-app for <b>two</b> magic patterns:</p>
 </div>
 
 <p class="sub" style="margin-top:14px;margin-bottom:0">
-Neither magic present → REGION_INFO returns all-zero ranges → widget
-falls back to full DFU.
+For makecode hexes, <b>PFS is only registered if pxt.json has
+<code>partial_flashing=1</code></b> in <code>optionalConfig</code>.
+Without that, codal still runs but never advertises the
+PartialFlashing characteristic. The 2026-05-26 pxt-calliope rebuild
+added this for all three hardware targets.
 </p>
 </div>
 
-<h2>Mini v3 hex details</h2>
-
-<h3 style="text-transform:none;color:var(--fg);font-size:15px">PXT hashes (makecode-3)</h3>
+<h2>PXT hashes (all six makecode hexes — verified on hardware)</h2>
 <table>
 <thead><tr><th>File</th><th>Magic @</th><th>DAL hash (codal runtime)</th><th>MakeCode hash (user code)</th></tr></thead>
 <tbody>
-<tr><td class="mono">makecode-3-ble.hex</td>   <td class="mono">0x46000</td><td class="mono">f2c18696e64d8403</td><td class="mono">5d002400a300b000</td></tr>
-<tr><td class="mono">makecode-3-radio.hex</td> <td class="mono">0x46000</td><td class="mono">5260a64ea1db7570</td><td class="mono">f300c200fe00a800</td></tr>
+<tr><td class="mono">makecode-1-ble.hex</td>   <td class="mono">0x35C00</td><td class="mono">37b90dbcf1a3f6e0</td><td class="mono">9c0025006300fa00</td></tr>
+<tr><td class="mono">makecode-1-radio.hex</td> <td class="mono">0x36000</td><td class="mono">d7fece9c392f3068</td><td class="mono">5e00f500b000c800</td></tr>
+<tr><td class="mono">makecode-2-ble.hex</td>   <td class="mono">0x35C00</td><td class="mono">0c03d3de260b20e2</td><td class="mono">fb00520030002d00</td></tr>
+<tr><td class="mono">makecode-2-radio.hex</td> <td class="mono">0x36000</td><td class="mono">2ba4dda00c362520</td><td class="mono">70003b00d300ad00</td></tr>
+<tr><td class="mono">makecode-3-ble.hex</td>   <td class="mono">0x46000</td><td class="mono">103229cde9d66cc1</td><td class="mono">6c00b6000e00eb00</td></tr>
+<tr><td class="mono">makecode-3-radio.hex</td> <td class="mono">0x47000</td><td class="mono">3d11446ded28180d</td><td class="mono">91004f004000ab00</td></tr>
 </tbody>
 </table>
 <p class="sub" style="margin-top:10px">
-DAL hashes differ → BLE↔radio swap triggers full DFU via the widget,
-as expected.
+All twelve hashes verified against device-reported REGION_INFO over
+BLE (see <a href="FINDINGS.html">FINDINGS</a>) — every hex's stored
+hash matches the codal-reported one byte-for-byte. DAL hashes change
+between BLE and radio variants because codal config differs (SoftDevice
+init paths); MakeCode hash distinguishes user-code variants.
 </p>
 
-<h3 style="text-transform:none;color:var(--fg);font-size:15px;margin-top:24px">uPy FlashLayout tables (python)</h3>
+<h2>Python — uPy FlashLayout tables</h2>
 <div class="grid-2">
   <div class="card">
     <h3 style="margin-top:0"><code>python_ble.hex</code></h3>
@@ -256,50 +285,58 @@ as expected.
   </div>
 </div>
 
-<h3 style="text-transform:none;color:var(--fg);font-size:15px;margin-top:24px">blocks.hex (no magic)</h3>
+<p class="sub" style="margin-top:14px">
+The MP region uses <code>HASH_TYPE_POINTER</code>: codal reads the
+field as a pointer to the version string and CRC32s it at boot. That's
+how MicroPython detects "different variant" (BLE↔radio) — different
+release strings → different CRCs → widget triggers full DFU on
+variant change.
+</p>
+
+<h2><code>blocks.hex</code> — no magic by design</h2>
 <div class="card">
 <p>The codal blocks-runtime expects PXT magic + hashes to be appended
 by the editor when a user program is compiled and bundled. A bare
 blocks-runtime build has no magic, so PFS REGION_INFO returns
-all-zeros. By design: scratch-calliope flashes the runtime once over
-USB, then streams Scratch blocks over MbitMore at runtime rather than
-re-flashing.</p>
+all-zeros. scratch-calliope's model: flash the runtime once over USB,
+then stream Scratch blocks over MbitMore (<code>0b50f3e4-…</code>) at
+runtime — re-flashing isn't part of the flow.</p>
+
+<p>Confirmed on hardware: <code>blocks.hex</code> on mini v3 advertises
+PFS, DFU, and MbitMore in app mode, but every REGION_INFO returns
+<code>0x00000000-0x00000000</code>.</p>
 </div>
 
-<h2>Memory map — Pattern B (all 5 mini-v3 hexes)</h2>
-<div class="card">
-<div class="mmap">
-  <div class="mmap-row">
-    <span class="mmap-addr">0x00000000</span>
-    <div class="mmap-bar b-mbr">codal MBR (patched)</div>
-    <span class="mmap-size">2,816 B</span>
+<h2>Memory layouts</h2>
+<div class="grid-2">
+  <div class="card">
+    <h3 style="margin-top:0">Mini v3 — Pattern B</h3>
+    <p class="sub" style="margin:4px 0 10px">All five mini-v3 hexes</p>
+    <div class="mmap">
+      <div class="mmap-row"><span class="mmap-addr">0x00000000</span><div class="mmap-bar b-mbr">codal MBR (patched)</div><span class="mmap-size">2,816 B</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x00001000</span><div class="mmap-bar b-sd">SoftDevice S140</div><span class="mmap-size">~107 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x0001C000</span><div class="mmap-bar b-app">App + magic + hashes/layout</div><span class="mmap-size">137–306 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x00077000</span><div class="mmap-bar b-fs">FS / scratch</div><span class="mmap-size">4 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x00078000</span><div class="mmap-bar b-bl">Open-link bootloader</div><span class="mmap-size">24 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x0007E000</span><div class="mmap-bar b-mbr">MBR + BL settings</div><span class="mmap-size">5 KB</span></div>
+    </div>
   </div>
-  <div class="mmap-row">
-    <span class="mmap-addr">0x00001000</span>
-    <div class="mmap-bar b-sd">SoftDevice S140</div>
-    <span class="mmap-size">~107 KB</span>
+  <div class="card">
+    <h3 style="margin-top:0">Mini v1 / v2 — Pattern A</h3>
+    <p class="sub" style="margin:4px 0 10px">All four legacy makecode hexes (nRF51-style)</p>
+    <div class="mmap">
+      <div class="mmap-row"><span class="mmap-addr">0x00000000</span><div class="mmap-bar b-mbr">Nordic MBR (stock)</div><span class="mmap-size">~2 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x00001000</span><div class="mmap-bar b-sd">SoftDevice S110/S130</div><span class="mmap-size">~92 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x00018000</span><div class="mmap-bar b-app">App + magic + hashes</div><span class="mmap-size">~120 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x00035C00</span><div class="mmap-bar b-fs">MakeCode user code</div><span class="mmap-size">~24 KB</span></div>
+      <div class="mmap-row"><span class="mmap-addr">0x0003BBFF</span><div class="mmap-bar b-empty">end of usable flash</div><span class="mmap-size">–</span></div>
+    </div>
+    <p class="sub" style="margin-top:10px">
+    No bootloader bundled — Pattern A; relies on existing one on
+    device. No Nordic Secure DFU on these older minis (the codal
+    stack predates it).
+    </p>
   </div>
-  <div class="mmap-row">
-    <span class="mmap-addr">0x0001C000</span>
-    <div class="mmap-bar b-app">App (Cortex-M vector table + code + magic + hashes/layout)</div>
-    <span class="mmap-size">137–306 KB</span>
-  </div>
-  <div class="mmap-row">
-    <span class="mmap-addr">0x00077000</span>
-    <div class="mmap-bar b-fs">FS / scratch</div>
-    <span class="mmap-size">4 KB</span>
-  </div>
-  <div class="mmap-row">
-    <span class="mmap-addr">0x00078000</span>
-    <div class="mmap-bar b-bl">Open-link bootloader (v0.3.5-campus-open-1)</div>
-    <span class="mmap-size">24 KB</span>
-  </div>
-  <div class="mmap-row">
-    <span class="mmap-addr">0x0007E000</span>
-    <div class="mmap-bar b-mbr">MBR settings + bootloader settings</div>
-    <span class="mmap-size">5 KB</span>
-  </div>
-</div>
 </div>
 
 <h2>Per-file vector / UICR detail (mini v3)</h2>

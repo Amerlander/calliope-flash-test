@@ -32,8 +32,8 @@
   },
   {
     "name": "makecode-1-ble.hex",
-    "file_size": 644322,
-    "flash_bytes": 228224,
+    "file_size": 650082,
+    "flash_bytes": 230272,
     "pattern": "A (partial)",
     "mbr": "stock Nordic (SP=0x7C0)",
     "vector_0x0": {
@@ -49,34 +49,34 @@
     "bootloader_at_0x78000": false,
     "bootloader_first_bytes": null,
     "pxt_magic": {
-      "addr": 218112,
-      "dal_hash": "659c31ad7e383572",
-      "mc_hash": "ba0032003f00eb00"
+      "addr": 220160,
+      "dal_hash": "37b90dbcf1a3f6e0",
+      "mc_hash": "9c0025006300fa00"
     },
     "upy_layout": null,
     "identity_strings": [
       {
-        "addr": "0x00034B5F",
+        "addr": "0x0003533F",
         "text": "Calliope mini ["
       },
       {
-        "addr": "0x00034C36",
+        "addr": "0x00035416",
         "text": "2.2.0-rc6-calliope.rc4--g"
       },
       {
-        "addr": "0x00034C50",
+        "addr": "0x00035430",
         "text": "Calliope mini"
       },
       {
-        "addr": "0x000361EA",
-        "text": "MakeCode 3 BLE"
+        "addr": "0x000369EA",
+        "text": "MakeCode 1 BLE"
       }
     ]
   },
   {
     "name": "makecode-1-radio.hex",
-    "file_size": 647472,
-    "flash_bytes": 229264,
+    "file_size": 653277,
+    "flash_bytes": 231312,
     "pattern": "A (partial)",
     "mbr": "stock Nordic (SP=0x7C0)",
     "vector_0x0": {
@@ -92,34 +92,34 @@
     "bootloader_at_0x78000": false,
     "bootloader_first_bytes": null,
     "pxt_magic": {
-      "addr": 219136,
-      "dal_hash": "6beaf9aea6845447",
-      "mc_hash": "350095008a001500"
+      "addr": 221184,
+      "dal_hash": "d7fece9c392f3068",
+      "mc_hash": "5e00f500b000c800"
     },
     "upy_layout": null,
     "identity_strings": [
       {
-        "addr": "0x0003519F",
+        "addr": "0x0003597F",
         "text": "Calliope mini ["
       },
       {
-        "addr": "0x00035276",
+        "addr": "0x00035A56",
         "text": "2.2.0-rc6-calliope.rc4--g"
       },
       {
-        "addr": "0x00035290",
+        "addr": "0x00035A70",
         "text": "Calliope mini"
       },
       {
-        "addr": "0x000365F2",
+        "addr": "0x00036DF6",
         "text": "MakeCode 1 RADIO"
       }
     ]
   },
   {
     "name": "makecode-2-ble.hex",
-    "file_size": 644322,
-    "flash_bytes": 228224,
+    "file_size": 650082,
+    "flash_bytes": 230272,
     "pattern": "A (partial)",
     "mbr": "stock Nordic (SP=0x7C0)",
     "vector_0x0": {
@@ -135,34 +135,34 @@
     "bootloader_at_0x78000": false,
     "bootloader_first_bytes": null,
     "pxt_magic": {
-      "addr": 218112,
-      "dal_hash": "8731ce1862c13813",
-      "mc_hash": "b100d8001d00bf00"
+      "addr": 220160,
+      "dal_hash": "0c03d3de260b20e2",
+      "mc_hash": "fb00520030002d00"
     },
     "upy_layout": null,
     "identity_strings": [
       {
-        "addr": "0x00034B9F",
+        "addr": "0x0003537F",
         "text": "Calliope mini ["
       },
       {
-        "addr": "0x00034C76",
+        "addr": "0x00035456",
         "text": "2.2.0-rc6-calliope.rc4--g"
       },
       {
-        "addr": "0x00034C90",
+        "addr": "0x00035470",
         "text": "Calliope mini"
       },
       {
-        "addr": "0x000361EA",
-        "text": "MakeCode 3 BLE"
+        "addr": "0x000369EA",
+        "text": "MakeCode 2 BLE"
       }
     ]
   },
   {
     "name": "makecode-2-radio.hex",
-    "file_size": 647472,
-    "flash_bytes": 229264,
+    "file_size": 653277,
+    "flash_bytes": 231312,
     "pattern": "A (partial)",
     "mbr": "stock Nordic (SP=0x7C0)",
     "vector_0x0": {
@@ -178,26 +178,26 @@
     "bootloader_at_0x78000": false,
     "bootloader_first_bytes": null,
     "pxt_magic": {
-      "addr": 219136,
-      "dal_hash": "e7fed4fd9706052e",
-      "mc_hash": "1400690073004b00"
+      "addr": 221184,
+      "dal_hash": "2ba4dda00c362520",
+      "mc_hash": "70003b00d300ad00"
     },
     "upy_layout": null,
     "identity_strings": [
       {
-        "addr": "0x0003519F",
+        "addr": "0x0003597F",
         "text": "Calliope mini ["
       },
       {
-        "addr": "0x00035276",
+        "addr": "0x00035A56",
         "text": "2.2.0-rc6-calliope.rc4--g"
       },
       {
-        "addr": "0x00035290",
+        "addr": "0x00035A70",
         "text": "Calliope mini"
       },
       {
-        "addr": "0x000365F2",
+        "addr": "0x00036DF6",
         "text": "MakeCode 2 RADIO"
       }
     ]
@@ -214,7 +214,7 @@
     },
     "vector_0x1C000": {
       "SP": "0x20020000",
-      "PC": "0x00036B1D"
+      "PC": "0x00037795"
     },
     "uicr_bootloader_addr": "0x00077000",
     "softdevice_present": true,
@@ -222,13 +222,13 @@
     "bootloader_first_bytes": "0833202b0a77e3d1002070bd1970bfe7",
     "pxt_magic": {
       "addr": 286720,
-      "dal_hash": "f2c18696e64d8403",
-      "mc_hash": "5d002400a300b000"
+      "dal_hash": "103229cde9d66cc1",
+      "mc_hash": "6c00b6000e00eb00"
     },
     "upy_layout": null,
     "identity_strings": [
       {
-        "addr": "0x000433BC",
+        "addr": "0x00044068",
         "text": "Calliope mini"
       },
       {
@@ -243,8 +243,8 @@
   },
   {
     "name": "makecode-3-radio.hex",
-    "file_size": 887949,
-    "flash_bytes": 314743,
+    "file_size": 899514,
+    "flash_bytes": 318839,
     "pattern": "B (full image)",
     "mbr": "codal (0xB00)",
     "vector_0x0": {
@@ -253,25 +253,25 @@
     },
     "vector_0x1C000": {
       "SP": "0x20020000",
-      "PC": "0x00036F05"
+      "PC": "0x00037B7D"
     },
     "uicr_bootloader_addr": "0x00077000",
     "softdevice_present": true,
     "bootloader_at_0x78000": true,
     "bootloader_first_bytes": "0833202b0a77e3d1002070bd1970bfe7",
     "pxt_magic": {
-      "addr": 286720,
-      "dal_hash": "5260a64ea1db7570",
-      "mc_hash": "f300c200fe00a800"
+      "addr": 290816,
+      "dal_hash": "3d11446ded28180d",
+      "mc_hash": "91004f004000ab00"
     },
     "upy_layout": null,
     "identity_strings": [
       {
-        "addr": "0x000437E8",
+        "addr": "0x00044494",
         "text": "Calliope mini"
       },
       {
-        "addr": "0x00046DF2",
+        "addr": "0x00047DF6",
         "text": "MakeCode 3 RADIO"
       },
       {

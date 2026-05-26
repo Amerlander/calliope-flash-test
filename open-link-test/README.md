@@ -1,97 +1,98 @@
 # open-link-test
 
-Validation of hex files from the three Calliope campus editors, focused
-on the **open-link** (unbonded) BLE / DFU configuration on a Calliope
-mini v3.
+Validation of hex files from the three Calliope campus editors, against
+all three Calliope mini hardware versions.
 
 ## Filename convention
 
 The `N` in `makecode-N-{ble,radio}.hex` is the **hardware version**
-the hex targets:
-
-- `makecode-1-*` → Calliope mini v1 (legacy hardware)
-- `makecode-2-*` → Calliope mini v2 (legacy hardware)
-- `makecode-3-*` → Calliope mini v3 (nRF52833, hardware-identical to
-  micro:bit V2)
-
-Only the **mini v3 hexes** (`blocks.hex`, `makecode-3-*`,
-`python_*`) are exercised on the rig.
+the hex targets — `1` for mini v1 (nRF51), `2` for mini v2 (nRF52833
+with J-Link OB), `3` for mini v3 (nRF52833 with DAPLink,
+hardware-identical to micro:bit V2).
 
 ## Source editors
 
 | File | Editor | Source URL ([Editors.md](Editors.md)) |
 |---|---|---|
-| `blocks.hex` | blocks-runtime (scratch-calliope) | `iframe-test7.scratch-calliope.pages.dev` |
-| `makecode-3-{ble,radio}.hex` | pxt-calliope | local serve from `LLM/MAKECODE/pxt-calliope` |
-| `python_{ble,radio}.hex` | calliope-mini-python-editor | `campus-open.calliope-mini-python-editor.pages.dev` |
+| `blocks.hex` | blocks-runtime (scratch-calliope) | `iframe-test7.scratch-calliope.pages.dev` (mini v3 only) |
+| `makecode-{1,2,3}-{ble,radio}.hex` | pxt-calliope | local serve from `LLM/MAKECODE/pxt-calliope` |
+| `python_{ble,radio}.hex` | calliope-mini-python-editor | `campus-open.calliope-mini-python-editor.pages.dev` (mini v3 only) |
 
 ## Folder layout
 
 ```
 open-link-test/
 ├── README.md              ← this file
-├── ANALYSIS.md/.html      ← static hex analysis (offsets, magic, layout)
+├── ANALYSIS.md/.html      ← static hex analysis (offsets, magic, hashes)
 ├── FINDINGS.md/.html      ← live e2e test findings
-├── Editors.md             ← URLs of the editors that produced these hexes
+├── Editors.md             ← URLs of the editors
 ├── *.hex                  ← the 9 hex files
 ├── scripts/
-│   ├── analyze_all.py         (top-level static analyzer — generates JSON)
-│   ├── _analyze.py            (offsets, sections, sentinels — internal helpers)
-│   ├── _analyze3.py           (vector tables, UICR, layout magic — drill-down)
-│   ├── _analyze5.py           (PXT vs uPy magic scan)
+│   ├── analyze_all.py         (top-level static analyzer → JSON)
+│   ├── _analyze*.py           (internal helpers)
 │   ├── probe.py               (USB-flash + bleak BLE probe loop)
-│   ├── probe_paired.py        (single-hex flash + manual A+B+Reset + probe)
-│   └── widget-snapshot.mjs    (puppeteer snapshot of running widget-demo)
+│   ├── probe_paired.py        (single-hex flash + A+B+Reset + probe)
+│   └── widget-snapshot.mjs    (puppeteer snapshot of widget-demo)
 └── results/
     ├── probe-results.json     ← bleak probe data
-    ├── static-analysis.json   ← static analyzer JSON output
-    └── widget-session.log     ← widget e2e log
+    ├── static-analysis.json   ← static analyzer JSON
+    └── widget-session.log     ← widget e2e log (mini v3)
 ```
 
-## What we validated (mini v3)
+## What we validated
 
 [FINDINGS.md](FINDINGS.md) has the full report. Headline:
 
-- All 5 mini-v3 hexes USB-drag-flash cleanly (18–23 s each).
-- Every BLE-reachable mini-v3 firmware exposes the **unbonded**
-  `8EC90003` characteristic — open-link confirmed throughout.
-- 3 of 5 connect in app mode without intervention:
-  `python_ble`, `blocks`, `makecode-3-ble`.
-- 2 of 5 need A+B+Reset to surface BLE (radio variants), which works.
-- `python_ble.hex` is the only hex that the widget can partial-flash
-  out of the box (valid uPy layout table). Others fall back to full
-  DFU on any change.
-- The widget at HEAD `01efeb7` (= calliope-campus pin) connects
-  successfully to every reachable mini-v3 hex.
+- **All 9 hexes USB drag-flash cleanly** on their target hardware.
+- **All 6 MakeCode hexes** expose PFS over BLE with hashes matching
+  the static hex analysis — after the 2026-05-26 pxt-calliope rebuild
+  with `partial_flashing=1` in pxt.json.
+- **Mini v3 only** has Nordic Secure DFU on board — its 5 hexes all
+  expose the unbonded `8EC90003` characteristic (open-link confirmed).
+- **Mini v1 and v2 have no Nordic DFU service** at all (their codal
+  stack predates Nordic Secure DFU). Partial flash via PFS is the only
+  BLE-flash route for these older minis.
+- The campus widget at HEAD `01efeb7` connects to every mini-v3 hex
+  successfully.
+
+## Widget capability — quick reference
+
+| Hardware | Partial flash | Full DFU |
+|---|---|---|
+| Mini v3 | ✓ for `python_ble` and `makecode-3-*` (with PFS + DFU). Falls back to DFU for `blocks` (bare runtime, no magic). | ✓ for all 5 mini-v3 hexes |
+| Mini v2 | ✓ for `makecode-2-{ble,radio}` (PFS only) | ✗ no Nordic DFU |
+| Mini v1 | ✓ for `makecode-1-{ble,radio}` (PFS only, after A+B+Reset) | ✗ no Nordic DFU |
 
 ## Quick start
 
-```
-# 1. Plug in a Calliope mini v3 (DAPLink mounts as E:)
+```bash
+# Plug in a Calliope mini (drive letter varies — E: for mini v3 DAPLink,
+# D: for mini v2 J-Link / mini v1 legacy DAPLink).
 
-# 2. Static analysis on all 9 hexes
+# Static analysis on all 9 hexes
 python scripts/analyze_all.py
 
-# 3. App-mode probe across all 9
+# App-mode probe loop (default drive E:; for D: patch probe.MINI_DRIVE)
 python scripts/probe.py
 
-# 4. Pairing-mode probe of a single hex
-python scripts/probe_paired.py flash python_radio.hex
-#    A+B+Reset the mini, hold for full grid fill
-python scripts/probe_paired.py probe python_radio_pairing
+# Pairing-mode probe of a single hex
+python scripts/probe_paired.py flash <hex>
+#   A+B+Reset on the mini, hold for full grid fill
+python scripts/probe_paired.py probe <key>
 
-# 5. Widget-demo e2e (widget at HEAD = campus pin)
+# Widget e2e (mini v3 only)
 cd ../flash-test/widget-demo
 pnpm install      # one-time
-pnpm dev          # in one terminal
-node puppeteer-driver.mjs --park   # in another; click connect in Chrome
+pnpm dev          # one terminal
+node puppeteer-driver.mjs --park   # other terminal; click connect in Chrome
 ```
 
 ## Status
 
 | Component | State |
 |---|---|
-| Python radio variant fix | Shipped (`calliope-mini-python-editor@318d827`) |
-| MakeCode radio variant fix | Shipped (pxt-calliope) — both `makecode-3-{ble,radio}` rebuilt with new BLE/pairing config |
-| Widget pin | `01efeb7` matches calliope-campus `feature/native-proxy` |
-| `blocks.hex` partial-flash magic | Intentionally absent — scratch-calliope uses MbitMore at runtime instead of re-flashing |
+| Python radio variant (mini v3) | Shipped: `calliope-mini-python-editor@318d827` |
+| pxt-calliope `partial_flashing=1` | Shipped: all 6 makecode hexes rebuilt 2026-05-26 |
+| Widget pin | `75ff901` (campus `feature/native-proxy@d84b069`) |
+| `blocks.hex` partial-flash magic | Intentionally absent — scratch-calliope uses MbitMore at runtime |
+| Mini v1 / v2 BLE-side full DFU | Not available — widget must fall back to USB for full reflashes on legacy hardware |

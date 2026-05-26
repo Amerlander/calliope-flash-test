@@ -329,6 +329,206 @@
       "notes": [],
       "error": null,
       "__key": "makecode_3_radio_pairing"
+    },
+    {
+      "hex_name": "makecode-3-radio_pairing_pf1",
+      "usb_flash_s": null,
+      "flashed_ok": false,
+      "ble_found": true,
+      "services": {
+        "partial_flash": true,
+        "nordic_dfu": true,
+        "mbitmore": false,
+        "buttonless_unbonded": true,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [zuvav]",
+        "rssi": -56,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "0000fe59-0000-1000-8000-00805f9b34fb",
+          "e97dd91d-251d-470a-a062-fa1922dfa9a8",
+          "0000180a-0000-1000-8000-00805f9b34fb"
+        ]
+      },
+      "regions": [
+        {
+          "region_id": 0,
+          "start": 0,
+          "end": 114688,
+          "hash_hex": "0000000000000000",
+          "raw": "0000000000000001c00000000000000000000000"
+        },
+        {
+          "region_id": 1,
+          "start": 114688,
+          "end": 287444,
+          "hash_hex": "3d11446ded28180d",
+          "raw": "00010001c000000462d43d11446ded28180d0000"
+        },
+        {
+          "region_id": 2,
+          "start": 290816,
+          "end": 471040,
+          "hash_hex": "91004f004000ab00",
+          "raw": "0002000470000007300091004f004000ab000000"
+        }
+      ],
+      "expected": {},
+      "hash_match": {},
+      "notes": [],
+      "error": null,
+      "__key": "makecode-3-radio_pairing_pf1"
+    },
+    {
+      "hex_name": "mini-v1_makecode-1-ble_pairing",
+      "usb_flash_s": null,
+      "flashed_ok": false,
+      "ble_found": true,
+      "services": {
+        "partial_flash": true,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [gapaz]",
+        "rssi": -36,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "e95d93b0-251d-470a-a062-fa1922dfa9a8",
+          "e97dd91d-251d-470a-a062-fa1922dfa9a8",
+          "0000180a-0000-1000-8000-00805f9b34fb"
+        ]
+      },
+      "regions": [
+        {
+          "region_id": 0,
+          "start": 0,
+          "end": 98304,
+          "hash_hex": "0000000000000000",
+          "raw": "000000000000000180000000000000000000"
+        },
+        {
+          "region_id": 1,
+          "start": 98304,
+          "end": 220488,
+          "hash_hex": "d7fece9c392f3068",
+          "raw": "00010001800000035d48d7fece9c392f3068"
+        },
+        {
+          "region_id": 2,
+          "start": 221184,
+          "end": 244735,
+          "hash_hex": "5e00f500b000c800",
+          "raw": "0002000360000003bbff5e00f500b000c800"
+        }
+      ],
+      "expected": {},
+      "hash_match": {},
+      "notes": [],
+      "error": null,
+      "__key": "mini-v1_makecode-1-ble_pairing"
+    },
+    {
+      "hex_name": "mini-v1_makecode-1-ble_pairing",
+      "usb_flash_s": null,
+      "flashed_ok": false,
+      "ble_found": true,
+      "services": {
+        "partial_flash": true,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [gapaz]",
+        "rssi": -36,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "e95d93b0-251d-470a-a062-fa1922dfa9a8",
+          "e97dd91d-251d-470a-a062-fa1922dfa9a8",
+          "0000180a-0000-1000-8000-00805f9b34fb"
+        ]
+      },
+      "regions": [
+        {
+          "region_id": 0,
+          "start": 0,
+          "end": 98304,
+          "hash_hex": "0000000000000000",
+          "raw": "000000000000000180000000000000000000"
+        },
+        {
+          "region_id": 1,
+          "start": 98304,
+          "end": 218888,
+          "hash_hex": "37b90dbcf1a3f6e0",
+          "raw": "0001000180000003570837b90dbcf1a3f6e0"
+        },
+        {
+          "region_id": 2,
+          "start": 220160,
+          "end": 244735,
+          "hash_hex": "9c0025006300fa00",
+          "raw": "000200035c000003bbff9c0025006300fa00"
+        }
+      ],
+      "expected": {},
+      "hash_match": {},
+      "notes": [],
+      "error": null,
+      "__key": "mini-v1_makecode-1-ble_pairing"
+    },
+    {
+      "hex_name": "mini-v2_makecode-2-radio_pairing",
+      "usb_flash_s": null,
+      "flashed_ok": false,
+      "ble_found": true,
+      "services": {
+        "partial_flash": true,
+        "nordic_dfu": false,
+        "mbitmore": false,
+        "buttonless_unbonded": false,
+        "buttonless_bonded": false,
+        "device_name": "Calliope mini [pepeg]",
+        "rssi": -33,
+        "services": [
+          "00001800-0000-1000-8000-00805f9b34fb",
+          "00001801-0000-1000-8000-00805f9b34fb",
+          "e95d93b0-251d-470a-a062-fa1922dfa9a8",
+          "e97dd91d-251d-470a-a062-fa1922dfa9a8",
+          "0000180a-0000-1000-8000-00805f9b34fb"
+        ]
+      },
+      "regions": [
+        {
+          "region_id": 0,
+          "start": 0,
+          "end": 98304,
+          "hash_hex": "0000000000000000",
+          "raw": "000000000000000180000000000000000000"
+        },
+        {
+          "region_id": 1,
+          "start": 98304,
+          "end": 220488,
+          "hash_hex": "2ba4dda00c362520",
+          "raw": "00010001800000035d482ba4dda00c362520"
+        },
+        {
+          "region_id": 2,
+          "start": 221184,
+          "end": 244735,
+          "hash_hex": "70003b00d300ad00",
+          "raw": "0002000360000003bbff70003b00d300ad00"
+        }
+      ],
+      "expected": {},
+      "hash_match": {},
+      "notes": [],
+      "error": null,
+      "__key": "mini-v2_makecode-2-radio_pairing"
     }
   ]
 }
