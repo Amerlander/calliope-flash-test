@@ -14,6 +14,7 @@ import {
   flashCalliope,
   calliopeState,
   calliopeLog,
+  requestAndFlashJLink,
 } from '@calliope-edu/mini-connection-widget';
 
 const $log = document.getElementById('log') as HTMLPreElement;
@@ -109,6 +110,35 @@ document.getElementById('b-forget')!.addEventListener('click', () => disconnectA
 document.getElementById('b-flash-a-usb')!.addEventListener('click', () => runFlash('prog-A', 'prog-A.hex', 'usb'));
 document.getElementById('b-flash-mod-ble')!.addEventListener('click', () => runFlash('prog-A-mod', 'prog-A-mod.hex', 'ble'));
 document.getElementById('b-flash-blocks-ble')!.addEventListener('click', () => runFlash('prog-B-blocks', 'prog-B-blocks-v2.hex', 'ble'));
+// J-Link path: standalone — talks straight to the SEGGER USB device. Bypasses
+// the widget's main flashCalliope() dispatcher (which is wired for DAPLink/CMSIS-DAP).
+document.getElementById('b-flash-a-jlink')!.addEventListener('click', async () => {
+  const text = await loadHex('prog-A.hex');
+  const rec: FlashRecord = { name: 'prog-A-jlink', startedAt: performance.now(), phasesSeen: ['jlink'], transportsSeen: ['usb'] };
+  history.push(rec);
+  $name.textContent = 'prog-A-jlink';
+  $elapsed.textContent = '(running…)';
+  appendLine(`\n=== flash start: prog-A-jlink (prog-A.hex) transport=jlink ===`);
+  try {
+    await requestAndFlashJLink(text, {
+      onLog: (m) => appendLine(`[jlink] ${m}`),
+      onProgress: (p) => {
+        const pct = Math.round(p * 100);
+        $phase.textContent = `flashing (${pct}%)`;
+      },
+    });
+    rec.ok = true;
+  } catch (e: any) {
+    rec.ok = false;
+    rec.error = String(e?.message ?? e);
+    appendLine(`[error] ${rec.error}`);
+  } finally {
+    rec.finishedAt = performance.now();
+    rec.elapsedMs = rec.finishedAt - rec.startedAt;
+    $elapsed.textContent = `${(rec.elapsedMs / 1000).toFixed(1)} s ${rec.ok ? '✓' : '✗'}`;
+    appendLine(`=== flash end: prog-A-jlink — ${rec.ok ? 'ok' : 'fail'} in ${(rec.elapsedMs / 1000).toFixed(1)} s ===`);
+  }
+});
 
 // Driver API — Puppeteer pokes these.
 (window as any).flashTest = {
