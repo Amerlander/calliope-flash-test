@@ -1,0 +1,6 @@
+
+=== Phase 3: USB-flash prog-A.hex again (reset to MicroPython baseline) ===
+
+   USB flash done in 23.3 s
+
+Result: phase=phase-3 elapsed=23.3s ok=True note=(name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')

@@ -1,0 +1,109 @@
+Calliope BLE-flash test rig
+Build hexes first: run `python build-test-hexes.py` if test-hexes/ is empty
+
+
+=== Phase 1: USB-flash prog-A.hex (baseline) ===
+
+   USB flash done in 23.3 s
+   REPL: (name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')
+
+=== Phase 2: BLE full Nordic DFU (Blocks hex, DAL mismatch → forces DFU) ===
+
+[13:20:41.468] scanning for Calliope (8.0s)…
+[13:20:42.536]   found C9:2E:AC:B9:E1:B6 — Calliope mini [zuvav] (rssi=-32)
+[13:20:49.897] connecting to C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav])…
+[13:20:52.591]   connected (services: 5)
+[13:20:52.772]   disconnected
+   running full DFU on prog-B-blocks.hex…
+     app bin extracted: 146464 bytes
+     found C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav]) rssi=-29
+     connecting to app at C9:2E:AC:B9:E1:B6…
+     buttonless char: without-bonds (8EC90003)
+     buttonless write OK — waiting for device disconnect
+     scanning for DfuTarg…
+     connecting to bootloader at C9:2E:AC:B9:E1:B6…
+     init packet: 56 B (NO_VALIDATION)
+     init packet committed ✓
+     chunk 1/36 (4096 B) at offset 0
+     chunk 2/36 (4096 B) at offset 4096
+     chunk 3/36 (4096 B) at offset 8192
+     chunk 4/36 (4096 B) at offset 12288
+     chunk 5/36 (4096 B) at offset 16384
+     chunk 6/36 (4096 B) at offset 20480
+     chunk 7/36 (4096 B) at offset 24576
+     chunk 8/36 (4096 B) at offset 28672
+     chunk 9/36 (4096 B) at offset 32768
+     chunk 10/36 (4096 B) at offset 36864
+     chunk 11/36 (4096 B) at offset 40960
+     chunk 12/36 (4096 B) at offset 45056
+     chunk 13/36 (4096 B) at offset 49152
+     chunk 14/36 (4096 B) at offset 53248
+     chunk 15/36 (4096 B) at offset 57344
+     chunk 16/36 (4096 B) at offset 61440
+     chunk 17/36 (4096 B) at offset 65536
+     chunk 18/36 (4096 B) at offset 69632
+     chunk 19/36 (4096 B) at offset 73728
+     chunk 20/36 (4096 B) at offset 77824
+     chunk 21/36 (4096 B) at offset 81920
+     chunk 22/36 (4096 B) at offset 86016
+     chunk 23/36 (4096 B) at offset 90112
+     chunk 24/36 (4096 B) at offset 94208
+     chunk 25/36 (4096 B) at offset 98304
+     chunk 26/36 (4096 B) at offset 102400
+     chunk 27/36 (4096 B) at offset 106496
+     chunk 28/36 (4096 B) at offset 110592
+     chunk 29/36 (4096 B) at offset 114688
+     chunk 30/36 (4096 B) at offset 118784
+     chunk 31/36 (4096 B) at offset 122880
+     chunk 32/36 (4096 B) at offset 126976
+     chunk 33/36 (4096 B) at offset 131072
+     chunk 34/36 (4096 B) at offset 135168
+     chunk 35/36 (4096 B) at offset 139264
+     chunk 36/36 (3104 B) at offset 143360
+     data phase complete ✓
+
+=== Phase 3: USB-flash prog-A.hex again (reset to MicroPython baseline) ===
+
+   USB flash done in 23.2 s
+
+=== Phase 4: BLE partial flash (prog-A-mod, same MP runtime) ===
+
+[13:23:23.610] scanning for Calliope (8.0s)…
+[13:23:24.882]   found C9:2E:AC:B9:E1:B6 — Calliope mini [zuvav] (rssi=-33)
+[13:23:31.667] connecting to C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav])…
+[13:23:33.439]   connected (services: 5)
+[13:23:33.569]   disconnected
+   running partial flash on prog-A-mod.hex…
+     parsed: flavor=micropython bin=24576 B base=0x6d000
+     hex DAL hash=9ef12d3600000000  MC hash=00600000fe32076d
+     found C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav]) rssi=-33
+     status: version=1 mode=1 (APPLICATION)
+     device in application mode — sending Reset+Pairing
+     reset-into-pairing write (attempt 1)
+       device disconnected
+     waiting 4 s for pairing-mode boot…
+     re-scanning for pairing-mode advertise…
+     reconnecting to C9:2E:AC:B9:E1:B6…
+     post-reconnect status: version=1 mode=0
+     device DAL: 0x1c000-0x669a4 hash=9ef12d3600000000
+     device MC region: 0x6d000-0x73000 hash=0000000000000000
+     blocks=50 offset=3200/24576 (13%)
+     blocks=100 offset=6400/24576 (26%)
+     blocks=150 offset=9600/24576 (39%)
+     blocks=200 offset=12800/24576 (52%)
+     blocks=250 offset=16000/24576 (65%)
+     blocks=300 offset=19200/24576 (78%)
+     blocks=350 offset=22400/24576 (91%)
+     EOT written (384 blocks)
+
+=== Summary ===
+
+  ✓  phase-1    usb             23.3 s  (name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')
+  ✓  phase-2    ble-dfu        115.7 s  DFU completed; app-mode Blocks doesn't auto-advertise BLE so post-flash service check skipped
+  ✓  phase-3    usb             23.2 s  (name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')
+  ✓  phase-4    ble-partial     66.8 s  flash ok
+
+  Partial flash speedup: 1.7× (DFU 116s vs partial 67s)
+  ✗ Partial flash >=15 s — likely fell back to DFU
+
+  → C:\GIT\Calliope\LLM\_flash-test\results\2026-05-21T13-24-45.csv

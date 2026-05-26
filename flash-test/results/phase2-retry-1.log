@@ -1,0 +1,72 @@
+
+=== Phase 2: BLE full Nordic DFU (Blocks hex, DAL mismatch → forces DFU) ===
+
+[13:14:30.721] scanning for Calliope (8.0s)…
+[13:14:31.290]   found C9:2E:AC:B9:E1:B6 — Calliope mini [zuvav] (rssi=-32)
+[13:14:39.075] connecting to C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav])…
+[13:14:40.410]   connected (services: 5)
+[13:14:40.631]   disconnected
+   running full DFU on prog-B-blocks.hex…
+     app bin extracted: 146464 bytes
+     found C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav]) rssi=-32
+     connecting to app at C9:2E:AC:B9:E1:B6…
+     buttonless char: without-bonds (8EC90003)
+     buttonless write OK — waiting for device disconnect
+     scanning for DfuTarg…
+     connecting to bootloader at C9:2E:AC:B9:E1:B6…
+     init packet: 56 B (NO_VALIDATION)
+     init packet committed ✓
+     chunk 1/36 (4096 B) at offset 0
+     chunk 2/36 (4096 B) at offset 4096
+     chunk 3/36 (4096 B) at offset 8192
+     chunk 4/36 (4096 B) at offset 12288
+     chunk 5/36 (4096 B) at offset 16384
+     chunk 6/36 (4096 B) at offset 20480
+     chunk 7/36 (4096 B) at offset 24576
+     chunk 8/36 (4096 B) at offset 28672
+     chunk 9/36 (4096 B) at offset 32768
+     chunk 10/36 (4096 B) at offset 36864
+     chunk 11/36 (4096 B) at offset 40960
+     chunk 12/36 (4096 B) at offset 45056
+     chunk 13/36 (4096 B) at offset 49152
+     chunk 14/36 (4096 B) at offset 53248
+     chunk 15/36 (4096 B) at offset 57344
+     chunk 16/36 (4096 B) at offset 61440
+     chunk 17/36 (4096 B) at offset 65536
+     chunk 18/36 (4096 B) at offset 69632
+     chunk 19/36 (4096 B) at offset 73728
+     chunk 20/36 (4096 B) at offset 77824
+     chunk 21/36 (4096 B) at offset 81920
+     chunk 22/36 (4096 B) at offset 86016
+     chunk 23/36 (4096 B) at offset 90112
+     chunk 24/36 (4096 B) at offset 94208
+     chunk 25/36 (4096 B) at offset 98304
+     chunk 26/36 (4096 B) at offset 102400
+     chunk 27/36 (4096 B) at offset 106496
+     chunk 28/36 (4096 B) at offset 110592
+     chunk 29/36 (4096 B) at offset 114688
+     chunk 30/36 (4096 B) at offset 118784
+     chunk 31/36 (4096 B) at offset 122880
+     chunk 32/36 (4096 B) at offset 126976
+     chunk 33/36 (4096 B) at offset 131072
+     chunk 34/36 (4096 B) at offset 135168
+     chunk 35/36 (4096 B) at offset 139264
+     chunk 36/36 (3104 B) at offset 143360
+     data phase complete ✓
+[13:16:09.629] scanning for Calliope (8.0s)…
+[13:16:17.681] no Calliope found
+   probe attempt 1/5: not found — waiting 5 s
+[13:16:22.687] scanning for Calliope (8.0s)…
+[13:16:30.721] no Calliope found
+   probe attempt 2/5: not found — waiting 5 s
+[13:16:35.726] scanning for Calliope (8.0s)…
+[13:16:43.809] no Calliope found
+   probe attempt 3/5: not found — waiting 5 s
+[13:16:48.815] scanning for Calliope (8.0s)…
+[13:16:56.876] no Calliope found
+   probe attempt 4/5: not found — waiting 5 s
+[13:17:01.885] scanning for Calliope (8.0s)…
+[13:17:10.032] no Calliope found
+   probe attempt 5/5: not found — waiting 5 s
+
+Result: phase=phase-2 elapsed=89.0s ok=False note=post-flash mbitmore=False found=False

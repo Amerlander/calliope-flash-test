@@ -1,0 +1,22 @@
+[pf]   parsed: flavor=micropython bin=24576 B base=0x6d000
+[pf]   hex DAL hash=9ef12d3600000000  MC hash=00600000fe32076d
+[pf]   found C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav]) rssi=-32
+[pf]   status: version=1 mode=1 (APPLICATION)
+[pf]   device in application mode — sending Reset+Pairing
+[pf]   reset-into-pairing write (attempt 1)
+[pf]     device disconnected
+[pf]   waiting 4 s for pairing-mode boot…
+[pf]   re-scanning for pairing-mode advertise…
+[pf]   reconnecting to C9:2E:AC:B9:E1:B6…
+[pf]   post-reconnect status: version=1 mode=0
+[pf]   device DAL: 0x1c000-0x669a4 hash=9ef12d3600000000
+[pf]   device MC region: 0x6d000-0x73000 hash=0000000000000000
+[pf]   blocks=50 offset=3200/24576 (13%)
+[pf]   blocks=100 offset=6400/24576 (26%)
+[pf]   blocks=150 offset=9600/24576 (39%)
+[pf]   blocks=200 offset=12800/24576 (52%)
+[pf]   blocks=250 offset=16000/24576 (65%)
+[pf]   blocks=300 offset=19200/24576 (78%)
+[pf]   blocks=350 offset=22400/24576 (91%)
+[pf]   EOT written (384 blocks)
+ok=True elapsed=67.2s stage=flash-data blocks=384

@@ -1,0 +1,5 @@
+phase,transport,hex_name,elapsed_s,ok,note
+phase-1,usb,prog-A.hex,23.26600000000326,True,"(name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')"
+phase-2,ble-dfu,prog-B-blocks.hex,86.56299999996554,False,post-flash mbitmore=False
+phase-3,usb,prog-A.hex,23.45299999997951,True,"(name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')"
+phase-4,ble-partial,prog-A-mod.hex,65.53100000001723,True,flash ok

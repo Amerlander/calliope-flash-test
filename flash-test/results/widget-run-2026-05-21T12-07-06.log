@@ -1,0 +1,16 @@
+[12:07:10.233] [page:debug] [vite] connecting...
+[12:07:10.263] [page:debug] [vite] connected.
+[12:07:10.428] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[12:07:10.622] [page:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[12:07:10.985] loaded http://127.0.0.1:5179/
+[12:07:10.985] 
+[12:07:10.985] ========================================================
+[12:07:10.985]  USER ACTION needed in the Chrome window:
+[12:07:10.985]   1) click the "connect BLE (mini picker)" button
+[12:07:10.985]   2) pick Calliope mini [zuvav] in the chooser
+[12:07:10.986] ========================================================
+[12:07:10.986] 
+[12:07:16.862] [page:log] [info] USB reconnect daemon armed
+[12:07:17.871] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[12:07:17.872] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[12:10:11.039] No BLE connection after 5 min: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.

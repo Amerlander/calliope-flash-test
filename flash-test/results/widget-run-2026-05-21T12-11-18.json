@@ -1,0 +1,47 @@
+[
+  {
+    "name": "phase-partial-A-mod",
+    "file": "prog-A-mod.hex",
+    "transport": "ble",
+    "ok": true,
+    "elapsedMs": 29914.80000001192,
+    "transportsSeen": [],
+    "phasesSeen": [
+      "check",
+      "flashing",
+      "reboot",
+      "prepare",
+      "finalising"
+    ],
+    "wallMs": 30196
+  },
+  {
+    "name": "phase-partial-A",
+    "file": "prog-A.hex",
+    "transport": "ble",
+    "ok": true,
+    "elapsedMs": 29104.69999998808,
+    "transportsSeen": [],
+    "phasesSeen": [
+      "check",
+      "flashing",
+      "reboot",
+      "prepare",
+      "finalising"
+    ],
+    "wallMs": 29228
+  },
+  {
+    "name": "phase-dfu-blocks",
+    "file": "prog-B-blocks.hex",
+    "transport": "ble",
+    "ok": true,
+    "elapsedMs": 1513.2000000476837,
+    "transportsSeen": [],
+    "phasesSeen": [
+      "check",
+      "flashing"
+    ],
+    "wallMs": 1582
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "name": "flash-test-widget-demo",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "drive": "node puppeteer-driver.mjs"
+  },
+  "dependencies": {
+    "@calliope-edu/mini-connection-widget": "link:../../mini-connection-widget",
+    "@microbit/microbit-connection": "1.0.0-beta.1",
+    "svelte": "^5.49.1"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^4.0.4",
+    "@vitejs/plugin-basic-ssl": "^1.2.0",
+    "puppeteer-core": "^23.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
+  }
+}

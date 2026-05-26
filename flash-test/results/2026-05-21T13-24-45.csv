@@ -1,0 +1,5 @@
+phase,transport,hex_name,elapsed_s,ok,note
+phase-1,usb,prog-A.hex,23.280999999959022,True,"(name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')"
+phase-2,ble-dfu,prog-B-blocks.hex,115.65600000001723,True,DFU completed; app-mode Blocks doesn't auto-advertise BLE so post-flash service check skipped
+phase-3,usb,prog-A.hex,23.23399999999674,True,"(name='micropython', version=(1, 23, 0, ''), _machine='Calliope mini v2.1.2b with nRF52833')"
+phase-4,ble-partial,prog-A-mod.hex,66.76600000000326,True,flash ok

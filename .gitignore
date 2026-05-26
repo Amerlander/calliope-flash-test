@@ -1,0 +1,26 @@
+# Build / dependency dirs
+node_modules/
+**/.chrome-profile/
+build/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Editor scratch
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Logs / per-run results
+# (We keep flash-test/results/ tracked as a historical baseline — see README.)
+
+# OS / process artifacts
+nul
+*.log.tmp

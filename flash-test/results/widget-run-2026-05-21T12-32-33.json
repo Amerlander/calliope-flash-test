@@ -1,0 +1,15 @@
+[
+  {
+    "name": "phase-dfu-blocks",
+    "file": "prog-B-blocks.hex",
+    "transport": "ble",
+    "ok": true,
+    "elapsedMs": 1515.800000011921,
+    "transportsSeen": [],
+    "phasesSeen": [
+      "check",
+      "flashing"
+    ],
+    "wallMs": 1759
+  }
+]

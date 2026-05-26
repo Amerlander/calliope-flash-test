@@ -1,0 +1,52 @@
+[12:32:37.321] [page:debug] [vite] connecting...
+[12:32:37.355] [page:debug] [vite] connected.
+[12:32:37.506] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[12:32:37.660] [page:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[12:32:38.092] loaded http://127.0.0.1:5179/
+[12:32:38.093] 
+[12:32:38.093] ========================================================
+[12:32:38.093]  USER ACTION needed in the Chrome window:
+[12:32:38.093]   1) click the "connect BLE (mini picker)" button
+[12:32:38.093]   2) pick Calliope mini [zuvav] in the chooser
+[12:32:38.094] ========================================================
+[12:32:38.095] 
+[12:32:38.112]   state: disconnected|undefined|
+[12:32:46.224] [page:log] [info] USB reconnect daemon armed
+[12:32:47.246] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[12:32:47.246] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[12:32:54.457]   state: connecting|undefined|
+[12:32:56.521] [page:log] JSHandle@object
+[12:32:56.521] [page:log] Bluetooth connection status Connecting
+[12:32:58.137] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[12:32:58.138] [page:log] JSHandle@object
+[12:32:58.138] [page:log] Bluetooth connection status Connected
+[12:32:58.138] [page:log] [info] Connected (BLE)
+[12:32:58.398] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[12:32:58.822]   state: connected|undefined|
+[12:32:58.852] connected: status=connected transport=undefined
+[12:33:00.861] mode=dfu (1 phase)
+[12:33:00.862] --- phase-dfu-blocks: prog-B-blocks.hex via ble ---
+[12:33:00.870]   pre-flash state: connected|undefined|
+[12:33:04.121] [page:log] [boot] cached prog-B-blocks.hex (1360.0 KB)
+[12:33:04.121] [page:log] 
+=== flash start: phase-dfu-blocks (prog-B-blocks.hex) transport=ble ===
+[12:33:04.125] [page:log] [info] Flashing via BLE "phase-dfu-blocks" (1360 KB)
+[12:33:04.126] [page:log] [info] pf-ble: phase=running
+[12:33:04.127] [page:log] [info] Flash: 5%
+[12:33:04.133] [page:log] [info] BLE reconnect daemon armed
+[12:33:04.133] [page:log] [error] BLE flash failed: Bluetooth-Verbindung fehlgeschlagen — wir versuchen es weiter.
+[12:33:05.206] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[12:33:05.206] [page:log] JSHandle@object
+[12:33:05.207] [page:log] Bluetooth connection status Connecting
+[12:33:05.219] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[12:33:05.219] [page:log] JSHandle@object
+[12:33:05.219] [page:log] Bluetooth connection status Connected
+[12:33:05.219] [page:log] [info] Connected (BLE)
+[12:33:05.219] [page:log] [info] BLE reconnect daemon stopped: connected
+[12:33:05.491] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[12:33:05.743] [page:log] === flash end: phase-dfu-blocks — ok in 1.5 s ===
+[12:33:05.744] phase-dfu-blocks done in 1759 ms; widget reported 1.5 s ok=true
+[12:33:05.744]   transports: 
+[12:33:05.744]   phases: check,flashing
+[12:33:15.759] === summary ===
+[12:33:15.759]   phase-dfu-blocks  prog-B-blocks.hex  ✓  1.5 s  transports=

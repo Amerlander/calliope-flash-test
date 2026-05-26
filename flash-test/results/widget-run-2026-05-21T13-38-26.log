@@ -1,0 +1,8 @@
+[13:38:26.622] FATAL: Error: Failed to launch the browser process! undefined
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+    at ChildProcess.onClose (file:///C:/GIT/Calliope/LLM/_flash-test/widget-demo/node_modules/.pnpm/@puppeteer+browsers@2.6.1/node_modules/@puppeteer/browsers/lib/esm/launch.js:303:24)
+    at ChildProcess.emit (node:events:519:35)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)

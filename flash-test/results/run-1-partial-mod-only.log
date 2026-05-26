@@ -1,0 +1,15 @@
+[pf]   parsed: flavor=micropython bin=24576 B base=0x6d000
+[pf]   hex DAL hash=9ef12d3600000000  MC hash=00600000fe32076d
+[pf]   found C9:2E:AC:B9:E1:B6 (Calliope mini [zuvav]) rssi=-32
+[pf]   status: version=1 mode=1 (APPLICATION)
+[pf]   device DAL: 0x1c000-0x669a4 hash=9ef12d3600000000
+[pf]   device MC region: 0x6d000-0x73000 hash=0000000000000000
+[pf]   device in application mode — switching to pairing
+
+ok=False elapsed=29.5s stage=switch-to-pairing blocks=0
+flavor=micropython bin=24576 base=0x6d000
+device DAL: 9ef12d3600000000
+hex    DAL: 9ef12d3600000000
+device MC : 0000000000000000
+hex    MC : 00600000fe32076d
+ERROR: RuntimeError: device did not disconnect after Reset+Pairing

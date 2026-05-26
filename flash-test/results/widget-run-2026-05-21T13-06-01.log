@@ -1,0 +1,107 @@
+[13:06:07.525] [page:debug] [vite] connecting...
+[13:06:07.709] [page:debug] [vite] connected.
+[13:06:08.357] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[13:06:08.540] [page:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[13:06:08.925] loaded http://127.0.0.1:5179/
+[13:06:08.925] --park: opening browser, you drive. Ctrl+C when done.
+[13:06:17.992] [page:log] [info] USB reconnect daemon armed
+[13:06:19.003] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[13:06:19.004] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[13:13:58.948] [page:log] JSHandle@object
+[13:13:58.953] [page:log] Bluetooth connection status Connecting
+[13:14:00.652] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:14:00.653] [page:log] JSHandle@object
+[13:14:00.654] [page:log] Bluetooth connection status Connected
+[13:14:00.654] [page:log] [info] Connected (BLE)
+[13:14:00.918] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[13:14:18.400] [page:log] [boot] cached prog-B-blocks.hex (1360.0 KB)
+[13:14:18.401] [page:log] 
+=== flash start: prog-B-blocks (prog-B-blocks.hex) transport=ble ===
+[13:14:18.407] [page:log] [info] Flashing via BLE "prog-B-blocks" (1360 KB)
+[13:14:18.408] [page:log] [info] pf-ble: phase=running
+[13:14:18.409] [page:log] [info] Flash: 5%
+[13:14:18.413] [page:log] [info] BLE reconnect daemon armed
+[13:14:18.414] [page:log] [error] BLE flash failed: Bluetooth-Verbindung fehlgeschlagen — wir versuchen es weiter.
+[13:14:18.414] [page:log] [info] BLE partial flash failed (transient BLE error: Invalid record type 0x0A at record 2 (should be between 0x00 and 0x05)) — trying full BLE-DFU flash.
+[13:14:18.416] [page:log] [info] Flashing via BLE-DFU "prog-B-blocks" (1360 KB)
+[13:14:18.418] [page:log] [info] BLE-DFU flash failed: Invalid record type 0x0A at record 2 (should be between 0x00 and 0x05)
+[13:14:19.420] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[13:14:19.421] [page:log] JSHandle@object
+[13:14:19.422] [page:log] Bluetooth connection status Connecting
+[13:14:19.423] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:14:19.424] [page:log] JSHandle@object
+[13:14:19.424] [page:log] Bluetooth connection status Connected
+[13:14:19.424] [page:log] [info] Connected (BLE)
+[13:14:19.425] [page:log] [info] BLE reconnect daemon stopped: connected
+[13:14:19.682] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[13:14:19.922] [page:log] [error] Invalid record type 0x0A at record 2 (should be between 0x00 and 0x05)
+[13:14:19.934] [page:log] === flash end: prog-B-blocks — fail in 1.5 s ===
+[13:16:38.922] [page:debug] [vite] connecting...
+[13:16:39.055] [page:debug] [vite] connected.
+[13:16:39.179] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[13:16:39.479] [page:log] [info] USB reconnect daemon armed
+[13:16:40.480] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[13:16:40.481] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[13:17:56.283] [page:debug] [vite] connecting...
+[13:17:56.290] [page:debug] [vite] connected.
+[13:17:56.347] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[13:17:56.632] [page:log] [info] USB reconnect daemon armed
+[13:17:57.642] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[13:17:57.644] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[13:18:06.261] [page:log] JSHandle@object
+[13:18:06.262] [page:log] Bluetooth connection status Connecting
+[13:18:07.698] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[13:18:07.699] [page:log] JSHandle@object
+[13:18:07.700] [page:log] Bluetooth connection status Connected
+[13:18:07.700] [page:log] [info] Connected (BLE)
+[13:18:07.951] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[13:18:10.294] [page:log] [boot] cached prog-B-blocks-v2.hex (571.7 KB)
+[13:18:10.295] [page:log] 
+=== flash start: prog-B-blocks (prog-B-blocks-v2.hex) transport=ble ===
+[13:18:10.376] [page:log] [info] Flashing via BLE "prog-B-blocks" (572 KB)
+[13:18:10.377] [page:log] [info] pf-ble: phase=running
+[13:18:10.377] [page:log] [info] Flash: 5%
+[13:18:10.444] [page:log] [info] pf-ble: parsed hex: bin=5456 bytes, base=0x39400
+[13:18:10.512] [page:log] [info] pf-ble: status: version=1 mode=1
+[13:18:10.551] [page:log] [info] pf-ble: DAL hash on device: 9ef12d3600000000 / file: d621b1a8965d87e3
+[13:18:10.576] [page:log] [info] BLE partial flash impossible (DAL mismatch)
+[13:18:10.576] [page:log] [info] BLE partial flash failed (DAL mismatch (incompatible runtime)) — trying full BLE-DFU flash.
+[13:18:10.576] [page:log] [info] Flashing via BLE-DFU "prog-B-blocks" (572 KB)
+[13:18:10.655] [page:log] [info] dfu-ble: +0.07s app bin extracted: 146464 bytes
+[13:18:10.656] [page:info] %c[dfu-ble]%c +0.07s app bin extracted: 146464 bytes color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.656] [page:log] [info] dfu-ble: +0.07s phase=entering-bootloader
+[13:18:10.656] [page:info] %c[dfu-ble]%c +0.07s phase=entering-bootloader color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.656] [page:log] [info] dfu-ble: +0.08s using buttonless characteristic 8ec90003-f315-4f60-9fb8-838830daea50
+[13:18:10.656] [page:info] %c[dfu-ble]%c +0.08s using buttonless characteristic 8ec90003-f315-4f60-9fb8-838830daea50 color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.695] [page:log] [info] dfu-ble: +0.11s buttonless notifications enabled
+[13:18:10.695] [page:info] %c[dfu-ble]%c +0.11s buttonless notifications enabled color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.696] [page:log] [info] dfu-ble: +0.12s writing 0x01 to buttonless characteristic (enter-bootloader)
+[13:18:10.696] [page:info] %c[dfu-ble]%c +0.12s writing 0x01 to buttonless characteristic (enter-bootloader) color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.725] [page:log] [info] dfu-ble: +0.14s enter-bootloader command written
+[13:18:10.726] [page:info] %c[dfu-ble]%c +0.14s enter-bootloader command written color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.726] [page:log] [info] dfu-ble: +0.15s buttonless response: 200101
+[13:18:10.726] [page:info] %c[dfu-ble]%c +0.15s buttonless response: 200101 color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.790] [page:log] Bluetooth connection status Disconnected
+[13:18:10.792] [page:log] [info] dfu-ble: +0.21s device disconnected — bootloader expected next
+[13:18:10.792] [page:info] %c[dfu-ble]%c +0.21s device disconnected — bootloader expected next color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:10.792] [page:log] [info] dfu-ble: +0.21s phase=awaiting-bootloader
+[13:18:10.792] [page:info] %c[dfu-ble]%c +0.21s phase=awaiting-bootloader color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:12.798] [page:log] [info] dfu-ble: +2.22s phase=reconnecting
+[13:18:12.799] [page:info] %c[dfu-ble]%c +2.22s phase=reconnecting color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:21.108] [page:log] [info] dfu-ble: +10.53s reconnect attempt 1 failed: Connection Error: Connection attempt failed.
+[13:18:21.108] [page:info] %c[dfu-ble]%c +10.53s reconnect attempt 1 failed: Connection Error: Connection attempt failed. color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:29.713] [page:log] [info] dfu-ble: +19.14s reconnect attempt 2 failed: Connection Error: Connection attempt failed.
+[13:18:29.714] [page:info] %c[dfu-ble]%c +19.14s reconnect attempt 2 failed: Connection Error: Connection attempt failed. color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:38.718] [page:log] [info] dfu-ble: +28.14s reconnect attempt 3 failed: Connection Error: Connection attempt failed.
+[13:18:38.719] [page:info] %c[dfu-ble]%c +28.14s reconnect attempt 3 failed: Connection Error: Connection attempt failed. color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:48.334] [page:log] [info] dfu-ble: +37.76s reconnect attempt 4 failed: Connection Error: Connection attempt failed.
+[13:18:48.335] [page:info] %c[dfu-ble]%c +37.76s reconnect attempt 4 failed: Connection Error: Connection attempt failed. color: #06b6d4; font-weight: bold; color: inherit;
+[13:18:58.659] [page:log] [info] dfu-ble: +48.08s reconnect attempt 5 failed: Connection Error: Connection attempt failed.
+[13:18:58.660] [page:info] %c[dfu-ble]%c +48.08s reconnect attempt 5 failed: Connection Error: Connection attempt failed. color: #06b6d4; font-weight: bold; color: inherit;
+[13:19:09.967] [page:log] [info] dfu-ble: +59.39s reconnect attempt 6 failed: Connection Error: Connection attempt failed.
+[13:19:09.967] [page:info] %c[dfu-ble]%c +59.39s reconnect attempt 6 failed: Connection Error: Connection attempt failed. color: #06b6d4; font-weight: bold; color: inherit;
+[13:19:22.787] [page:log] [info] dfu-ble: +72.21s reconnect attempt 7 failed: Connection Error: Connection attempt failed.
+[13:19:22.788] [page:info] %c[dfu-ble]%c +72.21s reconnect attempt 7 failed: Connection Error: Connection attempt failed. color: #06b6d4; font-weight: bold; color: inherit;
+[13:19:29.796] [page:log] [info] BLE-DFU flash failed: Could not reconnect to bootloader after 7 attempts: Connection Error: Connection attempt failed.
+[13:19:31.309] [page:log] [error] Could not reconnect to bootloader after 7 attempts: Connection Error: Connection attempt failed.
+[13:19:31.328] [page:log] === flash end: prog-B-blocks — fail in 81.0 s ===

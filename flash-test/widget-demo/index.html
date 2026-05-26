@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flash-test widget demo</title>
+    <style>
+      body { font-family: monospace; padding: 16px; max-width: 920px; }
+      button { font: inherit; padding: 8px 12px; margin: 4px; min-width: 240px; }
+      pre#log { background: #111; color: #ddd; padding: 12px; height: 480px; overflow: auto; }
+      .status { margin: 8px 0; }
+      .label { display: inline-block; min-width: 120px; color: #888; }
+    </style>
+  </head>
+  <body>
+    <h1>flash-test · widget driver</h1>
+    <p>Drives <code>flashCalliope</code> from the local widget. Open the
+       browser console for the full log; the box below mirrors what Puppeteer
+       reads.</p>
+
+    <div>
+      <button id="b-connect-usb">connect USB (DAPLink picker)</button>
+      <button id="b-connect-ble">connect BLE (mini picker)</button>
+      <button id="b-forget">forget &amp; disconnect</button>
+    </div>
+    <div>
+      <button id="b-flash-a-usb">USB-flash prog-A.hex</button>
+      <button id="b-flash-mod-ble">BLE-flash prog-A-mod.hex (partial)</button>
+      <button id="b-flash-blocks-ble">BLE-flash prog-B-blocks.hex (DFU)</button>
+    </div>
+
+    <div class="status">
+      <div><span class="label">status:</span> <span id="s-status">(not connected)</span></div>
+      <div><span class="label">transport:</span> <span id="s-transport">(none)</span></div>
+      <div><span class="label">flash phase:</span> <span id="s-phase">(idle)</span></div>
+      <div><span class="label">last duration:</span> <span id="s-elapsed">—</span></div>
+      <div><span class="label">last name:</span> <span id="s-name">—</span></div>
+    </div>
+
+    <pre id="log"></pre>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

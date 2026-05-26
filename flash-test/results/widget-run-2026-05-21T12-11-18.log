@@ -1,0 +1,142 @@
+[12:11:22.388] [page:debug] [vite] connecting...
+[12:11:22.418] [page:debug] [vite] connected.
+[12:11:22.569] [page:log] [boot] flash-test demo ready — driver API on window.flashTest
+[12:11:22.736] [page:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[12:11:23.112] loaded http://127.0.0.1:5179/
+[12:11:23.112] 
+[12:11:23.112] ========================================================
+[12:11:23.112]  USER ACTION needed in the Chrome window:
+[12:11:23.112]   1) click the "connect BLE (mini picker)" button
+[12:11:23.112]   2) pick Calliope mini [zuvav] in the chooser
+[12:11:23.112] ========================================================
+[12:11:23.113] 
+[12:11:23.123]   state: disconnected|undefined|
+[12:11:28.894] [page:log] [info] USB reconnect daemon armed
+[12:11:29.898] [page:log] [info] USB reconnect attempt #1 (after 1000ms)
+[12:11:29.899] [page:log] [info] USB reconnect daemon stopped: no authorized device
+[12:15:27.252]   state: connecting|undefined|
+[12:15:29.506] [page:log] JSHandle@object
+[12:15:29.507] [page:log] Bluetooth connection status Connecting
+[12:15:31.284] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[12:15:31.284] [page:log] JSHandle@object
+[12:15:31.285] [page:log] Bluetooth connection status Connected
+[12:15:31.285] [page:log] [info] Connected (BLE)
+[12:15:31.317]   state: connected|undefined|
+[12:15:31.320] connected: status=connected transport=undefined
+[12:15:31.541] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[12:15:33.321] --- phase-partial-A-mod: prog-A-mod.hex via ble ---
+[12:15:33.595] [page:log] [boot] cached prog-A-mod.hex (1199.5 KB)
+[12:15:33.596] [page:log] 
+=== flash start: phase-partial-A-mod (prog-A-mod.hex) transport=ble ===
+[12:15:33.772] [page:log] [info] Flashing via BLE "phase-partial-A-mod" (1200 KB)
+[12:15:33.772] [page:log] [info] pf-ble: phase=running
+[12:15:33.772] [page:log] [info] Flash: 5%
+[12:15:34.120] [page:log] [info] pf-ble: parsed hex: bin=24576 bytes, base=0x6d000
+[12:15:34.175] [page:log] [info] pf-ble: status: version=1 mode=1
+[12:15:34.209] [page:log] [info] pf-ble: DAL hash on device: 9ef12d3600000000 / file: 9ef12d3600000000
+[12:15:34.235] [page:log] [info] pf-ble: MakeCode hash on device: 0000000000000000 / file: 00600000fe32076d
+[12:15:34.236] [page:log] [info] pf-ble: device in application mode — switching to pairing mode
+[12:15:34.239] [page:log] [info] pf-ble: reset-into-pairing written (attempt 1)
+[12:15:34.737] [page:log] [info] Tab hidden — pausing reconnect daemons.
+[12:15:36.729] [page:log] [info] Tab visible — resuming reconnect daemons.
+[12:15:37.744] [page:log] [info] pf-ble: no disconnect within 3.5 s — retrying reset command
+[12:15:37.752] [page:log] [info] pf-ble: reset-into-pairing written (attempt 2)
+[12:15:40.358] [page:log] Bluetooth connection status Disconnected
+[12:15:40.358] [page:log] [info] pf-ble: device acknowledged reset by disconnecting
+[12:15:41.575] [page:log] [info] pf-ble: phase=pairing-mode-switch
+[12:15:41.575] [page:log] [info] Flash: 8%
+[12:15:42.862] [page:log] [info] pf-ble: phase=reconnecting
+[12:15:42.864] [page:log] [info] Flash: 12%
+[12:15:43.909] [page:log] [info] pf-ble: post-reconnect status: version=1 mode=0
+[12:15:44.256] [page:log] [info] Flash: 15%
+[12:16:01.970] [page:log] [info] pf-ble: end of transmission
+[12:16:01.975] [page:log] [info] Flash: 99%
+[12:16:01.975] [page:log] [info] pf-ble: phase=finalising
+[12:16:01.976] [page:log] [info] Flash: 100%
+[12:16:02.000] [page:log] [info] Flash finished: phase-partial-A-mod
+[12:16:03.518] [page:log] === flash end: phase-partial-A-mod — ok in 29.9 s ===
+[12:16:03.518] phase-partial-A-mod done in 30196 ms; widget reported 29.9 s ok=true
+[12:16:03.518]   transports: 
+[12:16:03.518]   phases: check,flashing,reboot,prepare,finalising
+[12:16:08.588] [page:log] Bluetooth connection status Disconnected
+[12:16:08.589] [page:log] [info] BLE reconnect daemon armed
+[12:16:08.589] [page:log] [info] Disconnected (BLE)
+[12:16:09.591] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[12:16:09.591] [page:log] JSHandle@object
+[12:16:09.592] [page:log] Bluetooth connection status Connecting
+[12:16:11.031] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[12:16:11.031] [page:log] JSHandle@object
+[12:16:11.031] [page:log] Bluetooth connection status Connected
+[12:16:11.031] [page:log] [info] Connected (BLE)
+[12:16:11.031] [page:log] [info] BLE reconnect daemon stopped: connected
+[12:16:11.287] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[12:16:13.533] --- phase-partial-A: prog-A.hex via ble ---
+[12:16:13.658] [page:log] [boot] cached prog-A.hex (1199.5 KB)
+[12:16:13.658] [page:log] 
+=== flash start: phase-partial-A (prog-A.hex) transport=ble ===
+[12:16:13.839] [page:log] [info] Flashing via BLE "phase-partial-A" (1200 KB)
+[12:16:13.840] [page:log] [info] pf-ble: phase=running
+[12:16:13.840] [page:log] [info] Flash: 5%
+[12:16:14.173] [page:log] [info] pf-ble: parsed hex: bin=24576 bytes, base=0x6d000
+[12:16:14.286] [page:log] [info] pf-ble: status: version=1 mode=1
+[12:16:14.319] [page:log] [info] pf-ble: DAL hash on device: 9ef12d3600000000 / file: 9ef12d3600000000
+[12:16:14.345] [page:log] [info] pf-ble: MakeCode hash on device: 0000000000000000 / file: 00600000fe32076d
+[12:16:14.346] [page:log] [info] pf-ble: device in application mode — switching to pairing mode
+[12:16:14.350] [page:log] [info] pf-ble: reset-into-pairing written (attempt 1)
+[12:16:17.854] [page:log] [info] pf-ble: no disconnect within 3.5 s — retrying reset command
+[12:16:17.865] [page:log] [info] pf-ble: reset-into-pairing written (attempt 2)
+[12:16:20.436] [page:log] Bluetooth connection status Disconnected
+[12:16:20.436] [page:log] [info] pf-ble: device acknowledged reset by disconnecting
+[12:16:21.637] [page:log] [info] pf-ble: phase=pairing-mode-switch
+[12:16:21.637] [page:log] [info] Flash: 8%
+[12:16:21.906] [page:log] [info] pf-ble: phase=reconnecting
+[12:16:21.907] [page:log] [info] Flash: 12%
+[12:16:23.002] [page:log] [info] pf-ble: post-reconnect status: version=1 mode=0
+[12:16:23.349] [page:log] [info] Flash: 15%
+[12:16:41.226] [page:log] [info] pf-ble: end of transmission
+[12:16:41.228] [page:log] [info] Flash: 99%
+[12:16:41.229] [page:log] [info] pf-ble: phase=finalising
+[12:16:41.230] [page:log] [info] Flash: 100%
+[12:16:41.257] [page:log] [info] Flash finished: phase-partial-A
+[12:16:42.760] [page:log] === flash end: phase-partial-A — ok in 29.1 s ===
+[12:16:42.761] phase-partial-A done in 29228 ms; widget reported 29.1 s ok=true
+[12:16:42.761]   transports: 
+[12:16:42.761]   phases: check,flashing,reboot,prepare,finalising
+[12:16:47.825] [page:log] Bluetooth connection status Disconnected
+[12:16:47.827] [page:log] [info] BLE reconnect daemon armed
+[12:16:47.827] [page:log] [info] Disconnected (BLE)
+[12:16:48.829] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[12:16:48.830] [page:log] JSHandle@object
+[12:16:48.830] [page:log] Bluetooth connection status Connecting
+[12:16:50.140] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[12:16:50.140] [page:log] JSHandle@object
+[12:16:50.140] [page:log] Bluetooth connection status Connected
+[12:16:50.140] [page:log] [info] Connected (BLE)
+[12:16:50.142] [page:log] [info] BLE reconnect daemon stopped: connected
+[12:16:50.394] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[12:16:52.768] --- phase-dfu-blocks: prog-B-blocks.hex via ble ---
+[12:16:52.833] [page:log] [boot] cached prog-B-blocks.hex (1360.0 KB)
+[12:16:52.835] [page:log] 
+=== flash start: phase-dfu-blocks (prog-B-blocks.hex) transport=ble ===
+[12:16:52.839] [page:log] [info] Flashing via BLE "phase-dfu-blocks" (1360 KB)
+[12:16:52.840] [page:log] [info] pf-ble: phase=running
+[12:16:52.841] [page:log] [info] Flash: 5%
+[12:16:52.844] [page:log] [info] BLE reconnect daemon armed
+[12:16:52.846] [page:log] [error] BLE flash failed: Bluetooth-Verbindung fehlgeschlagen — wir versuchen es weiter.
+[12:16:53.847] [page:log] [info] BLE reconnect attempt #1 (after 1000ms)
+[12:16:53.848] [page:log] JSHandle@object
+[12:16:53.848] [page:log] Bluetooth connection status Connecting
+[12:16:53.849] [page:log] Starting notifications for current events status,backgrounderror,uartdata
+[12:16:53.850] [page:log] JSHandle@object
+[12:16:53.850] [page:log] Bluetooth connection status Connected
+[12:16:53.851] [page:log] [info] Connected (BLE)
+[12:16:53.853] [page:log] [info] BLE reconnect daemon stopped: connected
+[12:16:54.114] [page:log] [info] BLE state: app-mode — partial-flash visible; services=[0000180a, 0000fe59, e97dd91d]
+[12:16:54.349] [page:log] === flash end: phase-dfu-blocks — ok in 1.5 s ===
+[12:16:54.350] phase-dfu-blocks done in 1582 ms; widget reported 1.5 s ok=true
+[12:16:54.350]   transports: 
+[12:16:54.350]   phases: check,flashing
+[12:17:04.356] === summary ===
+[12:17:04.357]   phase-partial-A-mod  prog-A-mod.hex  ✓  29.9 s  transports=
+[12:17:04.357]   phase-partial-A  prog-A.hex  ✓  29.1 s  transports=
+[12:17:04.357]   phase-dfu-blocks  prog-B-blocks.hex  ✓  1.5 s  transports=
